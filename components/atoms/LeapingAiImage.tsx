@@ -52,7 +52,6 @@ interface Props extends SVGProps<SVGSVGElement> {
 }
 
 const LeapingImage = (props: Props) => {
-  console.log("TCL: props", props.viewBox)
   return <StyledMain>
     <MainLayout>
       <h1>Leaping AI dashboard</h1>
