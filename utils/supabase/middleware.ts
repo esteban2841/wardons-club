@@ -64,6 +64,7 @@ export const updateSession = async (request: NextRequest) => {
     // https://supabase.com/docs/guides/auth/server-side/nextjs
     await supabase.auth.getUser();
 
+		console.log("TCL: updateSession -> response", request.headers)
     return response;
   } catch (e) {
     // If you are here, a Supabase client could not be created!
