@@ -1,8 +1,3 @@
-import { SVGProps } from "react";
-
-interface Props extends SVGProps<SVGSVGElement> {
-
-}
 
 const CustonListItemIcon = (props: Props) => (
   <svg
