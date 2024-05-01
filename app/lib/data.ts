@@ -2,41 +2,7 @@ import { getSignedUrl } from '@aws-sdk/s3-request-presigner';
 import { unstable_noStore as noStore } from 'next/cache';
 import { NextResponse } from 'next/server';
 import { createClient } from "@/utils/supabase/server";
-
-
-interface fileResponseObject {
-    name: string,
-    id: string,
-    updated_at: string,
-    created_at: string,
-    last_accessed_at: string,
-    metadata: metadataObject,
-}
-interface normalizeRecordingsObject {
-    createdOn: string, //assigned from audio recording
-    direction: string,
-    toPhoneNumber: string,
-    fromPhoneNumber: string,
-    recordingUrl: string,
-    callLength: metadataObject,
-    cost: number,
-    status: string,
-    pathWayLogs: string,
-    transcript: string,
-    variables: string,
-    callId: string, //assigned from audio recording
-
-}
-
-interface metadataObject {
-    eTag: string,
-    size: number,
-    mimetype: string,
-    cacheControl: string,
-    lastModified: string,
-    contentLength: number,
-    httpStatusCode: number    
-}
+import { recordingsObject, fileResponseObject } from '@utils/types/index.ts'
 
 const supabase = createClient()
 
@@ -65,7 +31,7 @@ export const getFileUrls = async (bucket: string, path: string) : string => {
     return publicUrl
 }
 
-export const getRecordingsNormalized = async () : normalizeRecordingsObject => {
+export const getRecordingsNormalized = async () : Array<recordingsObject> => {
     const recordings = await fetchRecordings()
     const fileUrls = await Promise.all(
         recordings.map(async recording =>{
@@ -73,7 +39,7 @@ export const getRecordingsNormalized = async () : normalizeRecordingsObject => {
             return {...recording, url}
         })
     )
-    const filesObj: normalizeRecordingsObject | null = {}
+    const filesObj: recordingsObject | null = {}
     
     const normalizeCalls = fileUrls.map(file=>{
         if(file.metadata.mimetype.includes('audio/')){
