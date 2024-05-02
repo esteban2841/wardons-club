@@ -12,14 +12,13 @@ import { Box } from '@mui/material';
 import { recordingsObject } from '@/utils/types/index'
 import styled from 'styled-components'
 
-const formWaveSurferOptions = (ref: HTMLDivElement | null ) => ({
+const formWaveSurferOptions = (ref: HTMLElement | string ) => ({
    container: ref,
    waveColor: '#0f5e59',
    progressColor: '#854d0f',
    responsive: true,
    height: 140,
    normalize: true,
-   backend: 'WebAudio',
    barWidth: 1,
    barHeight: 5,
    barGap: 2,
@@ -77,8 +76,8 @@ function handleDownload(audioUrl: string) {
 
 const AudioPlayer = ({callDetail} : CallAudio) => {
 
-   const waveFormRef = useRef(null);
-   const waveSurfer = useRef(null);
+   const waveFormRef = useRef(document.createElement('div'));
+   const waveSurfer = useRef<any>(null);
    const [playing, setPlaying] = useState(false);
    const [volume, setVolume] = useState(0.5);
    const [muted, setMuted] = useState(false);
@@ -88,33 +87,34 @@ const AudioPlayer = ({callDetail} : CallAudio) => {
    
    const audioRef = useRef(callDetail.recordingUrl);
    const audioNameWithFormat = audioRef.current?.split('/').pop()
-   const audioName = audioNameWithFormat?.split('.')[0]
+   const audioName = audioNameWithFormat?.split('.')[0] || 'Recording'
+   
+   useEffect(() => {
+      
+      //Create WaveSurfer Instance with options above
+      const options = formWaveSurferOptions(waveFormRef.current)
+      //load the audio file
+      waveSurfer.current = WaveSurfer.create(options)
 
- useEffect(() => {
-   const options = formWaveSurferOptions(waveFormRef.current)
+      waveSurfer.current.load(audioRef.current)
+      //when ready
+      waveSurfer.current.on('ready', ()=>{
+         setVolume(waveSurfer.current.getVolume())
+         setDuration(waveSurfer.current.getDuration())
+         setAudioFileName(audioName)
+      })
 
-   //Create WaveSurfer Instance with options above
-   waveSurfer.current = WaveSurfer.create(options)
-   //load the audio file
-   waveSurfer.current.load(audioRef.current)
-   //when ready
-   waveSurfer.current.on('ready', ()=>{
-      setVolume(waveSurfer.current.getVolume())
-      setDuration(waveSurfer.current.getDuration())
-      setAudioFileName(audioName)
-   })
+      //Update current time as audio plays
+      waveSurfer.current.on('audioproces', () => {
+         setCurrentTime(waveSurfer.current.getCurrentTime())
+      })
 
-   //Update current time as audio plays
-   waveSurfer.current.on('audioproces', () => {
-      setCurrentTime(waveSurfer.current.getCurrentTime())
-   })
-
-   //Clean up event listeners and destroy instance on unmount
-   return ()=>{
-      waveSurfer.current.un('audioprocess')
-      waveSurfer.current.un('ready')
-      waveSurfer.current.destroy()
-   }
+      //Clean up event listeners and destroy instance on unmount
+      return ()=>{
+         waveSurfer.current.un('audioprocess')
+         waveSurfer.current.un('ready')
+         waveSurfer.current.destroy()
+      }
 
  }, [audioRef.current]);
 
@@ -126,7 +126,7 @@ const AudioPlayer = ({callDetail} : CallAudio) => {
       setMuted(!muted)
       waveSurfer.current.setVolume(muted ? volume: 0)
    }
-   const handleVolume = (newVolume) => {
+   const handleVolume = (newVolume: number) => {
       setVolume(newVolume)
       waveSurfer.current.setVolume(newVolume)
       setMuted(newVolume === 0)
@@ -181,7 +181,7 @@ const AudioPlayer = ({callDetail} : CallAudio) => {
             <span>
                Volume: {muted ? 0 : Math.round(volume * 100)} <br/>
             </span>
-            <span onClick={()=>handleDownload(callDetail.recordingUrl)}>
+            <span onClick={()=>handleDownload(callDetail.recordingUrl!)}>
                <Box sx={{ color: '#fff', cursor: 'pointer', fontSize: '6rem', display:'flex', alignItems:'center', justifyContent:'center' }} onClick={handleVolumeDown}>
                   <FileDownloadSharpIcon/>
                </Box>
