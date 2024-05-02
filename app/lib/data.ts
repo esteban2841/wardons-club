@@ -147,7 +147,6 @@ export const downloadBlobFileByName = async (name) => {
 }
 
 export const getCallById = (callsClassified:  Array<recordingsObject>, id: string): recordingsObject => {
-    const callDetail = [...callsClassified].find((call: string)=> call.callId == id)
-	console.log("TCL: getCallById -> callDetail", callDetail)
+    const callDetail = [...callsClassified].find((call: recordingsObject)=> call.callId == id)
     return callDetail
 }
