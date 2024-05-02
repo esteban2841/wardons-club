@@ -7,7 +7,6 @@ import PhoneIcon from '@mui/icons-material/Phone';
 import Link from 'next/link.js';
 const page = async ({params}: {params : {id: string}}) => {
     const {id} = params
-	console.log("TCL: page -> id", id)
 
     const recordings : Array<recordingsObject> = await getRecordingsNormalized(createClient)
     const fetchingContent = await Promise.all(recordings.map(async recording => {
@@ -19,7 +18,6 @@ const page = async ({params}: {params : {id: string}}) => {
     }))
     const clasifiedCalls: Array<recordingsObject> = classifyCalls(fetchingContent)
     const callDetail: recordingsObject = getCallById(clasifiedCalls, id)
-	console.log("TCL: page -> callDetail", callDetail)
     // const supabase = createClient()
     // const audioDownloaded = downloadBlobFileByName(callDetail.recordingName, supabase)
 
