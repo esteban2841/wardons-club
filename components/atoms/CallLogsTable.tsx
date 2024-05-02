@@ -1,7 +1,7 @@
 'use client'
 import React from 'react'
 import PropTypes from 'prop-types'
-import { recordingsObject, fileResponseObject } from '@utils/types/index'
+import { recordingsObject, fileResponseObject } from '@/utils/types/index'
 import { Table } from 'antd';
 import styled from "styled-components";
 import { redirect } from 'next/navigation';

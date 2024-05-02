@@ -1,5 +1,5 @@
 import { unstable_noStore as noStore } from 'next/cache';
-import { recordingsObject, fileResponseObject } from '@utils/types/index'
+import { recordingsObject, fileResponseObject } from '@/utils/types/index'
 import moment from 'moment';
 
 

@@ -1,4 +1,4 @@
-import { recordingsObject, fileResponseObject } from '@utils/types/index'
+import { recordingsObject, fileResponseObject } from '@/utils/types/index'
 import { getRecordingsNormalized, classifyCalls, getCallById } from '../../lib/data'
 import axios from 'axios';
 import { createClient } from "@/utils/supabase/server";
