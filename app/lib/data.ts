@@ -1,9 +1,8 @@
 import { unstable_noStore as noStore } from 'next/cache';
-import { recordingsObject, fileResponseObject } from '@/utils/types/index'
+import { recordingsObject, fileResponseObject, fileObjectHasMapConstruction } from '@/utils/types/index'
 import moment from 'moment';
-import { createClient } from "@/utils/supabase/server";
 
-export const fetchRecordings = async (cb: Function) : Promise<fileResponseObject> => {
+export const fetchRecordings = async (cb: Function) : Promise<Array<fileResponseObject>> => {
     
     noStore()
     const supabase = cb()
@@ -32,21 +31,22 @@ export const getFileUrls = async (bucket: string, path: string, cb: Function) : 
 export const getRecordingsNormalized = async (cb: Function) : Promise<Array<recordingsObject>> => {
     const recordings: Array<fileResponseObject> = await fetchRecordings(cb)
     const fileUrls = await Promise.all(
-        recordings.map(async (recording: fileResponseObject): Promise<recordingsObject[]> =>{
+        recordings.map(async (recording: fileResponseObject): Promise<fileResponseObject> =>{
             const url = await getFileUrls('leaping-audio-tech-interview', recording.name, cb)
             return {...recording, url}
         })
     )
-    const filesObj: recordingsObject = {}
+    const filesObj: fileObjectHasMapConstruction = {}
     
-    const normalizeCalls = fileUrls.map((file: fileResponseObject)=>{
+    const normalizeCalls = fileUrls.forEach((file: fileResponseObject) => {
         if(file.metadata.mimetype.includes('audio/')){
-            const fileIndex: string = file.name.split('.')[0].split("").pop()
+            const fileIndex: string = file.name.split('.')[0].split("").pop()!
             const toPhone: string = '+61 ' + Math.random().toString().split('.')[1].slice(0,9)
             const fromPhone: string = '+61 ' + Math.random().toString().split('.')[1].slice(0,9)
             const date = moment(file.created_at).format('MMM Do YY, h:mm:ss a');
+            const {size} = file.metadata
             if(!filesObj[fileIndex]){
-                filesObj[fileIndex] = {
+                filesObj[fileIndex!] = {
                     callIndex: fileIndex,
                     recordingName: file.name,
                     createdOn: date,
@@ -58,7 +58,7 @@ export const getRecordingsNormalized = async (cb: Function) : Promise<Array<reco
                     pathWayLogs: 'view',
                     variables: 'view',
                     cost: 0,
-                    callLength: file.metadata.size,
+                    callLength: size,
                     summary: 'N/A',
                 }
             }else{
@@ -77,8 +77,8 @@ export const getRecordingsNormalized = async (cb: Function) : Promise<Array<reco
         }
         if(file.metadata.mimetype.includes('text/')){
             const fileIndex = file.name.split('.')[0].split("").pop()
-            if(!filesObj[fileIndex]){
-                filesObj[fileIndex] = {
+            if(!filesObj[fileIndex!]){
+                filesObj[fileIndex!] = {
                     callIndex: fileIndex,
                     transcript: file.url,
                     cost: 0,
@@ -86,8 +86,8 @@ export const getRecordingsNormalized = async (cb: Function) : Promise<Array<reco
                     summary: 'N/A',
                 }
             }else{
-                filesObj[fileIndex] = {
-                    ...filesObj[fileIndex],
+                filesObj[fileIndex!] = {
+                    ...filesObj[fileIndex!],
                     transcript: file.url 
                 }
             }
@@ -140,7 +140,7 @@ export const classifyCalls = (calls: Array<recordingsObject>) => {
     return calls;
 }
 
-export const downloadBlobFileByName = async (name?: string, context: object) => {
+export const downloadBlobFileByName = async (context: object, name?: string) => {
     const supabase = context
     const {data} = await supabase
     .storage
