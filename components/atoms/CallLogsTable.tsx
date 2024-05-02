@@ -18,7 +18,7 @@ const StyledTableContainer = styled.div`
     width: 100%;
 `;
 
-const columns = () => [
+const columns: ()=> ColumnsType<any> = () => [
     {
       title: 'Created On',
       dataIndex: 'createdOn',
@@ -106,7 +106,7 @@ const columns = () => [
   ];
 
 
-  const columnsDefault = (dynamicClasses?: string, clickRedirectHandler?: ()=> void, route?: string, recordings?: Array<recordingsObject>) => [
+  const columnsDefault: ()=> ColumnsType<any> = (dynamicClasses?: string, clickRedirectHandler?: ()=> void, route?: string, recordings?: Array<recordingsObject>) => [
     {
       title: 'Created On',
       dataIndex: 'createdOn',
@@ -193,7 +193,7 @@ const CallLogsTable = (props : CallTableProps)  => {
     return (
         <StyledTableContainer>
           <Suspense fallback={<Table columns={columnsDefault()} bordered loading rowKey="uid" />}>
-            <Table columns={columns('wrapper', handleReDirectToCallDetails, '/', props.recordings)} dataSource={props.recordings}  rowKey="uid"/>
+            <Table columns={columns()} dataSource={props.recordings}  rowKey="uid"/>
 
           </Suspense>
         </StyledTableContainer>
