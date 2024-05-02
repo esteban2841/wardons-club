@@ -75,8 +75,8 @@ function handleDownload(audioUrl: string) {
 }
 
 const AudioPlayer = ({callDetail} : CallAudio) => {
-
-   const waveFormRef = useRef(document.createElement('div'));
+   const container = window.document.createElement('div')
+   const waveFormRef = useRef(container);
    const waveSurfer = useRef<any>(null);
    const [playing, setPlaying] = useState(false);
    const [volume, setVolume] = useState(0.5);

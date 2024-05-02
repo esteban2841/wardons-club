@@ -6,6 +6,7 @@ import styled from "styled-components";
 import { redirect } from 'next/navigation';
 import WrapperRowRouterRedirect from '../atoms/WrapperRowRenderer'
 import { Suspense } from 'react';
+import type { ColumnsType } from 'antd/es/table';
 
 export interface CallTableProps {
     recordings: Array<recordingsObject>,
@@ -17,13 +18,16 @@ const StyledTableContainer = styled.div`
     width: 100%;
 `;
 
-const columns = (dynamicClasses?: string, clickRedirectHandler?: ()=> void, route?: string, recordings?: Array<recordingsObject>) => [
+const columns = () => [
     {
       title: 'Created On',
       dataIndex: 'createdOn',
       key: 'callId',
-      defaultSortOrder: 'descend',
-      sorter: (a: recordingsObject, b: recordingsObject) => new Date(a.createdOn?.replace(/th/, '').replace(/(\d{2})$/, '20$1')) - new Date(b.createdOn?.replace(/th/, '').replace(/(\d{2})$/, '20$1')),
+      sorter: (a: any, b: any) =>{
+        const dateA = new Date(a.createdOn?.replace(/th/, '').replace(/(\d{2})$/, '20$1'));
+        const dateB = new Date(b.createdOn?.replace(/th/, '').replace(/(\d{2})$/, '20$1'))
+        return dateA > dateB ? -1 : 1
+      },
     },
     {
       title: 'Direction',
@@ -46,15 +50,14 @@ const columns = (dynamicClasses?: string, clickRedirectHandler?: ()=> void, rout
       title: 'Recording',
       dataIndex: 'callId',
       key: 'recordingUrl',
-      render: (callId: string) => <WrapperRowRouterRedirect clickRedirectHandler={clickRedirectHandler} dynamicClasses={dynamicClasses} route={callId} recordings={recordings} />
+      render: (callId: string) => <WrapperRowRouterRedirect />
     },
     {
       title: 'Call Length',
       dataIndex: 'callLength',
       key: 'callLength',
       responsive: ['lg'],
-      defaultSortOrder: 'descend',
-      sorter: (a: recordingsObject, b: recordingsObject) => (a.callLength!) - (b.callLength!),
+      sorter: (a: any, b: any) => (a.callLength!) - (b.callLength!),
     },
     {
       title: 'Cost',
@@ -79,20 +82,20 @@ const columns = (dynamicClasses?: string, clickRedirectHandler?: ()=> void, rout
       dataIndex: 'pathWayLogs',
       key: 'pathWayLogs',
       responsive: ['lg'],
-      render: (callId: string) => <WrapperRowRouterRedirect clickRedirectHandler={clickRedirectHandler} dynamicClasses={dynamicClasses} route={callId} recordings={recordings} />
+      render: (callId: string) => <WrapperRowRouterRedirect />
     },
     {
       title: 'Transcript',
       dataIndex: 'callId',
       key: 'transcript',
-      render: (callId: string) => <WrapperRowRouterRedirect clickRedirectHandler={clickRedirectHandler} dynamicClasses={dynamicClasses} route={callId} recordings={recordings} />
+      render: (callId: string) => <WrapperRowRouterRedirect />
     },
     {
       title: 'Variables',
       dataIndex: 'variables',
       key: 'variables',
       responsive: ['lg'],
-      render: (callId: string) => <WrapperRowRouterRedirect clickRedirectHandler={clickRedirectHandler} dynamicClasses={dynamicClasses} route={callId} recordings={recordings} />
+      render: (callId: string) => <WrapperRowRouterRedirect />
     },
     {
       title: 'Call ID',
@@ -108,7 +111,6 @@ const columns = (dynamicClasses?: string, clickRedirectHandler?: ()=> void, rout
       title: 'Created On',
       dataIndex: 'createdOn',
       key: 'callId',
-      defaultSortOrder: 'descend',
     },
     {
       title: 'Direction',
@@ -191,7 +193,7 @@ const CallLogsTable = (props : CallTableProps)  => {
     return (
         <StyledTableContainer>
           <Suspense fallback={<Table columns={columnsDefault()} bordered loading rowKey="uid" />}>
-            <Table columns={columns('wrapper', handleReDirectToCallDetails, '/', props.recordings)} dataSource={props.recordings} bordered  rowKey="uid"/>
+            <Table columns={columns('wrapper', handleReDirectToCallDetails, '/', props.recordings)} dataSource={props.recordings}  rowKey="uid"/>
 
           </Suspense>
         </StyledTableContainer>
