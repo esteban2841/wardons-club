@@ -9,7 +9,7 @@ import VolumeDownOutlinedIcon from '@mui/icons-material/VolumeDownOutlined';
 import ContactlessOutlinedIcon from '@mui/icons-material/ContactlessOutlined';
 import VolumeOffOutlinedIcon from '@mui/icons-material/VolumeOffOutlined';
 import { Box } from '@mui/material';
-import { recordingsObject } from '@utils/types/index.ts'
+import { recordingsObject } from '@utils/types/index'
 import styled from 'styled-components'
 
 const formWaveSurferOptions = (ref) => ({

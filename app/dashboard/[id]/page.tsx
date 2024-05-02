@@ -1,8 +1,8 @@
-import { recordingsObject, fileResponseObject } from '@utils/types/index.ts'
-import { getRecordingsNormalized, classifyCalls, getCallById } from '../../lib/data.ts'
+import { recordingsObject, fileResponseObject } from '@utils/types/index'
+import { getRecordingsNormalized, classifyCalls, getCallById } from '../../lib/data'
 import axios from 'axios';
 import { createClient } from "@/utils/supabase/server";
-import AudioPlayer from '@/components/atoms/AudioPlayer.tsx';
+import AudioPlayer from '@/components/atoms/AudioPlayer';
 import PhoneIcon from '@mui/icons-material/Phone';
 import Link from 'next/link.js';
 

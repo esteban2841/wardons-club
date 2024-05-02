@@ -1,6 +1,6 @@
 import React from 'react'
 import Link from "next/link";
-import { recordingsObject } from '@utils/types/index.ts'
+import { recordingsObject } from '@utils/types/index'
 
 export interface RowRedirectProps {
   dynamicClasses?: string,

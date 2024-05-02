@@ -1,11 +1,11 @@
 'use client'
 import React from 'react'
 import PropTypes from 'prop-types'
-import { recordingsObject, fileResponseObject } from '@utils/types/index.ts'
+import { recordingsObject, fileResponseObject } from '@utils/types/index'
 import { Table } from 'antd';
 import styled from "styled-components";
 import { redirect } from 'next/navigation';
-import WrapperRowRouterRedirect from '../atoms/WrapperRowRenderer.tsx'
+import WrapperRowRouterRedirect from '../atoms/WrapperRowRenderer'
 
 export interface CallTableProps {
     recordings: Array<recordingsObject>,
@@ -100,7 +100,7 @@ const columns = (dynamicClasses: string, clickRedirectHandler: ()=> void, route:
     },
   ];
 
-const CallLogsTable = (props) : CallTableProps => {
+const CallLogsTable = (props : CallTableProps)  => {
 
     const handleReDirectToCallDetails = () => {
         redirect(`/`)

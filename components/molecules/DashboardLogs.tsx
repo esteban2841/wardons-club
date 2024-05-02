@@ -1,7 +1,7 @@
-import { getRecordingsNormalized, classifyCalls } from '../../app/lib/data.ts'
+import { getRecordingsNormalized, classifyCalls } from '../../app/lib/data'
 import axios from 'axios';
-import { recordingsObject, fileResponseObject } from '@utils/types/index.ts'
-import CallLogsTable from '@/components/atoms/CallLogsTable.tsx'
+import { recordingsObject, fileResponseObject } from '@utils/types/index'
+import CallLogsTable from '@/components/atoms/CallLogsTable'
 import { createClient } from "@/utils/supabase/server";
 
 export default async function DashboardLogs() {
