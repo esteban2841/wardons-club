@@ -50,7 +50,7 @@ const columns: ()=> ColumnsType<any> = () => [
       title: 'Recording',
       dataIndex: 'callId',
       key: 'recordingUrl',
-      render: (callId: string) => <WrapperRowRouterRedirect />
+      render: (callId: string) => <WrapperRowRouterRedirect route={callId}  />
     },
     {
       title: 'Call Length',
@@ -79,23 +79,23 @@ const columns: ()=> ColumnsType<any> = () => [
     },
     {
       title: 'Pathway Logs',
-      dataIndex: 'pathWayLogs',
+      dataIndex: 'callId',
       key: 'pathWayLogs',
       responsive: ['lg'],
-      render: (callId: string) => <WrapperRowRouterRedirect />
+      render: (callId: string) => <WrapperRowRouterRedirect route={callId} />
     },
     {
       title: 'Transcript',
       dataIndex: 'callId',
       key: 'transcript',
-      render: (callId: string) => <WrapperRowRouterRedirect />
+      render: (callId: string) => <WrapperRowRouterRedirect route={callId} />
     },
     {
       title: 'Variables',
-      dataIndex: 'variables',
+      dataIndex: 'callId',
       key: 'variables',
       responsive: ['lg'],
-      render: (callId: string) => <WrapperRowRouterRedirect />
+      render: (callId: string) => <WrapperRowRouterRedirect route={callId} />
     },
     {
       title: 'Call ID',
