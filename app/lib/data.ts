@@ -140,7 +140,7 @@ export const classifyCalls = (calls: Array<recordingsObject>) => {
     return calls;
 }
 
-export const downloadBlobFileByName = async (context: object, name?: string) => {
+export const downloadBlobFileByName = async (context: any, name?: string) => {
     const supabase = context
     const {data} = await supabase
     .storage

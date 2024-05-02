@@ -8,7 +8,7 @@ export default async function DashboardLogs() {
     
     const recordings : Array<recordingsObject> = await getRecordingsNormalized(createClient)
     const fetchingContent = await Promise.all(recordings.map(async recording => {
-        const data = await axios.get(recording.transcript)
+        const data = await axios.get(recording.transcript!)
         recording.transcript = await data.data
         return {
             ...recording
