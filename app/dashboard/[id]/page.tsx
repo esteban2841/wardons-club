@@ -1,4 +1,4 @@
-import { recordingsObject, fileResponseObject } from '@/utils/types/index'
+import { recordingsObject} from '@/utils/types/index'
 import { getRecordingsNormalized, classifyCalls, getCallById } from '../../lib/data'
 import axios from 'axios';
 import { createClient } from "@/utils/supabase/server";
@@ -17,8 +17,8 @@ const page = async ({params}: {params : {id: string}}) => {
             ...recording
         }
     }))
-    const clasifiedCalls = classifyCalls(fetchingContent)
-    const callDetail = getCallById(clasifiedCalls, id)
+    const clasifiedCalls: Array<recordingsObject> = classifyCalls(fetchingContent)
+    const callDetail: recordingsObject = getCallById(clasifiedCalls, id)
 
     return (
         <div className='flex bg-neutral-900 w-full h-screen box-border text-white align-center justify-center'>

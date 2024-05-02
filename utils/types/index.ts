@@ -19,7 +19,8 @@ export interface recordingsObject {
     transcript: string,
     variables: string,
     callId: string, //assigned from audio recording
-
+    url?: string,
+    summary?: string,
 }
 
 export interface metadataObject {

@@ -3,7 +3,7 @@ import { recordingsObject, fileResponseObject } from '@/utils/types/index'
 import moment from 'moment';
 
 
-export const fetchRecordings = async (cb: Function) : fileResponseObject => {
+export const fetchRecordings = async (cb: Function) : Promise<fileResponseObject> => {
     
     noStore()
     const supabase = cb()
@@ -32,14 +32,14 @@ export const getFileUrls = async (bucket: string, path: string, cb: Function) : 
 export const getRecordingsNormalized = async (cb: Function) : Promise<Array<recordingsObject>> => {
     const recordings = await fetchRecordings(cb)
     const fileUrls = await Promise.all(
-        recordings.map(async recording =>{
+        recordings.map(async (recording: fileResponseObject): Promise<recordingsObject[]> =>{
             const url = await getFileUrls('leaping-audio-tech-interview', recording.name, cb)
             return {...recording, url}
         })
     )
     const filesObj: recordingsObject | null = {}
     
-    const normalizeCalls = fileUrls.map(file=>{
+    const normalizeCalls = fileUrls.map((file: fileResponseObject)=>{
         if(file.metadata.mimetype.includes('audio/')){
             const fileIndex: string = file.name.split('.')[0].split("").pop()
             const toPhone: string = '+61 ' + Math.random().toString().split('.')[1].slice(0,9)
@@ -146,7 +146,7 @@ export const downloadBlobFileByName = async (name) => {
     .download(name)
 }
 
-export const getCallById = (callsClassified:  Array<recordingsObject>, id: string) => {
+export const getCallById = (callsClassified:  Array<recordingsObject>, id: string): recordingsObject => {
     const callDetail = [...callsClassified].find((call: string)=> call.callId == id)
 	console.log("TCL: getCallById -> callDetail", callDetail)
     return callDetail

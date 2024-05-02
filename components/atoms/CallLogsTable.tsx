@@ -109,7 +109,7 @@ const CallLogsTable = (props : CallTableProps)  => {
 
     return (
         <StyledTableContainer>
-            <Table columns={columns('wrapper', handleReDirectToCallDetails, '/')} dataSource={props.recordings} bordered loading={props.recordings.length} />
+            <Table columns={columns('wrapper', handleReDirectToCallDetails, '/', props.recordings)} dataSource={props.recordings} bordered loading={props.recordings.length > 0} />
         </StyledTableContainer>
     )
 }
