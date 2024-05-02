@@ -150,6 +150,6 @@ export const downloadBlobFileByName = async (context: any, name?: string) => {
 }
 
 export const getCallById = (callsClassified:  Array<recordingsObject>, id: string): recordingsObject => {
-    const callDetail = [...callsClassified].find((call: recordingsObject)=> call.callId == id)
+    const callDetail = [...callsClassified].find((call: recordingsObject)=> call.callId == id)!
     return callDetail
 }
