@@ -13,7 +13,7 @@ const WrapperRowRouterRedirect = (props: RowRedirectProps) => {
   return (
    <Link
     href={`/dashboard/${props.route}`}
-    className={`no-underline ${props.dinamicClasses}`}
+    className={`no-underline ${props.dynamicClasses}`}
     onClick={props.clickRedirectHandler}
    >View</Link>
   )
