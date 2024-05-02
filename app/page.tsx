@@ -22,14 +22,17 @@ export default async function Index() {
             height={60}
             alt="Picture of the author"
           />
-          { <AuthButton />}
-          { user &&
-            <Link 
-              href='dashboard'
-              className="py-2 px-3 flex rounded-md no-underline bg-cyan-950 hover:border-indigo-900 hover:bg-btn-background-hover">
-              Calls Dashboard
-            </Link>
-          }
+          <div className="flex flex-row w-6/12 gap-4">
+            { <AuthButton />}
+            { user &&
+              <Link 
+                href='dashboard'
+                className="py-2 px-3 flex rounded-md no-underline bg-cyan-950 hover:border-indigo-900 hover:bg-btn-background-hover">
+                Calls Dashboard
+              </Link>
+            }
+
+          </div>
         </div>
       </nav>
 

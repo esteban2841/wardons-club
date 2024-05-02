@@ -1,14 +1,13 @@
-import { getSignedUrl } from '@aws-sdk/s3-request-presigner';
 import { unstable_noStore as noStore } from 'next/cache';
-import { NextResponse } from 'next/server';
 import { createClient } from "@/utils/supabase/server";
 import { recordingsObject, fileResponseObject } from '@utils/types/index.ts'
+import moment from 'moment';
 
-const supabase = createClient()
 
-export const fetchRecordings = async () : fileResponseObject => {
-
+export const fetchRecordings = async (cb: Function) : fileResponseObject => {
+    
     noStore()
+    const supabase = cb()
     
     const { data, error } = await supabase
     .storage
@@ -18,10 +17,10 @@ export const fetchRecordings = async () : fileResponseObject => {
     return data
 }
 
-export const getFileUrls = async (bucket: string, path: string) : string => {
+export const getFileUrls = async (bucket: string, path: string, cb: Function) : Promise<string> => {
 
     noStore()
-    
+    const supabase = cb()
     const { data, error } = await supabase
     .storage
     .from(bucket)
@@ -31,11 +30,11 @@ export const getFileUrls = async (bucket: string, path: string) : string => {
     return publicUrl
 }
 
-export const getRecordingsNormalized = async () : Array<recordingsObject> => {
-    const recordings = await fetchRecordings()
+export const getRecordingsNormalized = async (cb: Function) : Promise<Array<recordingsObject>> => {
+    const recordings = await fetchRecordings(cb)
     const fileUrls = await Promise.all(
         recordings.map(async recording =>{
-            const url = await getFileUrls('leaping-audio-tech-interview', recording.name)
+            const url = await getFileUrls('leaping-audio-tech-interview', recording.name, cb)
             return {...recording, url}
         })
     )
@@ -46,10 +45,11 @@ export const getRecordingsNormalized = async () : Array<recordingsObject> => {
             const fileIndex: string = file.name.split('.')[0].split("").pop()
             const toPhone: string = '+61 ' + Math.random().toString().split('.')[1].slice(0,9)
             const fromPhone: string = '+61 ' + Math.random().toString().split('.')[1].slice(0,9)
+            const date = moment(file.created_at).format('MMM Do YY, h:mm:ss a');
             if(!filesObj[fileIndex]){
                 filesObj[fileIndex] = {
                     callIndex: fileIndex,
-                    createdOn: file.created_at,
+                    createdOn: date,
                     callId: file.id,
                     toPhoneNumber: toPhone,
                     fromPhoneNumber: fromPhone,
@@ -64,7 +64,7 @@ export const getRecordingsNormalized = async () : Array<recordingsObject> => {
             }else{
                 filesObj[fileIndex] = {
                     ...filesObj[fileIndex], 
-                    createdOn: file.created_at,
+                    createdOn: date,
                     callId: file.id,
                     toPhoneNumber: toPhone,
                     fromPhoneNumber: fromPhone,
@@ -95,10 +95,50 @@ export const getRecordingsNormalized = async () : Array<recordingsObject> => {
         }
     })
     
-	console.log("TCL: Object.values(filesObj)", Object.values(filesObj))
     return Object.values(filesObj)
 }
 
+export const classifyCalls = (calls: Array<recordingsObject>) => {
+
+    // add more keywords to help the call classifier work better:
+    const inboundKeywords = [
+    'AI: can I get your first name', 
+    'AI: can I get your full name', 
+    'AI: can I get your last name', 
+    'AI: I get your', 
+    'AI: I have your', 
+    'AI: Nice to meet you'
+    ];
+    const outboundKeywords = [
+        'AI: I am calling for',
+        "AI: I'm calling for",
+        "AI: Am I talking to",
+        "AI: Am I speaking with"
+    ];
+
+    
+    calls.forEach(call => {
+        const { transcript } = call;
+
+        // Check if the transcript contains any of the inbound keywords
+        const isInbound = inboundKeywords.some(keyword => transcript.includes(keyword));
+
+        // Check if the transcript contains any of the outbound keywords
+        const isOutbound = outboundKeywords.some(keyword => transcript.includes(keyword));
+
+        // Determine the classification based on the validations
+        if (isInbound) {
+            call.direction = 'Inbound';
+        } else if (isOutbound) {
+            call.direction = 'Outbound';
+        } else {
+            call.direction = 'Unknown'; // If no specific pattern matches
+        }
+
+    });
+
+    return calls;
+}
 
 export const downloadBlobFileByName = async (name) => {
     const {data: blob} = await supabase
@@ -107,3 +147,8 @@ export const downloadBlobFileByName = async (name) => {
     .download(name)
 }
 
+export const getCallById = (callsClassified:  Array<recordingsObject>, id: string) => {
+    const callDetail = [...callsClassified].find((call: string)=> call.callId == id)
+	console.log("TCL: getCallById -> callDetail", callDetail)
+    return callDetail
+}

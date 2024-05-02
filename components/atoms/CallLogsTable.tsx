@@ -17,13 +17,13 @@ const StyledTableContainer = styled.div`
     width: 100%;
 `;
 
-const columns = (dynamicClasses: string, clickRedirectHandler: ()=> void, route: string) => [
+const columns = (dynamicClasses: string, clickRedirectHandler: ()=> void, route: string, recordings: Array<recordingsObject>) => [
     {
       title: 'Created On',
       dataIndex: 'createdOn',
-      key: 'createdOn',
+      key: 'callId',
       defaultSortOrder: 'descend',
-      sorter: (a, b) => new Date(a.createdOn) - new Date(b.createdOn),
+      sorter: (a, b) => new Date(a.createdOn.replace(/th/, '').replace(/(\d{2})$/, '20$1')) - new Date(b.createdOn.replace(/th/, '').replace(/(\d{2})$/, '20$1')),
     },
     {
       title: 'Direction',
@@ -44,9 +44,9 @@ const columns = (dynamicClasses: string, clickRedirectHandler: ()=> void, route:
     },
     {
       title: 'Recording',
-      dataIndex: 'recordingUrl',
+      dataIndex: 'callId',
       key: 'recordingUrl',
-      render: () => <WrapperRowRouterRedirect clickRedirectHandler={clickRedirectHandler} dynamicClasses={dynamicClasses} route={route} />
+      render: (callId) => <WrapperRowRouterRedirect clickRedirectHandler={clickRedirectHandler} dynamicClasses={dynamicClasses} route={callId} recordings={recordings} />
     },
     {
       title: 'Call Length',
@@ -82,9 +82,9 @@ const columns = (dynamicClasses: string, clickRedirectHandler: ()=> void, route:
     },
     {
       title: 'Transcript',
-      dataIndex: 'transcript',
+      dataIndex: 'callId',
       key: 'transcript',
-      render: () => <WrapperRowRouterRedirect clickRedirectHandler={clickRedirectHandler} dynamicClasses={dynamicClasses} route={route} />
+      render: (callId) => <WrapperRowRouterRedirect clickRedirectHandler={clickRedirectHandler} dynamicClasses={dynamicClasses} route={callId} recordings={recordings} />
     },
     {
       title: 'Variables',
