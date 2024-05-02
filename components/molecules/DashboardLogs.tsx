@@ -1,6 +1,6 @@
 import { getRecordingsNormalized, classifyCalls } from '../../app/lib/data'
 import axios from 'axios';
-import { recordingsObject, fileResponseObject } from '@utils/types/index'
+import { recordingsObject } from '@/utils/types/index'
 import CallLogsTable from '@/components/atoms/CallLogsTable'
 import { createClient } from "@/utils/supabase/server";
 
