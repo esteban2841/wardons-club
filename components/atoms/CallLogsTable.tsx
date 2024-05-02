@@ -23,7 +23,7 @@ const columns = (dynamicClasses: string, clickRedirectHandler: ()=> void, route:
       dataIndex: 'createdOn',
       key: 'callId',
       defaultSortOrder: 'descend',
-      sorter: (a, b) => new Date(a.createdOn.replace(/th/, '').replace(/(\d{2})$/, '20$1')) - new Date(b.createdOn.replace(/th/, '').replace(/(\d{2})$/, '20$1')),
+      sorter: (a: recordingsObject, b: recordingsObject) => new Date(a.createdOn.replace(/th/, '').replace(/(\d{2})$/, '20$1')) - new Date(b.createdOn.replace(/th/, '').replace(/(\d{2})$/, '20$1')),
     },
     {
       title: 'Direction',
@@ -46,7 +46,7 @@ const columns = (dynamicClasses: string, clickRedirectHandler: ()=> void, route:
       title: 'Recording',
       dataIndex: 'callId',
       key: 'recordingUrl',
-      render: (callId) => <WrapperRowRouterRedirect clickRedirectHandler={clickRedirectHandler} dynamicClasses={dynamicClasses} route={callId} recordings={recordings} />
+      render: (callId: String) => <WrapperRowRouterRedirect clickRedirectHandler={clickRedirectHandler} dynamicClasses={dynamicClasses} route={callId} recordings={recordings} />
     },
     {
       title: 'Call Length',
@@ -54,7 +54,7 @@ const columns = (dynamicClasses: string, clickRedirectHandler: ()=> void, route:
       key: 'callLength',
       responsive: ['lg'],
       defaultSortOrder: 'descend',
-      sorter: (a, b) => (a.callLength) - (b.callLength),
+      sorter: (a: recordingsObject, b: recordingsObject) => (a.callLength) - (b.callLength),
     },
     {
       title: 'Cost',
@@ -84,7 +84,7 @@ const columns = (dynamicClasses: string, clickRedirectHandler: ()=> void, route:
       title: 'Transcript',
       dataIndex: 'callId',
       key: 'transcript',
-      render: (callId) => <WrapperRowRouterRedirect clickRedirectHandler={clickRedirectHandler} dynamicClasses={dynamicClasses} route={callId} recordings={recordings} />
+      render: (callId: string) => <WrapperRowRouterRedirect clickRedirectHandler={clickRedirectHandler} dynamicClasses={dynamicClasses} route={callId} recordings={recordings} />
     },
     {
       title: 'Variables',
