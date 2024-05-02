@@ -1,5 +1,5 @@
 
-const CustonListItemIcon = (props: Props) => (
+const CustonListItemIcon = (props: any) => (
   <svg
     width={29}
     height={30}
