@@ -5,8 +5,8 @@ import { recordingsObject } from '@/utils/types/index'
 export interface RowRedirectProps {
   dynamicClasses?: string,
   clickRedirectHandler?: ()=> void,
-  route: string,
-  recordings: Array<recordingsObject>
+  route?: string,
+  recordings?: Array<recordingsObject>
 }
 
 const WrapperRowRouterRedirect = (props: RowRedirectProps) => {

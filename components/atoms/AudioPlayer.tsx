@@ -86,8 +86,8 @@ const AudioPlayer = ({callDetail} : CallAudio) => {
    const [audioFileName, setAudioFileName] = useState('');
    
    const audioRef = useRef(callDetail.recordingUrl);
-   const audioNameWithFormat = audioRef.current.split('/').pop()
-   const audioName = audioNameWithFormat.split('.')[0]
+   const audioNameWithFormat = audioRef.current?.split('/').pop()
+   const audioName = audioNameWithFormat?.split('.')[0]
 
  useEffect(() => {
    const options = formWaveSurferOptions(waveFormRef.current)

@@ -1,6 +1,5 @@
 'use client'
 import React from 'react'
-import PropTypes from 'prop-types'
 import { recordingsObject, fileResponseObject } from '@/utils/types/index'
 import { Table } from 'antd';
 import styled from "styled-components";
@@ -24,7 +23,7 @@ const columns = (dynamicClasses?: string, clickRedirectHandler?: ()=> void, rout
       dataIndex: 'createdOn',
       key: 'callId',
       defaultSortOrder: 'descend',
-      sorter: (a: recordingsObject, b: recordingsObject) => new Date(a.createdOn.replace(/th/, '').replace(/(\d{2})$/, '20$1')) - new Date(b.createdOn.replace(/th/, '').replace(/(\d{2})$/, '20$1')),
+      sorter: (a: recordingsObject, b: recordingsObject) => new Date(a.createdOn?.replace(/th/, '').replace(/(\d{2})$/, '20$1')) - new Date(b.createdOn?.replace(/th/, '').replace(/(\d{2})$/, '20$1')),
     },
     {
       title: 'Direction',
@@ -47,7 +46,7 @@ const columns = (dynamicClasses?: string, clickRedirectHandler?: ()=> void, rout
       title: 'Recording',
       dataIndex: 'callId',
       key: 'recordingUrl',
-      render: (callId: String) => <WrapperRowRouterRedirect clickRedirectHandler={clickRedirectHandler} dynamicClasses={dynamicClasses} route={callId} recordings={recordings} />
+      render: (callId: string) => <WrapperRowRouterRedirect clickRedirectHandler={clickRedirectHandler} dynamicClasses={dynamicClasses} route={callId} recordings={recordings} />
     },
     {
       title: 'Call Length',
@@ -55,7 +54,7 @@ const columns = (dynamicClasses?: string, clickRedirectHandler?: ()=> void, rout
       key: 'callLength',
       responsive: ['lg'],
       defaultSortOrder: 'descend',
-      sorter: (a: recordingsObject, b: recordingsObject) => (a.callLength) - (b.callLength),
+      sorter: (a: recordingsObject, b: recordingsObject) => (a.callLength!) - (b.callLength!),
     },
     {
       title: 'Cost',
@@ -80,6 +79,7 @@ const columns = (dynamicClasses?: string, clickRedirectHandler?: ()=> void, rout
       dataIndex: 'pathWayLogs',
       key: 'pathWayLogs',
       responsive: ['lg'],
+      render: (callId: string) => <WrapperRowRouterRedirect clickRedirectHandler={clickRedirectHandler} dynamicClasses={dynamicClasses} route={callId} recordings={recordings} />
     },
     {
       title: 'Transcript',
@@ -92,6 +92,7 @@ const columns = (dynamicClasses?: string, clickRedirectHandler?: ()=> void, rout
       dataIndex: 'variables',
       key: 'variables',
       responsive: ['lg'],
+      render: (callId: string) => <WrapperRowRouterRedirect clickRedirectHandler={clickRedirectHandler} dynamicClasses={dynamicClasses} route={callId} recordings={recordings} />
     },
     {
       title: 'Call ID',

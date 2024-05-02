@@ -5,13 +5,12 @@ import { createClient } from "@/utils/supabase/server";
 import AudioPlayer from '@/components/atoms/AudioPlayer';
 import PhoneIcon from '@mui/icons-material/Phone';
 import Link from 'next/link.js';
-import { downloadBlobFileByName } from '../../lib/data'
 const page = async ({params}: {params : {id: string}}) => {
     const {id} = params
 
     const recordings : Array<recordingsObject> = await getRecordingsNormalized(createClient)
     const fetchingContent = await Promise.all(recordings.map(async recording => {
-        const data = await axios.get(recording.transcript)
+        const data = await axios.get(recording.transcript!)
         recording.transcript = await data.data
         return {
             ...recording
@@ -53,7 +52,7 @@ const page = async ({params}: {params : {id: string}}) => {
                             Transcript
                         </h1>
                         <p className='font-light text-[#747676] text-sm leading-6 text-justify '>
-                            {callDetail.transcript.replace('/n', '/n /n')}
+                            {callDetail.transcript?.replace('/n', '/n /n')}
                         </p>
                     </div>
                 </div>
