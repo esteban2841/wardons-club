@@ -19,8 +19,8 @@ const page = async ({params}: {params : {id: string}}) => {
     }))
     const clasifiedCalls: Array<recordingsObject> = classifyCalls(fetchingContent)
     const callDetail: recordingsObject = getCallById(clasifiedCalls, id)
-    const supabase = createClient()
-    const audioDownloaded = downloadBlobFileByName(callDetail.recordingName, supabase)
+    // const supabase = createClient()
+    // const audioDownloaded = downloadBlobFileByName(callDetail.recordingName, supabase)
 
     return (
         <div className='flex bg-neutral-900 w-full h-screen box-border text-white align-center justify-center'>
@@ -31,7 +31,7 @@ const page = async ({params}: {params : {id: string}}) => {
                         className="absolute right-4 rounded-md bg-[#747676] py-3 px-4 hover:bg-btn-background-hover">
                         Calls Dashboard
                     </Link>
-                    <AudioPlayer callDetail={callDetail} audio={audioDownloaded}/>
+                    <AudioPlayer callDetail={callDetail}/>
                     <div className='text-sm flex gap-3 flex-col p-4 border-t-2 border-solid box-border bg-[#141617] border-[#1F2122]'>
                         <h1 className='text-lg'>
                             Logs
