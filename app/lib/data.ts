@@ -121,10 +121,10 @@ export const classifyCalls = (calls: Array<recordingsObject>) => {
         const { transcript } = call;
 
         // Check if the transcript contains any of the inbound keywords
-        const isInbound = inboundKeywords.some(keyword => transcript.includes(keyword));
+    const isInbound = inboundKeywords.some(keyword => transcript?.includes(keyword));
 
         // Check if the transcript contains any of the outbound keywords
-        const isOutbound = outboundKeywords.some(keyword => transcript.includes(keyword));
+        const isOutbound = outboundKeywords.some(keyword => transcript?.includes(keyword));
 
         // Determine the classification based on the validations
         if (isInbound) {
