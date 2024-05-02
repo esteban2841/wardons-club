@@ -21,6 +21,8 @@ export interface recordingsObject {
     callId: string, //assigned from audio recording
     url?: string,
     summary?: string,
+    recordingName?: string,
+    callIndex?: number,
 }
 
 export interface metadataObject {

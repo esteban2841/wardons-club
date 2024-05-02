@@ -5,7 +5,7 @@ import { createClient } from "@/utils/supabase/server";
 import AudioPlayer from '@/components/atoms/AudioPlayer';
 import PhoneIcon from '@mui/icons-material/Phone';
 import Link from 'next/link.js';
-
+import { downloadBlobFileByName } from '../../lib/data'
 const page = async ({params}: {params : {id: string}}) => {
     const {id} = params
 
@@ -19,6 +19,8 @@ const page = async ({params}: {params : {id: string}}) => {
     }))
     const clasifiedCalls: Array<recordingsObject> = classifyCalls(fetchingContent)
     const callDetail: recordingsObject = getCallById(clasifiedCalls, id)
+    const supabase = createClient()
+    const audioDownloaded = downloadBlobFileByName(callDetail.recordingName, supabase)
 
     return (
         <div className='flex bg-neutral-900 w-full h-screen box-border text-white align-center justify-center'>
@@ -26,10 +28,10 @@ const page = async ({params}: {params : {id: string}}) => {
                 <div className='relative flex flex-col overflow-scroll gap-6  scrollbar-hide rounded-md my-8 mx-4 h-[95%] w-3/4 p-4 border-2 border-solid box-border bg-[#141617] border-[#1F2122]'>
                     <Link 
                         href='/dashboard'
-                        className="absolute right-2 rounded-md bg-[#747676] py-3 px-4 hover:bg-btn-background-hover">
+                        className="absolute right-4 rounded-md bg-[#747676] py-3 px-4 hover:bg-btn-background-hover">
                         Calls Dashboard
                     </Link>
-                    <AudioPlayer callDetail={callDetail}/>
+                    <AudioPlayer callDetail={callDetail} audio={audioDownloaded}/>
                     <div className='text-sm flex gap-3 flex-col p-4 border-t-2 border-solid box-border bg-[#141617] border-[#1F2122]'>
                         <h1 className='text-lg'>
                             Logs

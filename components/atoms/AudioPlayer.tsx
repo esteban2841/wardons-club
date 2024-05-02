@@ -1,13 +1,13 @@
 'use client'
 import React, { useEffect, useRef, useState } from 'react';
 import WaveSurfer from 'wavesurfer.js'
-import axios from 'axios'
 import PlayCircleFilledIcon from '@mui/icons-material/PlayCircleFilled';
 import PauseCircleFilledIcon from '@mui/icons-material/PauseCircleFilled';
 import VolumeUpOutlinedIcon from '@mui/icons-material/VolumeUpOutlined';
 import VolumeDownOutlinedIcon from '@mui/icons-material/VolumeDownOutlined';
 import ContactlessOutlinedIcon from '@mui/icons-material/ContactlessOutlined';
 import VolumeOffOutlinedIcon from '@mui/icons-material/VolumeOffOutlined';
+import FileDownloadSharpIcon from '@mui/icons-material/FileDownloadSharp';
 import { Box } from '@mui/material';
 import { recordingsObject } from '@/utils/types/index'
 import styled from 'styled-components'
@@ -25,6 +25,34 @@ const formWaveSurferOptions = (ref) => ({
    barGap: 2,
 })
 
+const InputRange = styled.input`
+   width: 100px;
+   -webkit-appearance: none;
+   background-color: #0f5e59;
+   overflow: hidden;
+   
+   &&::-webkit-slider-runnable-track {
+      height: 5px;
+      -webkit-appearance: none;
+      color: #854d0f;
+      position: relative;
+      display: flex;
+      flex-direction: row;
+      justify-items: center;
+      top: -7px;
+   }
+   
+   &&::-webkit-slider-thumb {
+      width: 20px;
+      -webkit-appearance: none;
+      height: 20px;
+      border-radius: 20px;
+      cursor: ew-resize;
+      background: #fff;
+      box-shadow: -80px 0 0 80px #854d0f;
+   }
+`;
+
 export interface CallAudio {
    // recordingUrl: string,
    callDetail: recordingsObject,
@@ -34,6 +62,16 @@ const formatTime = (seconds: number) => {
    let date = new Date(0)
    date.setSeconds(seconds)
    return date.toISOString().substr(11,8)
+}
+
+function handleDownload(audioUrl: string) {
+   const url = audioUrl; // Replace with your audio URL
+   const link = document.createElement('a');
+   link.href = url;
+   link.download = audioUrl.split('/').pop(); // Set the file name for the download
+   document.body.appendChild(link);
+   link.click();
+   document.body.removeChild(link);
 }
 
 const AudioPlayer = ({callDetail} : CallAudio) => {
@@ -101,7 +139,7 @@ const AudioPlayer = ({callDetail} : CallAudio) => {
    }
 
  return (
-   <div className='flex flex-col gap-8 p-4 w-full'>
+   <div className='flex flex-col gap-8 p-4 w-full' key={callDetail.callId}>
       <div className='flex audio-info '>
          <h1 className='text-lg'>
             {audioFileName}
@@ -120,7 +158,7 @@ const AudioPlayer = ({callDetail} : CallAudio) => {
             <Box sx={{ color: '#fff', cursor: 'pointer', fontSize: '6rem', display:'flex', alignItems:'center', justifyContent:'center' }} onClick={handleVolumeDown}>
                <VolumeDownOutlinedIcon/>
             </Box>
-            <input 
+            <InputRange 
                className='in-range:border-green-500 pointer'
                type="range"
                id='volume'
@@ -141,6 +179,11 @@ const AudioPlayer = ({callDetail} : CallAudio) => {
             </span>
             <span>
                Volume: {muted ? 0 : Math.round(volume * 100)} <br/>
+            </span>
+            <span onClick={()=>handleDownload(callDetail.recordingUrl)}>
+               <Box sx={{ color: '#fff', cursor: 'pointer', fontSize: '6rem', display:'flex', alignItems:'center', justifyContent:'center' }} onClick={handleVolumeDown}>
+                  <FileDownloadSharpIcon/>
+               </Box>
             </span>
          </div>
 

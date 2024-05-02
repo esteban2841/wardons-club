@@ -6,6 +6,7 @@ import { Table } from 'antd';
 import styled from "styled-components";
 import { redirect } from 'next/navigation';
 import WrapperRowRouterRedirect from '../atoms/WrapperRowRenderer'
+import { Suspense } from 'react';
 
 export interface CallTableProps {
     recordings: Array<recordingsObject>,
@@ -17,7 +18,7 @@ const StyledTableContainer = styled.div`
     width: 100%;
 `;
 
-const columns = (dynamicClasses: string, clickRedirectHandler: ()=> void, route: string, recordings: Array<recordingsObject>) => [
+const columns = (dynamicClasses?: string, clickRedirectHandler?: ()=> void, route?: string, recordings?: Array<recordingsObject>) => [
     {
       title: 'Created On',
       dataIndex: 'createdOn',
@@ -100,6 +101,85 @@ const columns = (dynamicClasses: string, clickRedirectHandler: ()=> void, route:
     },
   ];
 
+
+  const columnsDefault = (dynamicClasses?: string, clickRedirectHandler?: ()=> void, route?: string, recordings?: Array<recordingsObject>) => [
+    {
+      title: 'Created On',
+      dataIndex: 'createdOn',
+      key: 'callId',
+      defaultSortOrder: 'descend',
+    },
+    {
+      title: 'Direction',
+      dataIndex: 'direction',
+      key: 'direction',
+    },
+    {
+      title: 'To',
+      dataIndex: 'toPhoneNumber',
+      key: 'toPhoneNumber',
+      responsive: ['md'],
+    },
+    {
+      title: 'From',
+      dataIndex: 'fromPhoneNumber',
+      key: 'fromPhoneNumber',
+      responsive: ['md'],
+    },
+    {
+      title: 'Recording',
+      dataIndex: 'callId',
+      key: 'recordingUrl',
+    },
+    {
+      title: 'Call Length',
+      dataIndex: 'callLength',
+      key: 'callLength',
+      responsive: ['lg'],
+    },
+    {
+      title: 'Cost',
+      dataIndex: 'cost',
+      key: 'cost',
+      responsive: ['lg'],
+    },
+    {
+      title: 'Status',
+      dataIndex: 'status',
+      key: 'status',
+      responsive: ['md'],
+    },
+    {
+      title: 'Summary',
+      dataIndex: 'summary',
+      key: 'summary',
+      responsive: ['md'],
+    },
+    {
+      title: 'Pathway Logs',
+      dataIndex: 'pathWayLogs',
+      key: 'pathWayLogs',
+      responsive: ['lg'],
+    },
+    {
+      title: 'Transcript',
+      dataIndex: 'callId',
+      key: 'transcript',
+    },
+    {
+      title: 'Variables',
+      dataIndex: 'variables',
+      key: 'variables',
+      responsive: ['lg'],
+    },
+    {
+      title: 'Call ID',
+      dataIndex: 'callId',
+      key: 'callId',
+      responsive: ['lg'],
+    },
+  ];
+
 const CallLogsTable = (props : CallTableProps)  => {
 
     const handleReDirectToCallDetails = () => {
@@ -109,7 +189,10 @@ const CallLogsTable = (props : CallTableProps)  => {
 
     return (
         <StyledTableContainer>
-            <Table columns={columns('wrapper', handleReDirectToCallDetails, '/', props.recordings)} dataSource={props.recordings} bordered loading={props.recordings.length > 0} />
+          <Suspense fallback={<Table columns={columnsDefault()} bordered loading rowKey="uid" />}>
+            <Table columns={columns('wrapper', handleReDirectToCallDetails, '/', props.recordings)} dataSource={props.recordings} bordered  rowKey="uid"/>
+
+          </Suspense>
         </StyledTableContainer>
     )
 }
