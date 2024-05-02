@@ -5,7 +5,7 @@ import Image from 'next/image'
 import DashboardLogs from "@/components/molecules/DashboardLogs"
 import Link from "next/link";
 
-const ProtectedPage = async ({files}) => {
+const ProtectedPage = async () => {
   const supabase = createClient();
 
   const {
