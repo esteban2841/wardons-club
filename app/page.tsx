@@ -14,22 +14,26 @@ export default async function Index() {
 
   return (
     <div className="flex-1 w-full flex flex-col gap-20 items-center">
-      <nav className="w-full flex justify-center border-b border-b-foreground/10 h-16">
-        <div className="w-full max-w-4xl flex justify-between items-center p-3 text-sm">
-          <Image
-            src='/assets/images/leaping-ai-logo.png'
-            width={200}
-            height={60}
-            alt="Picture of the author"
-          />
-          <div className="flex flex-row w-6/12 gap-4">
+      <nav className="w-full flex justify-center align-center border-b border-b-foreground/10 h-16">
+        <div className="w-full max-w-6xl flex justify-between items-center p-3 text-sm">
+          <div className="pointer">
+            <Image
+              src='/assets/images/leaping-ai-logo.png'
+              className='hover:scale-[1.15]'
+              width={140}
+              height={60}
+              alt="Picture of the author"
+            />
+          </div>
+          <div className="flex flex-row w-6/12 gap-4 justify-end align-center">
             { <AuthButton />}
-            { user &&
+            { user ?
               <Link 
                 href='dashboard'
-                className="py-2 px-3 flex rounded-md no-underline bg-cyan-950 hover:border-indigo-900 hover:bg-btn-background-hover">
+                className="py-2 px-3 flex rounded-md no-underline bg-btn-background hover:bg-cyan-950">
                 Calls Dashboard
               </Link>
+              :<></>
             }
 
           </div>

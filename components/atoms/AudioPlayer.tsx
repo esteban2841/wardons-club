@@ -101,27 +101,27 @@ const AudioPlayer = ({callDetail} : CallAudio) => {
    }
 
  return (
-   <div>
-      <div className='audio-info'>
-         <h1 className=''>
+   <div className='flex flex-col gap-8 p-4 w-full'>
+      <div className='flex audio-info '>
+         <h1 className='text-lg'>
             {audioFileName}
          </h1>
       </div>
-      <div id='waveform' className='flex flex-col-reverse' ref={waveFormRef} style={{width: '100%'}} key='audioplayer'>
+      <div id='waveform' className='flex flex-col-reverse gap-6' ref={waveFormRef} style={{width: '100%'}} key='audioplayer border-y-2 border-solid box-border bg-[#141617] border-[#1F2122]'>
 
-         <div className='flex flex-row gap-2 items-center controls w-full'>
+         <div className='flex flex-row p-4 gap-4 items-center justify-evenly controls w-full'>
             
-            <Box sx={{ color: '#fff', fontSize: '2rem' }} onClick={handlePlayPause} >
+            <Box sx={{ color: '#fff', cursor: 'pointer', fontSize: '6rem', display:'flex', alignItems:'center', justifyContent:'center' }} onClick={handlePlayPause} >
                { playing ?  <PauseCircleFilledIcon/> : <PlayCircleFilledIcon/>}
             </Box>
-            <Box sx={{ color: '#fff', fontSize: '2rem' }} onClick={handleMute}>
+            <Box sx={{ color: '#fff', cursor: 'pointer', fontSize: '6rem', display:'flex', alignItems:'center', justifyContent:'center' }} onClick={handleMute}>
                { muted ? <ContactlessOutlinedIcon/> : <VolumeOffOutlinedIcon/>}
             </Box>
-            <Box sx={{ color: '#fff', fontSize: '2rem' }} onClick={handleVolumeDown}>
+            <Box sx={{ color: '#fff', cursor: 'pointer', fontSize: '6rem', display:'flex', alignItems:'center', justifyContent:'center' }} onClick={handleVolumeDown}>
                <VolumeDownOutlinedIcon/>
             </Box>
             <input 
-               className='in-range:border-green-500'
+               className='in-range:border-green-500 pointer'
                type="range"
                id='volume'
                name='volume'
@@ -131,7 +131,7 @@ const AudioPlayer = ({callDetail} : CallAudio) => {
                value={muted ? 0 : volume}
                onChange={(e)=> handleVolume(parseFloat(e.target.value))}
             />
-            <Box sx={{ color: '#fff', fontSize: '2rem' }} onClick={handleVolumeUp}>
+            <Box sx={{ color: '#fff', cursor: 'pointer', fontSize: '6rem', display:'flex', alignItems:'center', justifyContent:'center' }} onClick={handleVolumeUp}>
                <VolumeUpOutlinedIcon/>
             </Box>
             <span>
