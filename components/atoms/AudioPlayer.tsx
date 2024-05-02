@@ -12,7 +12,7 @@ import { Box } from '@mui/material';
 import { recordingsObject } from '@/utils/types/index'
 import styled from 'styled-components'
 
-const formWaveSurferOptions = (ref) => ({
+const formWaveSurferOptions = (ref: object) => ({
    container: ref,
    waveColor: '#0f5e59',
    progressColor: '#854d0f',
@@ -68,7 +68,7 @@ function handleDownload(audioUrl: string) {
    const url = audioUrl; // Replace with your audio URL
    const link = document.createElement('a');
    link.href = url;
-   link.download = audioUrl.split('/').pop(); // Set the file name for the download
+   link.download = audioUrl?.split('/').pop(); // Set the file name for the download
    document.body.appendChild(link);
    link.click();
    document.body.removeChild(link);
