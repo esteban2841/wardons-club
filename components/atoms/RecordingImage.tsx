@@ -46,6 +46,7 @@ const ImageLayout = styled.div`
   align-items: flex-start;
   justify-content: space-evenly;
   width: 70%;
+  cursor:pointer;
   gap: 20px;
   .svg-container{
     width: 100%;
@@ -82,7 +83,7 @@ interface Props extends SVGProps<SVGSVGElement> {
 const RecordingImage = (props: Props) => {
   return <StyledMain>
     <ImageLayout>
-      <div className="svg-container hover:scale-[1.15] border border-[#fff] rounded-lg overflow-hidden">
+      <div className="svg-container pointer hover:scale-[1.15] border border-[#fff] rounded-lg overflow-hidden">
         <Image
           src='/assets/images/calls-recording-section.png'
           className=''

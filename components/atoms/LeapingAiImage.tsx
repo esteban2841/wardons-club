@@ -43,6 +43,7 @@ const ImageLayout = styled.div`
   box-sizing: border-box;
   align-items: flex-start;
   justify-content: center;
+  cursor:pointer;
   width: 60%;
   gap: 20px;
   .svg-container{
@@ -98,7 +99,7 @@ const LeapingImage = (props: Props) => {
       </StyledUl>
     </MainLayout>
     <ImageLayout>
-      <div className="svg-container rounded-lg border border-[#fff] hover:scale-[1.15]">
+      <div className="svg-container pointer rounded-lg border border-[#fff] hover:scale-[1.15]">
         <CustomSVG
           width={634}
           height={412}
