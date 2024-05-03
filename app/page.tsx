@@ -13,13 +13,13 @@ export default async function Index() {
   } = await supabase.auth.getUser();
 
   return (
-    <div className="flex-1 w-full flex flex-col gap-20 items-center">
-      <nav className="flex-col w-full justify-center gap-6 align-center border-b border-b-foreground/10 sm:max-w-6xl sm:flex-row sm:h-max">
+    <div className="flex-1 w-full flex flex-col gap-20 items-center text-[#fff] bg-[#141617]">
+      <nav className="flex-col w-full justify-center gap-6 align-center border-b-2 border-[#1F2122] sm:max-w-6xl sm:flex-row sm:h-max">
         <div className="flex flex-col-reverse gap-4 sm:justify-between items-center p-3 sm:max-w-6xl text-sm sm:flex-row">
-          <div className="pointer">
+          <div className="hover:scale-[1.15] pointer bg-cyan-950 py-2 px-3 rounded-md">
             <Image
               src='/assets/images/leaping-ai-logo.png'
-              className='hover:scale-[1.15]'
+              className=''
               width={140}
               height={60}
               alt="Picture of the author"
@@ -30,7 +30,7 @@ export default async function Index() {
             { user ?
               <Link 
                 href='dashboard'
-                className="py-2 px-3 flex rounded-md no-underline bg-btn-background hover:bg-cyan-950">
+                className="py-2 px-3 flex rounded-md no-underline bg-cyan-950 hover:text-sky-600 hover:bg-btn-background">
                 <p>Calls Dashboard</p>
               </Link>
               :<></>

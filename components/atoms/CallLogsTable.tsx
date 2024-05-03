@@ -38,13 +38,12 @@ const columns: ()=> ColumnsType<any> = () => [
       title: 'To',
       dataIndex: 'toPhoneNumber',
       key: 'toPhoneNumber',
-      responsive: ['md'],
     },
     {
       title: 'From',
       dataIndex: 'fromPhoneNumber',
       key: 'fromPhoneNumber',
-      responsive: ['md'],
+      responsive: ['lg'],
     },
     {
       title: 'Recording',
@@ -60,12 +59,6 @@ const columns: ()=> ColumnsType<any> = () => [
       sorter: (a: any, b: any) => (a.callLength!) - (b.callLength!),
     },
     {
-      title: 'Cost',
-      dataIndex: 'cost',
-      key: 'cost',
-      responsive: ['lg'],
-    },
-    {
       title: 'Status',
       dataIndex: 'status',
       key: 'status',
@@ -76,13 +69,6 @@ const columns: ()=> ColumnsType<any> = () => [
       dataIndex: 'summary',
       key: 'summary',
       responsive: ['md'],
-    },
-    {
-      title: 'Pathway Logs',
-      dataIndex: 'callId',
-      key: 'pathWayLogs',
-      responsive: ['lg'],
-      render: (callId: string) => <WrapperRowRouterRedirect route={callId} />
     },
     {
       title: 'Transcript',
@@ -179,12 +165,12 @@ const columns: ()=> ColumnsType<any> = () => [
       title: 'Call ID',
       dataIndex: 'callId',
       key: 'callId',
-      responsive: ['lg'],
+      responsive: ['md'],
     },
   ];
-
-const CallLogsTable = (props : CallTableProps)  => {
-
+  
+  const CallLogsTable = (props : CallTableProps)  => {
+    
     const handleReDirectToCallDetails = () => {
         redirect(`/`)
     }
@@ -193,8 +179,7 @@ const CallLogsTable = (props : CallTableProps)  => {
     return (
         <StyledTableContainer>
           <Suspense fallback={<Table columns={columnsDefault()} bordered loading rowKey="uid" />}>
-            <Table columns={columns()} dataSource={props.recordings}  rowKey="uid"/>
-
+            <Table headerColor={'#1F2122'} columns={columns()} dataSource={props.recordings}  rowKey="uid"/>
           </Suspense>
         </StyledTableContainer>
     )
