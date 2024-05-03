@@ -10,7 +10,6 @@ import type { ColumnsType } from 'antd/es/table';
 
 export interface CallTableProps {
     recordings: Array<recordingsObject>,
-    // redirectCallback: () => void,
 }
 
 

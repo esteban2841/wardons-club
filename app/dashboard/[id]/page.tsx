@@ -19,8 +19,6 @@ const page = async ({params}: {params : {id: string}}) => {
     }))
     const clasifiedCalls: Array<recordingsObject> = classifyCalls(fetchingContent)
     const callDetail: recordingsObject = getCallById(clasifiedCalls, id)
-    // const supabase = createClient()
-    // const audioDownloaded = downloadBlobFileByName(callDetail.recordingName, supabase)
 
     return (
         <div className='flex bg-neutral-900 w-full sm:h-screen box-border text-white align-center justify-center'>
