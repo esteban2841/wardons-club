@@ -60,15 +60,15 @@ const LeapingImage = (props: Props) => {
   return <StyledMain>
     <MainLayout>
       <h1>Leaping AI dashboard</h1>
-      <h3>Advantages of having a calls dashboard</h3>
+      <h3>Advantages of Leaping AI</h3>
       <StyledUl>
         <StyledLi>
           <CustonListItemIcon/>
-          <p>Data Analitics easier to explore</p>
+          <p>{'< 2 seconds delay in answering along with interrupts'}</p>
         </StyledLi>
         <StyledLi>
           <CustonListItemIcon/>
-          <p>Data Analitics easier to explore</p>
+          <p>With Data Sources and Knowledge Base Integrations</p>
         </StyledLi>
         <StyledLi>
           <CustonListItemIcon/>
@@ -77,7 +77,7 @@ const LeapingImage = (props: Props) => {
       </StyledUl>
     </MainLayout>
     <MainLayout>
-      <div className="svg-container">
+      <div className="svg-container rounded-md border-2 border-[#fff] hover:scale-[1.15]">
         <CustomSVG
           width={634}
           height={412}

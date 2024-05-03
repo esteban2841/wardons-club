@@ -1,4 +1,5 @@
 import { LeapingImage } from "@/components/atoms/LeapingAiImage";
+import { RecordingImage } from "@/components/atoms/RecordingImage";
 import AuthButton from "../components/AuthButton";
 import Image from 'next/image'
 import { createClient } from "@/utils/supabase/server";
@@ -40,6 +41,9 @@ export default async function Index() {
         </div>
       </nav>
 
+      <div className="animate-in w-full flex-1 flex flex-col gap-20 opacity-0 sm:max-w-6xl px-3">
+        <RecordingImage/>
+      </div>
       <div className="animate-in w-full flex-1 flex flex-col gap-20 opacity-0 sm:max-w-6xl px-3">
         <LeapingImage/>
       </div>

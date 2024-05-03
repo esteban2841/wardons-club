@@ -179,7 +179,7 @@ const columns: ()=> ColumnsType<any> = () => [
     return (
         <StyledTableContainer>
           <Suspense fallback={<Table columns={columnsDefault()} bordered loading rowKey="uid" />}>
-            <Table headerColor={'#1F2122'} columns={columns()} dataSource={props.recordings}  rowKey="uid"/>
+            <Table columns={columns()} dataSource={props.recordings}  rowKey="uid"/>
           </Suspense>
         </StyledTableContainer>
     )
