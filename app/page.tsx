@@ -14,8 +14,8 @@ export default async function Index() {
 
   return (
     <div className="flex-1 w-full flex flex-col gap-20 items-center">
-      <nav className="w-full flex justify-center align-center border-b border-b-foreground/10 h-16">
-        <div className="w-full max-w-6xl flex justify-between items-center p-3 text-sm">
+      <nav className="flex-col w-full justify-center gap-6 align-center border-b border-b-foreground/10 sm:max-w-6xl sm:flex-row sm:h-max">
+        <div className="flex flex-col-reverse gap-4 sm:justify-between items-center p-3 sm:max-w-6xl text-sm sm:flex-row">
           <div className="pointer">
             <Image
               src='/assets/images/leaping-ai-logo.png'
@@ -25,13 +25,13 @@ export default async function Index() {
               alt="Picture of the author"
             />
           </div>
-          <div className="flex flex-row w-6/12 gap-4 justify-end align-center">
+          <div className="flex flex-row max-w-max gap-4 justify-end align-center sm:max-w-6/12">
             { <AuthButton />}
             { user ?
               <Link 
                 href='dashboard'
                 className="py-2 px-3 flex rounded-md no-underline bg-btn-background hover:bg-cyan-950">
-                Calls Dashboard
+                <p>Calls Dashboard</p>
               </Link>
               :<></>
             }
@@ -40,7 +40,7 @@ export default async function Index() {
         </div>
       </nav>
 
-      <div className="animate-in flex-1 flex flex-col gap-20 opacity-0 max-w-screen-2xl px-3">
+      <div className="animate-in w-full flex-1 flex flex-col gap-20 opacity-0 sm:max-w-6xl px-3">
         <LeapingImage/>
       </div>
     </div>

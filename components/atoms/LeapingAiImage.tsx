@@ -9,6 +9,9 @@ const StyledMain = styled.main`
   flex-direction: row;
   box-sizing: border-box;
   width: 100%;
+  @media (max-width: 640px) {
+    flex-direction: column;
+  }
 `;
 
 const MainLayout = styled.div`
@@ -28,7 +31,9 @@ const MainLayout = styled.div`
     justify-content: flex-start;
     box-sizing: border-box;
   }
- 
+  @media (max-width: 640px) {
+    width: 100%;
+  }
 `;
 
 const CustomSVG = styled.svg`
