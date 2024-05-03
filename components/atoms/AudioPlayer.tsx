@@ -168,26 +168,26 @@ const AudioPlayer = ({callDetail} : CallAudio) => {
                   Volume: {muted ? 0 : Math.round(volume * 100)} <br/>
                </span>
                <span onClick={()=>handleDownload(callDetail.recordingUrl!)}>
-                  <Box sx={{ color: '#fff', cursor: 'pointer', fontSize: '6rem', display:'flex', alignItems:'center', justifyContent:'center' }} onClick={handleVolumeDown}>
+                  <Box className='pointer hover:scale-[1.25]' sx={{ color: '#fff', cursor: 'pointer', fontSize: '6rem', display:'flex', alignItems:'center', justifyContent:'center' }} onClick={handleVolumeDown}>
                      <FileDownloadSharpIcon/>
                   </Box>
                </span>
                
             </div>
             <div className='w-max flex flex-row justify-evenly items-center gap-2'>
-               <Box sx={{ color: '#fff', cursor: 'pointer', fontSize: '6rem', display:'flex', alignItems:'center', justifyContent:'center' }} onClick={handlePlayPause} >
+               <Box className='pointer hover:scale-[1.25]' sx={{ color: '#fff', cursor: 'pointer', fontSize: '6rem', display:'flex', alignItems:'center', justifyContent:'center' }} onClick={handlePlayPause} >
                   { playing ?  <PauseCircleFilledIcon/> : <PlayCircleFilledIcon/>}
                </Box>
-               <Box sx={{ color: '#fff', cursor: 'pointer', fontSize: '6rem', display:'flex', alignItems:'center', justifyContent:'center' }} onClick={handleMute}>
+               <Box className='pointer hover:scale-[1.25]' sx={{ color: '#fff', cursor: 'pointer', fontSize: '6rem', display:'flex', alignItems:'center', justifyContent:'center' }} onClick={handleMute}>
                   { muted ? <ContactlessOutlinedIcon/> : <VolumeOffOutlinedIcon/>}
                </Box>
-               <Box sx={{ color: '#fff', cursor: 'pointer', fontSize: '6rem', display:'flex', alignItems:'center', justifyContent:'center' }} onClick={handleVolumeDown}>
+               <Box className='pointer hover:scale-[1.25]' sx={{ color: '#fff', cursor: 'pointer', fontSize: '6rem', display:'flex', alignItems:'center', justifyContent:'center' }} onClick={handleVolumeDown}>
                   <VolumeDownOutlinedIcon/>
                </Box>
                <div className='flex items-center justify-center'>
 
                   <InputRange 
-                     className='in-range:border-green-500 pointer'
+                     className='in-range:border-green-500 pointer hover:scale-[1.05]'
                      type="range"
                      id='volume'
                      name='volume'
@@ -198,7 +198,7 @@ const AudioPlayer = ({callDetail} : CallAudio) => {
                      onChange={(e)=> handleVolume(parseFloat(e.target.value))}
                   />
                </div>
-               <Box sx={{ color: '#fff', cursor: 'pointer', fontSize: '6rem', display:'flex', alignItems:'center', justifyContent:'center' }} onClick={handleVolumeUp}>
+               <Box className='pointer hover:scale-[1.25]' sx={{ color: '#fff', cursor: 'pointer', fontSize: '6rem', display:'flex', alignItems:'center', justifyContent:'center' }} onClick={handleVolumeUp}>
                   <VolumeUpOutlinedIcon/>
                </Box>
 

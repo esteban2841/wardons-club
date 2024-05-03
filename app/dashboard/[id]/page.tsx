@@ -26,7 +26,7 @@ const page = async ({params}: {params : {id: string}}) => {
                 <div className='relative flex flex-col overflow-scroll gap-6 w-full scrollbar-hide rounded-md my-8 mx-4 sm:h-[95%] sm:w-2/3 p-4 border-2 border-solid box-border bg-[#141617] border-[#1F2122]'>
                     <Link 
                         href='/dashboard'
-                        className="absolute right-4 rounded-md bg-[#747676] py-3 px-4 hover:bg-btn-background-hover">
+                        className="absolute right-4 rounded-md text-[#fff] hover:text-[#141617] bg-[#747676] py-3 px-4 hover:bg-btn-background-hover">
                         Calls Dashboard
                     </Link>
                     <AudioPlayer callDetail={callDetail}/>
@@ -36,7 +36,7 @@ const page = async ({params}: {params : {id: string}}) => {
                 </div>
                 <div className='flex flex-col gap-6 overflow-scroll scrollbar-hide w-full flex flex-column rounded-md my-8 mx-4 sm:h-[95%] sm:w-1/3 p-4 border-2 border-solid box-border bg-[#141617] border-[#1F2122]'>
                     <div className='' >
-                        <button className='flex align-center justify-center rounded-md bg-[#747676] py-3 px-4 gap-2'>
+                        <button className='flex hover:bg-btn-background-hover align-center text-[#fff] hover:text-[#141617] justify-center rounded-md bg-[#747676] py-3 px-4 gap-2'>
                             <PhoneIcon/>
                             Resume Call
                         </button>

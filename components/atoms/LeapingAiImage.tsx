@@ -64,6 +64,7 @@ const StyledUl = styled.ul`
   display: flex;
   flex-direction: column;
   gap: 15px;
+  font-weight: 200;
   `;
 const StyledLi = styled.li`
   display: flex;

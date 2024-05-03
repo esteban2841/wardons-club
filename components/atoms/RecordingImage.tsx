@@ -14,7 +14,7 @@ const StyledMain = styled.main`
   @media (max-width: 640px) {
     flex-direction: column;
   }
-`;
+  `;
 
 const MainLayout = styled.div`
   font-size: 20px;
@@ -23,6 +23,7 @@ const MainLayout = styled.div`
   flex-direction: column;
   box-sizing: border-box;
   align-items: flex-start;
+  text-align: right;
   justify-content: space-evenly;
   width: 30%;
   gap: 20px;
@@ -64,6 +65,7 @@ const CustomSVG = styled.svg`
 `;
 const StyledUl = styled.ul`
   display: flex;
+  font-weight: 200;
   flex-direction: column;
   gap: 15px;
   `;
@@ -94,10 +96,10 @@ const RecordingImage = (props: Props) => {
       </div>
     </ImageLayout>
     <MainLayout>
-      <h1>Leaping AI calls dashboard</h1>
-      <h3>Call analitics improved</h3>
+      <h1 className="w-full text-right">Leaping AI calls dashboard</h1>
+      <h3 className="w-full text-right">Call analitics improved</h3>
       <StyledUl>
-      <StyledLi>
+        <StyledLi>
           <CustonListItemIcon/>
           <p>{'Attendance on your customers inquiries boosted'}</p>
         </StyledLi>
