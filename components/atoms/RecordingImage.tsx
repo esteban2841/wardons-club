@@ -23,7 +23,7 @@ const MainLayout = styled.div`
   flex-direction: column;
   box-sizing: border-box;
   align-items: flex-start;
-  justify-content: center;
+  justify-content: space-evenly;
   width: 30%;
   gap: 20px;
   .svg-container{
@@ -44,7 +44,7 @@ const ImageLayout = styled.div`
   flex-direction: column;
   box-sizing: border-box;
   align-items: flex-start;
-  justify-content: center;
+  justify-content: space-evenly;
   width: 70%;
   gap: 20px;
   .svg-container{
@@ -93,20 +93,20 @@ const RecordingImage = (props: Props) => {
       </div>
     </ImageLayout>
     <MainLayout>
-      <h1>Leaping AI dashboard</h1>
-      <h3>Advantages of having a calls dashboard</h3>
+      <h1>Leaping AI calls dashboard</h1>
+      <h3>Call analitics improved</h3>
       <StyledUl>
       <StyledLi>
           <CustonListItemIcon/>
-          <p>{'< 2 seconds delay in answering along with interrupts'}</p>
+          <p>{'Attendance on your customers inquiries boosted'}</p>
         </StyledLi>
         <StyledLi>
           <CustonListItemIcon/>
-          <p>With Data Sources and Knowledge Base Integrations</p>
+          <p>Tone of voice and consistency and kind approach held friendly and connetion assured</p>
         </StyledLi>
         <StyledLi>
           <CustonListItemIcon/>
-          <p>Data Analitics easier to explore</p>
+          <p>Metrics handy after each interaction to countinously improve client satisfaction</p>
         </StyledLi>
       </StyledUl>
     </MainLayout>
