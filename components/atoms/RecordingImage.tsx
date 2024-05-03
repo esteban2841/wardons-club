@@ -9,6 +9,7 @@ const StyledMain = styled.main`
   display: flex;
   flex-direction: row;
   box-sizing: border-box;
+  justify-content: space-between;
   width: 100%;
   @media (max-width: 640px) {
     flex-direction: column;
@@ -64,8 +65,8 @@ const RecordingImage = (props: Props) => {
         <Image
           src='/assets/images/calls-recording-section.png'
           className=''
-          width={645*1.3}
-          height={269*1.3}
+          width={904}
+          height={376}
           alt="Picture of the author"
         />
       </div>
