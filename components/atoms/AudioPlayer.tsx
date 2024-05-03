@@ -25,10 +25,15 @@ const formWaveSurferOptions = (ref: HTMLElement | string ) => ({
 })
 
 const InputRange = styled.input`
-   width: 100px;
+   width: 80px;
    -webkit-appearance: none;
    appearance: none;
    background-color: #0f5e59;
+   height: 5px;
+   display: flex;
+   flex-direction: row;
+   justify-content: center;
+   align-items: center;
    overflow: hidden;
    
    &&::-webkit-slider-runnable-track {
@@ -38,11 +43,15 @@ const InputRange = styled.input`
       position: relative;
       display: flex;
       flex-direction: row;
+      align-items: center;
       justify-items: center;
-      top: -7px;
+      top: -7px
    }
    
    &&::-webkit-slider-thumb {
+      display: flex;
+      align-items: center;
+      justify-content: center;
       width: 20px;
       -webkit-appearance: none;
       height: 20px;
@@ -148,44 +157,52 @@ const AudioPlayer = ({callDetail} : CallAudio) => {
       </div>
       <div id='waveform' className='flex flex-col-reverse gap-6' ref={waveFormRef} style={{width: '100%'}} key='audioplayer border-y-2 border-solid box-border bg-[#141617] border-[#1F2122]'>
 
-         <div className='flex flex-row p-4 gap-4 items-center justify-evenly controls w-full'>
-            
-            <Box sx={{ color: '#fff', cursor: 'pointer', fontSize: '6rem', display:'flex', alignItems:'center', justifyContent:'center' }} onClick={handlePlayPause} >
-               { playing ?  <PauseCircleFilledIcon/> : <PlayCircleFilledIcon/>}
-            </Box>
-            <Box sx={{ color: '#fff', cursor: 'pointer', fontSize: '6rem', display:'flex', alignItems:'center', justifyContent:'center' }} onClick={handleMute}>
-               { muted ? <ContactlessOutlinedIcon/> : <VolumeOffOutlinedIcon/>}
-            </Box>
-            <Box sx={{ color: '#fff', cursor: 'pointer', fontSize: '6rem', display:'flex', alignItems:'center', justifyContent:'center' }} onClick={handleVolumeDown}>
-               <VolumeDownOutlinedIcon/>
-            </Box>
-            <InputRange 
-               className='in-range:border-green-500 pointer'
-               type="range"
-               id='volume'
-               name='volume'
-               min='0'
-               max='1'
-               step='0.05'
-               value={muted ? 0 : volume}
-               onChange={(e)=> handleVolume(parseFloat(e.target.value))}
-            />
-            <Box sx={{ color: '#fff', cursor: 'pointer', fontSize: '6rem', display:'flex', alignItems:'center', justifyContent:'center' }} onClick={handleVolumeUp}>
-               <VolumeUpOutlinedIcon/>
-            </Box>
-            <span>
-               <p>
-                  Length: {formatTime(currentTime)} / {formatTime(duration)+' '} 
-               </p>
-            </span>
-            <span>
-               Volume: {muted ? 0 : Math.round(volume * 100)} <br/>
-            </span>
-            <span onClick={()=>handleDownload(callDetail.recordingUrl!)}>
-               <Box sx={{ color: '#fff', cursor: 'pointer', fontSize: '6rem', display:'flex', alignItems:'center', justifyContent:'center' }} onClick={handleVolumeDown}>
-                  <FileDownloadSharpIcon/>
+         <div className='flex flex-col p-4 gap-4 items-center justify-between sm:flex-row controls w-full'>
+            <div className='sm:w-max flex flex-row justify-evenly items-center gap-2 flex-wrap'>
+               <span>
+                  <p>
+                     Length: {formatTime(currentTime)} / {formatTime(duration)+' '} 
+                  </p>
+               </span>
+               <span>
+                  Volume: {muted ? 0 : Math.round(volume * 100)} <br/>
+               </span>
+               <span onClick={()=>handleDownload(callDetail.recordingUrl!)}>
+                  <Box sx={{ color: '#fff', cursor: 'pointer', fontSize: '6rem', display:'flex', alignItems:'center', justifyContent:'center' }} onClick={handleVolumeDown}>
+                     <FileDownloadSharpIcon/>
+                  </Box>
+               </span>
+               
+            </div>
+            <div className='w-max flex flex-row justify-evenly items-center gap-2'>
+               <Box sx={{ color: '#fff', cursor: 'pointer', fontSize: '6rem', display:'flex', alignItems:'center', justifyContent:'center' }} onClick={handlePlayPause} >
+                  { playing ?  <PauseCircleFilledIcon/> : <PlayCircleFilledIcon/>}
                </Box>
-            </span>
+               <Box sx={{ color: '#fff', cursor: 'pointer', fontSize: '6rem', display:'flex', alignItems:'center', justifyContent:'center' }} onClick={handleMute}>
+                  { muted ? <ContactlessOutlinedIcon/> : <VolumeOffOutlinedIcon/>}
+               </Box>
+               <Box sx={{ color: '#fff', cursor: 'pointer', fontSize: '6rem', display:'flex', alignItems:'center', justifyContent:'center' }} onClick={handleVolumeDown}>
+                  <VolumeDownOutlinedIcon/>
+               </Box>
+               <div className='flex items-center justify-center'>
+
+                  <InputRange 
+                     className='in-range:border-green-500 pointer'
+                     type="range"
+                     id='volume'
+                     name='volume'
+                     min='0'
+                     max='1'
+                     step='0.05'
+                     value={muted ? 0 : volume}
+                     onChange={(e)=> handleVolume(parseFloat(e.target.value))}
+                  />
+               </div>
+               <Box sx={{ color: '#fff', cursor: 'pointer', fontSize: '6rem', display:'flex', alignItems:'center', justifyContent:'center' }} onClick={handleVolumeUp}>
+                  <VolumeUpOutlinedIcon/>
+               </Box>
+
+            </div>
          </div>
 
       </div>

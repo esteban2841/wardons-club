@@ -38,6 +38,7 @@ const columns: ()=> ColumnsType<any> = () => [
       title: 'To',
       dataIndex: 'toPhoneNumber',
       key: 'toPhoneNumber',
+      responsive: ['lg'],
     },
     {
       title: 'From',
