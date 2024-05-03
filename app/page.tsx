@@ -15,12 +15,12 @@ export default async function Index() {
 
   return (
     <div className="flex-1 w-full flex flex-col gap-20 items-center text-[#fff] bg-[#141617]">
-      <nav className="flex-col w-full justify-center gap-6 align-center border-b-2 border-[#1F2122] sm:max-w-7xl sm:flex-row sm:h-max">
-        <div className="flex flex-col-reverse gap-4 sm:justify-between items-center p-3 sm:max-w-7xl text-sm sm:flex-row">
-          <div className="hover:scale-[1.15] pointer hover:bg-cyan-950 bg-btn-background py-2 px-3 rounded-md">
+      <nav className="flex flex-col w-full sm:justify-between justify-center gap-6 align-center border-b-2 border-[#1F2122] sm:max-w-7xl sm:flex-row sm:h-max">
+        <div className="flex flex-col w-full gap-4 justify-center sm:justify-between items-center p-3 sm:max-w-7xl text-sm sm:flex-row">
+          <div className="flex w-full sm:w-max items-center sm:justify-between justify-center hover:bg-cyan-950 bg-btn-background py-2 px-3 rounded-md">
             <Image
               src='/assets/images/leaping-ai-logo.png'
-              className=''
+              className='hover:scale-[1.15] pointer'
               width={140}
               height={60}
               alt="Picture of the author"
