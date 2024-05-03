@@ -26,16 +26,16 @@ export default async function Index() {
               alt="Picture of the author"
             />
           </div>
-          <div className="flex flex-row max-w-max gap-4 justify-end align-center sm:max-w-6/12">
-            { <AuthButton />}
+          <div className="flex flex-col w-full sm:flex-row-reverse sm:w-max gap-4 justify-end items-center w-full sm:max-w-6/12">
             { user ?
               <Link 
                 href='dashboard'
-                className="py-2 px-3 flex rounded-md no-underline bg-cyan-950 hover:text-sky-600 hover:bg-btn-background">
+                className="py-2 w-full items-center justify-center sm:w-max px-3 flex rounded-md no-underline bg-cyan-950 hover:text-sky-600 hover:bg-btn-background">
                 <p>Calls Dashboard</p>
               </Link>
               :<></>
             }
+            { <AuthButton />}
 
           </div>
         </div>
