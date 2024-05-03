@@ -15,9 +15,9 @@ export default async function Index() {
 
   return (
     <div className="flex-1 w-full flex flex-col gap-20 items-center text-[#fff] bg-[#141617]">
-      <nav className="flex-col w-full justify-center gap-6 align-center border-b-2 border-[#1F2122] sm:max-w-6xl sm:flex-row sm:h-max">
-        <div className="flex flex-col-reverse gap-4 sm:justify-between items-center p-3 sm:max-w-6xl text-sm sm:flex-row">
-          <div className="hover:scale-[1.15] pointer bg-cyan-950 py-2 px-3 rounded-md">
+      <nav className="flex-col w-full justify-center gap-6 align-center border-b-2 border-[#1F2122] sm:max-w-7xl sm:flex-row sm:h-max">
+        <div className="flex flex-col-reverse gap-4 sm:justify-between items-center p-3 sm:max-w-7xl text-sm sm:flex-row">
+          <div className="hover:scale-[1.15] pointer hover:bg-cyan-950 b-[#fff] py-2 px-3 rounded-md">
             <Image
               src='/assets/images/leaping-ai-logo.png'
               className=''
@@ -41,10 +41,10 @@ export default async function Index() {
         </div>
       </nav>
 
-      <div className="animate-in w-full flex-1 flex flex-col gap-20 opacity-0 sm:max-w-6xl px-3">
+      <div className="animate-in w-full flex-1 flex flex-col gap-20 opacity-0 sm:max-w-7xl px-3">
         <RecordingImage/>
       </div>
-      <div className="animate-in w-full flex-1 flex flex-col gap-20 opacity-0 sm:max-w-6xl px-3">
+      <div className="animate-in w-full flex-1 flex flex-col gap-20 opacity-0 sm:max-w-7xl px-3">
         <LeapingImage/>
       </div>
     </div>

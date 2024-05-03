@@ -24,7 +24,28 @@ const MainLayout = styled.div`
   box-sizing: border-box;
   align-items: flex-start;
   justify-content: center;
-  width: 50%;
+  width: 30%;
+  gap: 20px;
+  .svg-container{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    box-sizing: border-box;
+  }
+  @media (max-width: 640px) {
+    width: 100%;
+  }
+`;
+const ImageLayout = styled.div`
+  font-size: 20px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  align-items: flex-start;
+  justify-content: center;
+  width: 70%;
   gap: 20px;
   .svg-container{
     width: 100%;
@@ -60,8 +81,8 @@ interface Props extends SVGProps<SVGSVGElement> {
 
 const RecordingImage = (props: Props) => {
   return <StyledMain>
-    <MainLayout>
-      <div className="svg-container hover:scale-[1.15] border-2 border-[#fff] rounded-md overflow-hidden">
+    <ImageLayout>
+      <div className="svg-container hover:scale-[1.15] border border-[#fff] rounded-lg overflow-hidden">
         <Image
           src='/assets/images/calls-recording-section.png'
           className=''
@@ -70,7 +91,7 @@ const RecordingImage = (props: Props) => {
           alt="Picture of the author"
         />
       </div>
-    </MainLayout>
+    </ImageLayout>
     <MainLayout>
       <h1>Leaping AI dashboard</h1>
       <h3>Advantages of having a calls dashboard</h3>

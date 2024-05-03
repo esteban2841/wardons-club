@@ -22,7 +22,28 @@ const MainLayout = styled.div`
   box-sizing: border-box;
   align-items: flex-start;
   justify-content: center;
-  width: 50%;
+  width: 40%;
+  gap: 20px;
+  .svg-container{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    box-sizing: border-box;
+  }
+  @media (max-width: 640px) {
+    width: 100%;
+  }
+`;
+const ImageLayout = styled.div`
+  font-size: 20px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  align-items: flex-start;
+  justify-content: center;
+  width: 60%;
   gap: 20px;
   .svg-container{
     width: 100%;
@@ -76,8 +97,8 @@ const LeapingImage = (props: Props) => {
         </StyledLi>
       </StyledUl>
     </MainLayout>
-    <MainLayout>
-      <div className="svg-container rounded-md border-2 border-[#fff] hover:scale-[1.15]">
+    <ImageLayout>
+      <div className="svg-container rounded-lg border border-[#fff] hover:scale-[1.15]">
         <CustomSVG
           width={634}
           height={412}
@@ -284,7 +305,7 @@ const LeapingImage = (props: Props) => {
         </CustomSVG>
 
       </div>
-    </MainLayout>
+    </ImageLayout>
   </StyledMain>
 };
 
