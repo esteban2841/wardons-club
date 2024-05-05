@@ -10,7 +10,7 @@ const StyledMain = styled.main`
   box-sizing: border-box;
   width: 100%;
   @media (max-width: 640px) {
-    flex-direction: column;
+    flex-direction: column-reverse;
   }
 `;
 

@@ -1,6 +1,6 @@
 import { LeapingImage } from "@/components/atoms/LeapingAiImage";
 import { RecordingImage } from "@/components/atoms/RecordingImage";
-import AuthButton from "../components/AuthButton";
+import AuthButton from "../components/atoms/AuthButton";
 import Image from 'next/image'
 import { createClient } from "@/utils/supabase/server";
 import Link from "next/link";
