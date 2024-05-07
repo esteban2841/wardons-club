@@ -2,7 +2,7 @@ import { recordingsObject} from '@/utils/types/index'
 import { getRecordingsNormalized, classifyCalls, getCallById } from '../../lib/data'
 import axios from 'axios';
 import { createClient } from "@/utils/supabase/server";
-import AudioPlayer from '@/components/atoms/AudioPlayer';
+import AudioPlayer from '@/components/molecules/AudioPlayer';
 import PhoneIcon from '@mui/icons-material/Phone';
 import Link from 'next/link.js';
 import CallPropDisplayer from '@/components/atoms/CallPropDisplayer';
