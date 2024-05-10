@@ -9,7 +9,7 @@ const defaultUrl = process.env.VERCEL_URL
 export const metadata = {
   metadataBase: new URL(defaultUrl),
   title: "Leaping test app",
-  description: "Project made to manage calls and have calls' details handy",
+  description: "Project made as tech test for leaping ai to receive audios from a server, store them in supabase and consume it in frontend using next, in a protected user layout",
 };
 
 export default function RootLayout({
