@@ -6,7 +6,7 @@ import Image from 'next/image'
 import { createClient } from "@/utils/supabase/server";
 
 
-const NavBar = async (props) => {
+const NavBar = async () => {
 
     const supabase = createClient();
 
