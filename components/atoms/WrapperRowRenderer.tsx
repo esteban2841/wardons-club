@@ -1,21 +1,18 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
 import Link from "next/link";
-import { recordingsObject } from '@/utils/types/index'
 
 export interface RowRedirectProps {
   dynamicClasses?: string,
-  clickRedirectHandler?: ()=> void,
-  route?: string,
-  recordings?: Array<recordingsObject>
+  route: string,
+  children: ReactElement
 }
 
-const WrapperRowRouterRedirect = (props: RowRedirectProps) => {
+const WrapperRowRouterRedirect = ({children, dynamicClasses, route}: RowRedirectProps) => {
   return (
    <Link
-    href={`/dashboard/${props.route}`}
-    className={`no-underline ${props.dynamicClasses}`}
-    onClick={props.clickRedirectHandler}
-   >View</Link>
+    href={`/dashboard/${route}`}
+    className={`no-underline text-inherit hover:no-underline ${dynamicClasses}`}
+   >{children}</Link>
   )
 }
 

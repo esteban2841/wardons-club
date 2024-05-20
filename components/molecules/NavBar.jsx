@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import Image from 'next/image'
 import MenuIcon from '@rsuite/icons/Menu';
+import { NavBarElements } from '../atoms/NavBarElements';
 
 const NavBarContainer = styled.nav`
     display: flex;
@@ -14,6 +15,7 @@ const NavBarContainer = styled.nav`
     padding: 32px 40px;
     z-index: 10;
     background-color: rgb(20,22,23, ${props => props.$opacity ? 0.5 : 1});
+
 `
 const HeaderContainer = styled.header`
     display: flex;
@@ -32,7 +34,18 @@ const IconContainer = styled.div`
     svg path{
         filter: drop-shadow(inset 4px 6px 1px rgb(5, 5, 5)); 
     }
+    @media (min-width: 768px) {
+        display: none;
+    }
 `
+
+const navBarData = [
+    {title: 'inicio', href: '/'},
+    {title: 'entrenadores', href: '/coaches'},
+    {title: 'servicios', href: '/services'},
+    {title: 'galeria', href: '/gallery'},
+    {title: 'contacto', href: '/contact'},
+  ]
 
 export const NavBar = () => {
     const [ isScrolledThenChangeColor, setIsScrolledThenChangeColor ] = useState(false)
@@ -48,9 +61,10 @@ export const NavBar = () => {
 
             <NavBarContainer $opacity={isScrolledThenChangeColor} >
                 <Image src='/assets/images/wardons-logo-mobile.png' alt="logo-mobile" width={120} height={120}/>
-                <IconContainer>
+                <IconContainer >
                     <MenuIcon fill='#E84C1A' width={'none'} height={'none'}/>
                 </IconContainer>
+                <NavBarElements data={navBarData} size='24px' color='#fff' hoverColor={'#E84C1A'} weight={600} fontFamilyType='"Julee", cursive'/>
             </NavBarContainer>
         </HeaderContainer>
     )
