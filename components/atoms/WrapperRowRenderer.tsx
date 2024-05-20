@@ -10,7 +10,7 @@ export interface RowRedirectProps {
 const WrapperRowRouterRedirect = ({children, dynamicClasses, route}: RowRedirectProps) => {
   return (
    <Link
-    href={`/dashboard/${route}`}
+    href={`/${route}`}
     className={`no-underline text-inherit hover:no-underline ${dynamicClasses}`}
    >{children}</Link>
   )
