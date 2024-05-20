@@ -1,6 +1,6 @@
 import { GeistSans } from "geist/font/sans";
 import "./globals.css";
-import { AntdRegistry } from '@ant-design/nextjs-registry';
+import { NavBar } from '@/components/molecules/NavBar'
 
 const defaultUrl = process.env.VERCEL_URL
   ? `https://${process.env.VERCEL_URL}`
@@ -8,8 +8,8 @@ const defaultUrl = process.env.VERCEL_URL
 
 export const metadata = {
   metadataBase: new URL(defaultUrl),
-  title: "Leaping test app",
-  description: "Project made as tech test for leaping ai to receive audios from a server, store them in supabase and consume it in frontend using next, in a protected user layout",
+  title: "Wardons Villavicencio",
+  description: "Club de baloncesto, entrenamiento para niños y niñas de todas las edades",
 };
 
 export default function RootLayout({
@@ -19,9 +19,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${GeistSans.className} box-border`}>
-      <body className="bg-background text-foreground">
-        <main className="min-h-screen flex flex-col items-center">
-          <AntdRegistry>{children}</AntdRegistry>
+      <body className="bg-[#141617] text-foreground">
+        <main className="flex flex-col items-center">
+          <>
+            <NavBar></NavBar>
+            {children}
+          </>
         </main>
       </body>
     </html>
