@@ -3,8 +3,9 @@ import "./globals.css";
 import { NavBar } from '@/components/molecules/NavBar'
 
 const defaultUrl = process.env.VERCEL_URL
-  ? `https://${process.env.VERCEL_URL}`
-  : "http://localhost:3000";
+? `https://${process.env.VERCEL_URL}`
+: "http://localhost:3000";
+console.log("TCL: VERCEL_URL", process.env.VERCEL_URL)
 
 export const metadata = {
   metadataBase: new URL(defaultUrl),

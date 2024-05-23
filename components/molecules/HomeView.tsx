@@ -10,8 +10,8 @@ const HomeContainer = styled.article`
   align-items: center;
   justify-content: center;
   width: 100%;
-  max-height: 1000px;
   position: relative;
+  height: 100%;
   .custom-slider{
     width: 100%;
     height: 100%;
@@ -37,28 +37,56 @@ const Overlay = styled.div`
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    justify-content: flex-start;
+    justify-content: center;
     position: absolute;
-    padding: 300px 0px 0px 100px;
-    gap: 30px;
+    padding: 0px 0px 0px 100px;
+    gap: 20px;
     width: 100%;
     height: 100%;
     background-color: rgb(0, 0, 0, 0.3);
     z-index: 2;
+    @media (min-width: 1700px) {
+        font-size:300px;
+        align-items: flex-start;
+        justify-content: flex-start;
+        gap: 50px;
+        padding: 100px 0px 0px 100px;
+    }
+    @media (max-width: 480px) {
+        font-size:300px;
+        padding: 20px 20px;
+        justify-content:flex-end;
+    }
+}
 `
 const WardonsTitle = styled.h1`
     font-family: "Julee", cursive;
-    font-weight: 400;
-    font-style: normal;
+    font-weight: 1000;
+    font-style: bold;
     color: #E84C1A;
     font-size: 90px;
-`
+    @media (min-width: 1700px){
+        font-size:200px;
+        
+    }
+    @media (max-width: 768px){
+        margin-bottom: 20px;
+        font-size:56px;
+
+    }
+    `
 const SubTitle = styled.h1`
-    font-family: "Londrina Solid", sans-serif;
-    font-weight: 800;
+    font-family: 'Futura Md BT', sans-serif;
+    font-size: 90px;
     font-style: normal;
-    font-size: 68px;
-    color: '#fff'
+    @media (min-width: 1700px) {
+        font-size:160px;
+        align-items: flex-start;
+    }
+    @media (max-width: 760px){
+        font-size:48px;
+        font-weight: 200;
+    }
 `
 
 const slideData = [
@@ -83,7 +111,7 @@ export const Home = () => (
                 WARDONS
             </WardonsTitle>
             <SubTitle>
-                BASKETBALL CLUB
+                CLUB
             </SubTitle>
         </Overlay>
     </HomeContainer>

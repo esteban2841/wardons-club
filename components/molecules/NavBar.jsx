@@ -11,8 +11,8 @@ const NavBarContainer = styled.nav`
     justify-content: space-between;
     position: fixed;
     width: 100%;
-    height: 180px;
-    padding: 32px 40px;
+    height: 140px;
+    padding: 20px;
     z-index: 10;
     background-color: rgb(20,22,23, ${props => props.$opacity ? 0.5 : 1});
 
@@ -22,7 +22,7 @@ const HeaderContainer = styled.header`
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    height: 180px;
+    height: 140px;
 `
 
 const IconContainer = styled.div`
@@ -39,7 +39,7 @@ const IconContainer = styled.div`
     }
 `
 
-const navBarData = [
+const navBarSections = [
     {title: 'inicio', href: '/'},
     {title: 'entrenadores', href: '/coaches'},
     {title: 'servicios', href: '/services'},
@@ -64,7 +64,7 @@ export const NavBar = () => {
                 <IconContainer >
                     <MenuIcon fill='#E84C1A' width={'none'} height={'none'}/>
                 </IconContainer>
-                <NavBarElements data={navBarData} size='24px' color='#fff' hoverColor={'#E84C1A'} weight={600} fontFamilyType='"Julee", cursive'/>
+                <NavBarElements data={navBarSections} size='24px' color='#fff' hoverColor={'#E84C1A'} weight={600} fontFamilyType='"Julee", cursive'/>
             </NavBarContainer>
         </HeaderContainer>
     )
