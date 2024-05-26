@@ -3,27 +3,29 @@ import styled from 'styled-components'
 import "rsuite/dist/rsuite.css";
 import { Carousel } from 'rsuite';
 import Image from 'next/image'
+import { useEffect } from 'react';
 
 const HomeContainer = styled.article`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  position: relative;
-  height: 100%;
-  .custom-slider{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     width: 100%;
-    height: 100%;
-  }
-  .rs-carousel-toolbar{
-    z-index: 3;
-  }
+    position: relative;
+    height: 100vh;
+    .rs-carousel-slider {
+        height: 'unset'
+    }
+    .rs-carousel-toolbar{
+    
+        z-index: 3;
+    }
 `
 const ImageContainer = styled.img`
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
+  object-position: top;
 `
 
 const SlideContent = styled.div`
@@ -31,7 +33,6 @@ const SlideContent = styled.div`
     align-items: center;
     justify-content: center;
     width: 100%;
-    height: 100%;
 `
 const Overlay = styled.div`
     display: flex;
@@ -57,7 +58,6 @@ const Overlay = styled.div`
         padding: 20px 20px;
         justify-content:flex-end;
     }
-}
 `
 const WardonsTitle = styled.h1`
     font-family: "Julee", cursive;
@@ -95,10 +95,16 @@ const slideData = [
     {},
 ]
 
-export const Home = () => (
-    <HomeContainer className='carrousel'>
+export const Home = () => {
+    useEffect(()=>{
+        const sliderSelector = document.querySelector('.rs-carousel-content')
+        sliderSelector?.removeAttribute('height')
+    }, [])
+    return <HomeContainer className='carrousel'>
         
-        <Carousel autoplay autoplayInterval={4000} placement='bottom' className="custom-slider">
+        <Carousel autoplay autoplayInterval={4000} placement='bottom' className="custom-slider" style={{
+            height: 'unset',
+        }}>
             <SlideContent>
                 <ImageContainer src="https://hzahrfjtetaexlyfdecg.supabase.co/storage/v1/object/sign/Galeria/IMG_3532.jpeg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJHYWxlcmlhL0lNR18zNTMyLmpwZWciLCJpYXQiOjE3MTYwNzY2NzQsImV4cCI6MTcxNjY4MTQ3NH0.nJCY32YItqoqLs2pQxUZM9z8NaDPgAPtxlNfql52VZw&t=2024-05-18T23%3A57%3A52.595Z" alt='carousel-img' />
             </SlideContent>
@@ -115,4 +121,4 @@ export const Home = () => (
             </SubTitle>
         </Overlay>
     </HomeContainer>
-);
+};

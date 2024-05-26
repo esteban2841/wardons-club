@@ -1,11 +1,12 @@
 import { GeistSans } from "geist/font/sans";
 import "./globals.css";
 import { NavBar } from '@/components/molecules/NavBar'
+import { PlacesProvider, MapProvider } from "@/context";
+import 'mapbox-gl/dist/mapbox-gl.css';
 
 const defaultUrl = process.env.VERCEL_URL
 ? `https://${process.env.VERCEL_URL}`
 : "http://localhost:3000";
-console.log("TCL: VERCEL_URL", process.env.VERCEL_URL)
 
 export const metadata = {
   metadataBase: new URL(defaultUrl),
@@ -24,7 +25,11 @@ export default function RootLayout({
         <main className="flex flex-col items-center">
           <>
             <NavBar></NavBar>
-            {children}
+            <PlacesProvider>
+              <MapProvider>
+                {children}
+              </MapProvider>
+            </PlacesProvider>
           </>
         </main>
       </body>

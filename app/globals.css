@@ -30,6 +30,10 @@
   animation: animateIn 0.3s ease 0.15s both;
 }
 
+.marker{
+  color: black
+}
+
 @keyframes animateIn {
   from {
     opacity: 0;

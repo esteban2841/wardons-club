@@ -11,7 +11,7 @@ const NavBarContainer = styled.nav`
     justify-content: space-between;
     position: fixed;
     width: 100%;
-    height: 140px;
+    height: 70px;
     padding: 20px;
     z-index: 10;
     background-color: rgb(20,22,23, ${props => props.$opacity ? 0.5 : 1});
@@ -22,7 +22,7 @@ const HeaderContainer = styled.header`
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    height: 140px;
+    height: 70px;
 `
 
 const IconContainer = styled.div`
@@ -60,7 +60,7 @@ export const NavBar = () => {
         <HeaderContainer>
 
             <NavBarContainer $opacity={isScrolledThenChangeColor} >
-                <Image src='/assets/images/wardons-logo-mobile.png' alt="logo-mobile" width={120} height={120}/>
+                <Image src='/assets/images/wardons-logo-mobile.png' alt="logo-mobile" width={60} height={60}/>
                 <IconContainer >
                     <MenuIcon fill='#E84C1A' width={'none'} height={'none'}/>
                 </IconContainer>

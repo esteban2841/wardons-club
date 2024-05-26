@@ -13,8 +13,9 @@ export default async function Index() {
   } = await supabase.auth.getUser();
 
   return (
-    <div className="flex-1 w-full h-full flex flex-col gap-20 items-center text-[#fff]">
+    <div className="flex-1 w-full flex flex-col gap-20 items-center text-[#fff]">
       <Home/>
+      <h2>Localiza tu sede mas cercana y visitanos!</h2>
       <MapScenarios/>
     </div>
   );

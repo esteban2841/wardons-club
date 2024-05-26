@@ -1,5 +1,8 @@
-import { ReactElement } from 'react';
+'use client'
+import { ReactElement, ReactNode, useEffect, useReducer } from 'react';
 import { PlacesContext } from './PlacesContext';
+import { placesReducer } from './placesReducer';
+import { getUserLocation } from '@/helpers';
 
 export interface PlacesState {
     isLoading: boolean;
@@ -12,14 +15,23 @@ const INITIAL_STATE: PlacesState = {
 }
 
 interface Props {
-  children: ReactElement | Array<ReactElement>
+  children: ReactElement | ReactElement[] | ReactNode
 }
 
-export const PlacesContextProvider = ({children}: Props) => {
+export const PlacesProvider = ({children}: Props) => {
+  
+  const [state, dispatch] = useReducer(placesReducer, INITIAL_STATE)
+
+  useEffect(()=>{
+    getUserLocation().then(lngLat => dispatch({
+      type: 'setUserLocation',
+      payload: lngLat
+    }))
+  }, [])
+
   return (
     <PlacesContext.Provider value={{
-        isLoading: true,
-        userLocation: undefined
+        ...state,
     }}>{children}</PlacesContext.Provider>
   )
 }
