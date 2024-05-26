@@ -1,6 +1,5 @@
 import Image from 'next/image'
 import { createClient } from "@/utils/supabase/server";
-import Link from "next/link";
 import { Home } from "@/components/molecules/HomeView"
 import { MapScenarios } from '@/components/molecules/MapScenarios'
 
