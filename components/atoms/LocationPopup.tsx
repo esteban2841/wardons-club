@@ -17,12 +17,18 @@ const Popup = styled.div`
     }
 `
 
-export default function LocationPopup({title, description, coord}) {
+interface LocationProps{
+  title: string,
+  description: string,
+  coord?: [number, number]
+}
+
+export default function LocationPopup({title, description, coord}: LocationProps) {
   return (
     <div>
         <h4>{title}</h4>
         <p>{description}</p>
-        <a href={`https://www.google.com/maps/search/?api=1&query=${coord[1]},${coord[0]}`}>Como llegar</a>
+        {coord && <a href={`https://www.google.com/maps/search/?api=1&query=${coord[1]},${coord[0]}`}>Como llegar</a>}
     </div>
   )
 }

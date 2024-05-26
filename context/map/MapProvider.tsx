@@ -36,7 +36,7 @@ const INITIAL_STATE: MapState = {
 }
 
 interface Props {
-    children: ReactElement | ReactElement[] | ReactNode
+    children: React.ReactElement | React.ReactElement[] | React.ReactNode
   }
 
 export const MapProvider = ({children}: Props) => {
@@ -45,11 +45,12 @@ export const MapProvider = ({children}: Props) => {
     
     const setMap = (map: Map) =>{
 
+        const currentLocationPopElement = document.createElement('div')
+        currentLocationPopElement.className = 'marker';
+        ReactDOM.render(<LocationPopup title='Aqui estas' description='Esta es tu posicion actual'/> , currentLocationPopElement)
+
         const myLocationPopup = new Popup()
-            .setHTML(`
-                <h4>Aqui estas</h4>
-                <p>Esta es tu posicion actual</p>
-            `)
+            .setDOMContent(currentLocationPopElement)
 
         new Marker({
             color: '#61DAFB'

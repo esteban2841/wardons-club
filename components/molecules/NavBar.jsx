@@ -64,7 +64,7 @@ export const NavBar = () => {
                 <IconContainer >
                     <MenuIcon fill='#E84C1A' width={'none'} height={'none'}/>
                 </IconContainer>
-                <NavBarElements data={navBarSections} size='24px' color='#fff' hoverColor={'#E84C1A'} weight={600} fontFamilyType='"Julee", cursive'/>
+                <NavBarElements data={navBarSections} size='20px' color='#fff' hoverColor={'#E84C1A'} weight={600} fontFamilyType='"Julee", cursive'/>
             </NavBarContainer>
         </HeaderContainer>
     )
