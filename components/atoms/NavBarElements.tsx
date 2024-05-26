@@ -9,11 +9,12 @@ interface navBarData {
 }
 
 interface titleProps {
-  size?: string,
+  customSize?: string,
   color?: string,
   fontFamilyType?: string,
   weight?: number,
   data: Array<navBarData>
+  hoverColor?: string, 
 }
 
 const ListNavBar = styled.ul`
@@ -38,7 +39,7 @@ const SubTitleNavBar = styled.h1`
     font-family: ${props => props.fontFamilyType ? props.fontFamilyType : "Londrina Solid, sans-serif"} ;
     font-weight: ${props => props.weight ? props.weight : 800};
     font-style: normal;
-    font-size: ${props => props.size ? props.size : '68px'};
+    font-size: ${props => props.customSize ? props.customSize : '68px'};
     color: ${props => props.color ? props.color : '#fff'};
     text-transform: uppercase;
     transition: .8s;
@@ -48,14 +49,14 @@ const SubTitleNavBar = styled.h1`
     }
 `
 
-export const NavBarElements = ({size, color, fontFamilyType, weight, hoverColor, data} : titleProps) => {
+export const NavBarElements = ({customSize, color, fontFamilyType, weight, hoverColor, data}: titleProps) => {
   return (
     <ListNavBar>
       <ListItemNavBar>
           {data.map(element=>{
             return (
               <WrapperRowRouterRedirect key={element.title} route={element.href}>
-                <SubTitleNavBar  size={size} color={color} fontFamilyType={fontFamilyType} weight={weight} hoverColor={hoverColor}>
+                <SubTitleNavBar  customSize={customSize} color={color} fontFamilyType={fontFamilyType} weight={weight} hoverColor={hoverColor}>
                   {element.title}
                 </SubTitleNavBar>
               </WrapperRowRouterRedirect>
