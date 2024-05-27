@@ -47,12 +47,12 @@ const navBarSections = [
     {title: 'contacto', href: '/contact'},
   ]
 
-export const NavBar = () => {
+const NavBar = () => {
     const [ isScrolledThenChangeColor, setIsScrolledThenChangeColor ] = useState(false)
 
-    const handleChangeColorOnNav = () => window.scrollY >= 90 ? setIsScrolledThenChangeColor(true) : setIsScrolledThenChangeColor(false)
     
     useEffect(()=>{
+        const handleChangeColorOnNav = () => window.scrollY >= 90 ? setIsScrolledThenChangeColor(true) : setIsScrolledThenChangeColor(false)
         window.addEventListener('scroll', handleChangeColorOnNav)
     }, [window.scrollY])
     
@@ -69,3 +69,5 @@ export const NavBar = () => {
         </HeaderContainer>
     )
 }
+
+export default NavBar

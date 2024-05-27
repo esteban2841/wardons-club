@@ -2,6 +2,8 @@ import Image from 'next/image'
 import { createClient } from "@/utils/supabase/server";
 import { Home } from "@/components/molecules/HomeView"
 import { MapScenarios } from '@/components/molecules/MapScenarios'
+import { Suspense } from 'react';
+import MapLoader from '@/components/atoms/MapLoader';
 
 export default async function Index() {
 
@@ -15,7 +17,9 @@ export default async function Index() {
     <div className="flex-1 w-full flex flex-col gap-20 items-center text-[#fff]">
       <Home/>
       <h2>Localiza tu sede mas cercana y visitanos!</h2>
-      <MapScenarios/>
+      <Suspense fallback={<MapLoader/>}>
+        <MapScenarios/>
+      </Suspense>
     </div>
   );
 }

@@ -1,8 +1,13 @@
 import { GeistSans } from "geist/font/sans";
 import "./globals.css";
-import { NavBar } from '@/components/molecules/NavBar'
 import { PlacesProvider, MapProvider } from "@/context";
+import dynamic from 'next/dynamic';
 import 'mapbox-gl/dist/mapbox-gl.css';
+
+
+const NavBar = dynamic(() => import('@/components/molecules/NavBar'), {
+  ssr: false,
+});
 
 const defaultUrl = process.env.VERCEL_URL
 ? `https://${process.env.VERCEL_URL}`
