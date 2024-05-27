@@ -35,7 +35,7 @@ const ListItemNavBar = styled.li`
     gap: 20px;
 `
 
-const SubTitleNavBar = styled.h1`
+const SubTitleNavBar = styled.h1<titleProps>`
     font-family: ${props => props.fontFamilyType ? props.fontFamilyType : "Londrina Solid, sans-serif"} ;
     font-weight: ${props => props.weight ? props.weight : 800};
     font-style: normal;
@@ -56,7 +56,7 @@ export const NavBarElements = ({customSize, color, fontFamilyType, weight, hover
           {data.map(element=>{
             return (
               <WrapperRowRouterRedirect key={element.title} route={element.href}>
-                <SubTitleNavBar  customSize={customSize} color={color} fontFamilyType={fontFamilyType} weight={weight} hoverColor={hoverColor}>
+                <SubTitleNavBar  data={data} customSize={customSize} color={color} fontFamilyType={fontFamilyType} weight={weight} hoverColor={hoverColor}>
                   {element.title}
                 </SubTitleNavBar>
               </WrapperRowRouterRedirect>
