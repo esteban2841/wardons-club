@@ -28,8 +28,8 @@ const HeaderContainer = styled.header`
 const IconContainer = styled.div`
     display: flex;
     align-items: center;
-    width: 90px;
-    height: 100px;
+    width: 50px;
+    height: 50px;
     cursor: pointer;
     svg path{
         filter: drop-shadow(inset 4px 6px 1px rgb(5, 5, 5)); 
@@ -55,13 +55,17 @@ const NavBar = () => {
         const handleChangeColorOnNav = () => window.scrollY >= 90 ? setIsScrolledThenChangeColor(true) : setIsScrolledThenChangeColor(false)
         window.addEventListener('scroll', handleChangeColorOnNav)
     }, [window.scrollY])
+
+    const toggleMobileNavBar = ()=>{
+        
+    }
     
     return (
         <HeaderContainer>
 
             <NavBarContainer $opacity={isScrolledThenChangeColor} >
                 <Image src='/assets/images/wardons-logo-mobile.png' alt="logo-mobile" width={60} height={60}/>
-                <IconContainer >
+                <IconContainer onClick={toggleMobileNavBar} >
                     <MenuIcon fill='#E84C1A' width={'none'} height={'none'}/>
                 </IconContainer>
                 <NavBarElements data={navBarSections} customSize='20px' color='#fff' hoverColor={'#E84C1A'} weight={600} fontFamilyType='"Julee", cursive'/>
