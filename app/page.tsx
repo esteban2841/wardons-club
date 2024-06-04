@@ -8,6 +8,7 @@ import MapLoader from '@/components/atoms/MapLoader';
 export default async function Index() {
 
   const supabase = createClient();
+	console.log("TCL: Index -> supabase", supabase)
 
   const {
     data: { user },
