@@ -14,7 +14,14 @@ const NavBarContainer = styled.nav`
     height: 70px;
     padding: 20px;
     z-index: 10;
+    transition: 1s ease;
     background-color: rgb(20,22,23, ${props => props.$opacity ? 0.5 : 1});
+    .wardons-logo{
+        cursor: pointer;
+        &:hover{
+            transform: scale(1.05);
+        }
+    }
 
 `
 const HeaderContainer = styled.header`
@@ -31,11 +38,15 @@ const IconContainer = styled.div`
     width: 50px;
     height: 50px;
     cursor: pointer;
+
     svg path{
         filter: drop-shadow(inset 4px 6px 1px rgb(5, 5, 5)); 
     }
     @media (min-width: 768px) {
         display: none;
+    }
+    :hover{
+        transform: rotate(-3deg);
     }
 `
 
@@ -57,14 +68,14 @@ const NavBar = () => {
     }, [window.scrollY])
 
     const toggleMobileNavBar = ()=>{
-        
+
     }
     
     return (
         <HeaderContainer>
 
             <NavBarContainer $opacity={isScrolledThenChangeColor} >
-                <Image src='/assets/images/wardons-logo-mobile.png' alt="logo-mobile" width={60} height={60}/>
+                <Image className='wardons-logo' src='/assets/images/wardons-logo-mobile.png' alt="logo-mobile" width={60} height={60}/>
                 <IconContainer onClick={toggleMobileNavBar} >
                     <MenuIcon fill='#E84C1A' width={'none'} height={'none'}/>
                 </IconContainer>

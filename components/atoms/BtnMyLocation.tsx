@@ -8,7 +8,7 @@ const MyLocationButton = styled.button`
     padding: 8px 4px;
     color: white;
     position: absolute;
-    z-index: 9999;
+    z-index: 3;
     right: 30px;
     top: 30px;
     border-radius: 10px;

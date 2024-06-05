@@ -13,8 +13,8 @@ const HomeContainer = styled.article`
     width: 100%;
     position: relative;
     height: 100vh;
-    .rs-carousel-slider {
-        height: 'unset'
+    .custom-slider {
+        height: '100vh'
     }
     .rs-carousel-toolbar{
     
@@ -41,7 +41,6 @@ const Overlay = styled.div`
     justify-content: center;
     position: absolute;
     padding: 0px 0px 0px 100px;
-    gap: 20px;
     width: 100%;
     height: 100%;
     background-color: rgb(0, 0, 0, 0.3);
@@ -55,7 +54,7 @@ const Overlay = styled.div`
     }
     @media (max-width: 480px) {
         font-size:300px;
-        padding: 20px 20px;
+        padding: 60px 20px;
         justify-content:flex-end;
     }
 `
@@ -66,11 +65,12 @@ const WardonsTitle = styled.h1`
     color: #E84C1A;
     font-size: 90px;
     @media (min-width: 1700px){
-        font-size:200px;
+        font-size:150px;
+        margin-bottom: 70px;
         
     }
     @media (max-width: 768px){
-        margin-bottom: 20px;
+        margin-bottom: 10px;
         font-size:46px;
 
     }
@@ -78,14 +78,15 @@ const WardonsTitle = styled.h1`
 const SubTitle = styled.h1`
     font-family: 'Futura Md BT', sans-serif;
     font-size: 90px;
+    font-weight: 900;
     font-style: normal;
     @media (min-width: 1700px) {
-        font-size:160px;
+        font-size:130px;
         align-items: flex-start;
     }
     @media (max-width: 760px){
         font-size:36px;
-        font-weight: 200;
+        font-weight: 700;
     }
 `
 
@@ -103,7 +104,7 @@ export const Home = () => {
     return <HomeContainer className='carrousel'>
         
         <Carousel autoplay autoplayInterval={4000} placement='bottom' className="custom-slider" style={{
-            height: 'unset',
+            height: '100vh',
         }}>
             <SlideContent>
                 <ImageContainer src="https://hzahrfjtetaexlyfdecg.supabase.co/storage/v1/object/sign/Galeria/IMG_5730.jpeg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJHYWxlcmlhL0lNR181NzMwLmpwZWciLCJpYXQiOjE3MTc1NDI5MzYsImV4cCI6MTc0OTA3ODkzNn0.YvK6TYjTOXuA4MFiobS2fBDqq71QHMrf49HidHD390s&t=2024-06-04T23%3A15%3A35.966Z" alt='carousel-img' />

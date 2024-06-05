@@ -4,8 +4,8 @@ export const SvgComponent = (props: SVGProps<SVGSVGElement>) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     xmlnsXlink="http://www.w3.org/1999/xlink"
-    width={126}
-    height={126}
+    width={props.width}
+    height={props.height}
     fill="none"
     {...props}
   >
