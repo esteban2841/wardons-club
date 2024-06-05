@@ -8,14 +8,13 @@ import MapLoader from '@/components/atoms/MapLoader';
 export default async function Index() {
 
   const supabase = createClient();
-	console.log("TCL: Index -> supabase", supabase)
 
   const {
     data: { user },
   } = await supabase.auth.getUser();
 
   return (
-    <div className="flex-1 w-full flex flex-col gap-20 items-center text-[#fff]">
+    <div className="flex-1 w-full flex flex-col gap-20 items-center relative text-[#fff]">
       <Home/>
       <h2>Localiza tu sede mas cercana y visitanos!</h2>
       <Suspense fallback={<MapLoader/>}>

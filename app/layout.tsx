@@ -3,7 +3,7 @@ import "./globals.css";
 import { PlacesProvider, MapProvider } from "@/context";
 import dynamic from 'next/dynamic';
 import 'mapbox-gl/dist/mapbox-gl.css';
-
+import WhatsappContactButton from '@/components/atoms/WhatsappContactButton';
 
 const NavBar = dynamic(() => import('@/components/molecules/NavBar'), {
   ssr: false,
@@ -27,7 +27,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${GeistSans.className} box-border`}>
       <body className="bg-[#141617] text-foreground">
-        <main className="flex flex-col items-center">
+        <main className="flex flex-col items-center relative">
           <>
             <NavBar></NavBar>
             <PlacesProvider>
@@ -35,6 +35,7 @@ export default function RootLayout({
                 {children}
               </MapProvider>
             </PlacesProvider>
+            <WhatsappContactButton></WhatsappContactButton>
           </>
         </main>
       </body>

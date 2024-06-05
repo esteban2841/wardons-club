@@ -71,7 +71,7 @@ const WardonsTitle = styled.h1`
     }
     @media (max-width: 768px){
         margin-bottom: 20px;
-        font-size:56px;
+        font-size:46px;
 
     }
     `
@@ -84,7 +84,7 @@ const SubTitle = styled.h1`
         align-items: flex-start;
     }
     @media (max-width: 760px){
-        font-size:48px;
+        font-size:36px;
         font-weight: 200;
     }
 `
@@ -106,7 +106,7 @@ export const Home = () => {
             height: 'unset',
         }}>
             <SlideContent>
-                <ImageContainer src="https://hzahrfjtetaexlyfdecg.supabase.co/storage/v1/object/sign/Galeria/IMG_3532.jpeg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJHYWxlcmlhL0lNR18zNTMyLmpwZWciLCJpYXQiOjE3MTYwNzY2NzQsImV4cCI6MTcxNjY4MTQ3NH0.nJCY32YItqoqLs2pQxUZM9z8NaDPgAPtxlNfql52VZw&t=2024-05-18T23%3A57%3A52.595Z" alt='carousel-img' />
+                <ImageContainer src="https://hzahrfjtetaexlyfdecg.supabase.co/storage/v1/object/sign/Galeria/IMG_5730.jpeg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJHYWxlcmlhL0lNR181NzMwLmpwZWciLCJpYXQiOjE3MTc1NDI5MzYsImV4cCI6MTc0OTA3ODkzNn0.YvK6TYjTOXuA4MFiobS2fBDqq71QHMrf49HidHD390s&t=2024-06-04T23%3A15%3A35.966Z" alt='carousel-img' />
             </SlideContent>
             <SlideContent>
                 <ImageContainer src="https://hzahrfjtetaexlyfdecg.supabase.co/storage/v1/object/sign/Galeria/IMG_2483.jpeg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJHYWxlcmlhL0lNR18yNDgzLmpwZWciLCJpYXQiOjE3MTYwNzY4MDUsImV4cCI6MTcxNjY4MTYwNX0.pFwkTaWjq9aoGGf-zs_nmLGWVC_MnbvOoTNkuN1h3iY&t=2024-05-19T00%3A00%3A03.882Z" alt='carousel-img-1' />
