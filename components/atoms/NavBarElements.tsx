@@ -22,6 +22,7 @@ const ListNavBar = styled.ul`
     flex-direction: row;
     align-items: center;
     justify-content: flex-end;
+    margin: 0;
     @media (max-width: 768px) {
       display: none;
     }

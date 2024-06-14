@@ -42,11 +42,11 @@ const IconContainer = styled.div`
     svg path{
         filter: drop-shadow(inset 4px 6px 1px rgb(5, 5, 5)); 
     }
+    :hover{
+        transform: rotate(-45deg);
+    }
     @media (min-width: 768px) {
         display: none;
-    }
-    :hover{
-        transform: rotate(-3deg);
     }
 `
 
@@ -63,7 +63,7 @@ const NavBar = () => {
 
     
     useEffect(()=>{
-        const handleChangeColorOnNav = () => window.scrollY >= 90 ? setIsScrolledThenChangeColor(true) : setIsScrolledThenChangeColor(false)
+        const handleChangeColorOnNav = () => window.scrollY >= 30 ? setIsScrolledThenChangeColor(true) : setIsScrolledThenChangeColor(false)
         window.addEventListener('scroll', handleChangeColorOnNav)
     }, [window.scrollY])
 
@@ -77,7 +77,7 @@ const NavBar = () => {
             <NavBarContainer $opacity={isScrolledThenChangeColor} >
                 <Image className='wardons-logo' src='/assets/images/wardons-logo-mobile.png' alt="logo-mobile" width={60} height={60}/>
                 <IconContainer onClick={toggleMobileNavBar} >
-                    <MenuIcon fill='#E84C1A' width={'none'} height={'none'}/>
+                    <MenuIcon className='menu-icon' fill='#E84C1A' width={'none'} height={'none'}/>
                 </IconContainer>
                 <NavBarElements data={navBarSections} customSize='20px' color='#fff' hoverColor={'#E84C1A'} weight={600} fontFamilyType='"Julee", cursive'/>
             </NavBarContainer>

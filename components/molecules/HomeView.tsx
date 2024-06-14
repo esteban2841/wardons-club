@@ -69,6 +69,10 @@ const WardonsTitle = styled.h1`
         margin-bottom: 70px;
         
     }
+    @media (max-width: 1700px){
+        margin-bottom: 30px;
+        
+    }
     @media (max-width: 768px){
         margin-bottom: 10px;
         font-size:46px;
