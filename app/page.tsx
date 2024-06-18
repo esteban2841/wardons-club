@@ -34,8 +34,8 @@ export default async function Index() {
       url: await fetchStorageUrl(createClient, bucketName, 'defensa_posiciones.mp4'),
     },
     {
-      name: 'entreno_velocidad',
-      url: await fetchStorageUrl(createClient, bucketName, 'entreno_velocidad'),
+      name: 'entreno_velocidad.mp4',
+      url: await fetchStorageUrl(createClient, bucketName, 'entreno_velocidad.mp4'),
     },
     {
       name: 'pases_trenza.mp4',
