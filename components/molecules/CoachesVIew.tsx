@@ -2,6 +2,7 @@
 import styled from 'styled-components'
 import { Banner } from '../atoms/Banner'
 import { MainCoachImage } from '../atoms/MainCoachImage'
+import { CoachFolderImages } from '../atoms/CoachFolderImages'
 
 const CoachesViewContainer = styled.article`
   width: 100%;
@@ -10,6 +11,8 @@ const CoachesViewContainer = styled.article`
   justify-content: center;
   align-items: center;
   gap: 50px;
+  padding-bottom: 30px;
+  box-sizing: border-box;
 `
 
 interface BannerProps {
@@ -36,6 +39,9 @@ export const CoachesVIew = ({data}) => {
           }
           if(component.type === 'mainCoachImage'){
             return <MainCoachImage image={component.image} figCaptDescr={component.figCaptDescr} />
+          }
+          if(component.type === 'folderImage'){
+            return <CoachFolderImages image1={component.image1} figCaptDescr1={component.figCaptDescr1} image2={component.image2} figCaptDescr2={component.figCaptDescr2} />
           }
         })
       }

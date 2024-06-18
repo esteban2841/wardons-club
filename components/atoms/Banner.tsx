@@ -9,6 +9,10 @@ export interface BannerProps {
     buttonTitle: string;
     figCaptDescr: string;
     size: number;
+    bannerPositionY: number;
+}
+export interface BannerImageProps {
+    positionY: number;
 }
 
 const BannerContainer = styled.div`
@@ -47,14 +51,15 @@ const CustomFigure = styled.figure`
 const CustomCaption = styled.figcaption`
 
 `
-const BannerImage = styled.img`
+const BannerImage = styled.img<BannerImageProps>`
     height: 100%;
     width: 100%;
     object-fit: cover;
-    object-position: 0px -350px;
+    object-position: 0 ${props => props.positionY ? props.positionY + '%' : '50%'};
 `
 
-export const Banner = ({image, title, buttonTitle, figCaptDescr} : BannerProps) => {
+export const Banner = ({image, title, buttonTitle, figCaptDescr, bannerPositionY} : BannerProps) => {
+  console.log("TCL: Banner -> bannerPositionY", bannerPositionY)
   return (
     <BannerContainer>
         <Overlay>
@@ -65,7 +70,7 @@ export const Banner = ({image, title, buttonTitle, figCaptDescr} : BannerProps) 
             
         </Overlay>
         <CustomFigure>
-            <BannerImage src={image}>
+            <BannerImage src={image} positionY={bannerPositionY} >
             
             </BannerImage>
             <CustomCaption>

@@ -13,3 +13,12 @@ export const fetchStorageUrl = async (cb: Function, storageBucketName: string, p
     
     return data.publicUrl
 }
+
+export const getFilesFromBucket = async (cb: Function, storageBucketName: string )  => {
+    
+    noStore()
+    const supabase = cb()
+    const { data, error } = await supabase.storage.from(storageBucketName);
+    
+    return data
+}

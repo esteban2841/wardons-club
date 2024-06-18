@@ -24,13 +24,10 @@ const Page = async () => {
     },
     {
       type: 'folderImage',
-      image: await fetchStorageUrl(createClient, bucketName, 'FREDY_FOLDER_1.png'),
-      figCaptDescr: 'fredy entrenador de baloncesto en villavicencio',
-    },
-    {
-      type: 'folderImage',
-      image: await fetchStorageUrl(createClient, bucketName, 'FREDY_FOLDER_2.png'),
-      figCaptDescr: 'fredy entrenador de baloncesto en villavicencio',
+      image1: await fetchStorageUrl(createClient, bucketName, 'FREDY_FOLDER_1.png'),
+      figCaptDescr1: 'fredy entrenador de baloncesto en villavicencio',
+      image2: await fetchStorageUrl(createClient, bucketName, 'FREDY_FOLDER_2.png'),
+      figCaptDescr2: 'fredy entrenador de baloncesto en villavicencio',
     },
     {
       type: 'mainCoachImage',
@@ -39,13 +36,10 @@ const Page = async () => {
     },
     {
       type: 'folderImage',
-      image: await fetchStorageUrl(createClient, bucketName, 'CRISTIAN_FOLDER_1.png'),
-      figCaptDescr: 'CRISTIAN entrenador de baloncesto en villavicencio',
-    },
-    {
-      type: 'folderImage',
-      image: await fetchStorageUrl(createClient, bucketName, 'CRISTIAN_FOLDER_2.png'),
-      figCaptDescr: 'CRISTIAN entrenador de baloncesto en villavicencio',
+      image1: await fetchStorageUrl(createClient, bucketName, 'CRISTIAN_FOLDER_1.png'),
+      figCaptDescr1: 'CRISTIAN entrenador de baloncesto en villavicencio',
+      image2: await fetchStorageUrl(createClient, bucketName, 'CRISTIAN_FOLDER_2.png'),
+      figCaptDescr2: 'CRISTIAN entrenador de baloncesto en villavicencio',
     },
   ]
   return (

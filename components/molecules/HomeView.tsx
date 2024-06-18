@@ -4,6 +4,7 @@ import "rsuite/dist/rsuite.css";
 import { Carousel } from 'rsuite';
 import Image from 'next/image'
 import { useEffect } from 'react';
+import { VideoPlayerSlider } from '../atoms/VideoPlayerSlider';
 
 const HomeContainer = styled.article`
     display: flex;
@@ -100,7 +101,7 @@ const slideData = [
     {},
 ]
 
-export const Home = () => {
+export const Home = ({data}) => {
     useEffect(()=>{
         const sliderSelector = document.querySelector('.rs-carousel-content')
         sliderSelector?.removeAttribute('height')
@@ -110,12 +111,13 @@ export const Home = () => {
         <Carousel autoplay autoplayInterval={4000} placement='bottom' className="custom-slider" style={{
             height: '100vh',
         }}>
-            <SlideContent>
+            {<VideoPlayerSlider data={data}></VideoPlayerSlider>}
+            {/* <SlideContent>
                 <ImageContainer src="https://hzahrfjtetaexlyfdecg.supabase.co/storage/v1/object/sign/Galeria/IMG_5730.jpeg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJHYWxlcmlhL0lNR181NzMwLmpwZWciLCJpYXQiOjE3MTc1NDI5MzYsImV4cCI6MTc0OTA3ODkzNn0.YvK6TYjTOXuA4MFiobS2fBDqq71QHMrf49HidHD390s&t=2024-06-04T23%3A15%3A35.966Z" alt='carousel-img' />
             </SlideContent>
             <SlideContent>
                 <ImageContainer src="https://hzahrfjtetaexlyfdecg.supabase.co/storage/v1/object/sign/Galeria/IMG_2483.jpeg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJHYWxlcmlhL0lNR18yNDgzLmpwZWciLCJpYXQiOjE3MTYwNzY4MDUsImV4cCI6MTcxNjY4MTYwNX0.pFwkTaWjq9aoGGf-zs_nmLGWVC_MnbvOoTNkuN1h3iY&t=2024-05-19T00%3A00%3A03.882Z" alt='carousel-img-1' />
-            </SlideContent>
+            </SlideContent> */}
         </Carousel>
         <Overlay>
             <WardonsTitle>

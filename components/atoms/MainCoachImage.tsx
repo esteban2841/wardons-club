@@ -1,20 +1,25 @@
 'use client'
-import React from 'react'
 import styled from "styled-components";
 
 const MainCoachImageContainer = styled.img`
     height: 100%;
     width: 100%;
-    object-fit: contain;
+    object-fit: cover;
+    border-radius: 25px;
     /* object-position: 0px -350px; */
 `
 
 const CustomFigure = styled.figure`
     height: 980px;
     width: 100%;
-    max-width: 1100px;
-    border-radius: 25px;
+    max-width: 1200px;
     overflow: hidden;
+    
+    @media (max-width: 768px) {
+        height: 400px;
+        width: 100%;
+        padding: 0px 20px;
+    }
     
 `
 
