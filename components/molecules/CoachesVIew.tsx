@@ -34,7 +34,7 @@ export const CoachesVIew = ({data}) => {
       {
         data.map(component=>{
           if(component.type === 'banner'){
-            return <Banner image={component.image} buttonTitle={component.buttonTitle} 
+            return <Banner bannerPositionY={55} image={component.image} buttonTitle={component.buttonTitle} 
             figCaptDescr={component.figCaptDescr} title={component.title} size={300} />
           }
           if(component.type === 'mainCoachImage'){
