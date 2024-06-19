@@ -14,57 +14,45 @@ const VideoPlayer = styled.video`
     height: 100%;
     .playerSource {
         display: none;
-        animation: fade-video 1s;
+        transition-property: all;
+        transition: all 2s;
+        transition-behavior: allow-discrete;
     }
-    @keyframes fade-video {
-        0% {
-            opacity: 1;
-        }
-        20% {
-            opacity: 0.9;
-            
-        }
-        40% {
-            opacity: 0.8;
-        }
-        60% {
-            opacity: 0.7;
-            
-        }
-        80% {
-            opacity: 0.6;
-        }
-        100% {
-            opacity: 0.5;            
-        }
+    .fade-in {
+        opacity: 1;
+        display: block;
     }
+    
+    .fade-out {
+        opacity: 0;
+        display: none;
+    }
+    
 `
 const SrcPlayer = styled.source`
 `
 
 
 export const VideoPlayerSlider = ({data}) => {
-	console.log("TCL: VideoPlayerSlider -> data", data)
     
     useEffect(()=>{
-        const videos = Array.from(document.querySelectorAll('.playerSource'));
-        console.log("TCL: VideoPlayerSlider -> videos", videos)
+        const videos = Array.from(document.querySelectorAll('.playerSource') as NodeListOf<HTMLVideoElement>);
         let currentIndex = 0;
     
         function playVideosSequentially() {
             const currentVideo = videos[currentIndex];
-			console.log("TCL: playVideosSequentially -> currentVideo", currentVideo)
-            currentVideo.style.display = 'block'; // Show current video
+            currentVideo.style.display = 'block' ; 
+            currentVideo.classList.add('fade-in')
+            // Apply fade-out effect
             currentVideo.play();
-        
-            currentVideo.onended = () => {
-                currentVideo.classList.add('fade'); // Apply fade-out effect
+            
+            currentVideo.onended = (event) => {
+                currentVideo.classList.add('fade-out')
                 setTimeout(() => {
-                    currentVideo.style.opacity = 'none'; // Hide video after fade-out
+                    currentVideo.style.display = 'none'
                     currentIndex = (currentIndex + 1) % videos.length; // Move to next index, wrapping around if necessary
-					console.log("TCL: currentVideo.onended -> currentIndex", currentIndex)
                     playVideosSequentially(); // Play the next video
-                }, 800); // Match the timeout with the CSS transition duration
+                }, 2000); // Match the timeout with the CSS transition duration
             };
         }
         playVideosSequentially()
