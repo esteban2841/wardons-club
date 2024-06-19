@@ -33,6 +33,10 @@ const SrcPlayer = styled.source`
 `
 
 
+interface Video {
+    name: string,
+    url: string
+}
 export const VideoPlayerSlider = ({data}) => {
     
     useEffect(()=>{
@@ -60,7 +64,7 @@ export const VideoPlayerSlider = ({data}) => {
     return (
         <VideoPlayerContainer>
                 {
-                    data.map(video=>{
+                    data.map((video: Video)=>{
                         return <VideoPlayer controls={false} autoPlay muted playsInline key={video.name} src={video.url} className='playerSource' >
                         </VideoPlayer>
                     })

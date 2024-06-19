@@ -108,7 +108,7 @@ export const Home = ({data}) => {
     }, [])
     return <HomeContainer className='carrousel'>
         
-        <Carousel autoplay autoplayInterval={4000} placement='bottom' className="custom-slider" style={{
+        <Carousel className="custom-slider" style={{
             height: '100vh',
         }}>
             {<VideoPlayerSlider data={data}></VideoPlayerSlider>}
