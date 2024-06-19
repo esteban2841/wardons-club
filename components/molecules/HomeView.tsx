@@ -21,6 +21,20 @@ const HomeContainer = styled.article`
     
         z-index: 3;
     }
+    .mobileVid {
+        display: none;
+    }
+    .desktopVid {
+        display: block;
+    }
+    @media (max-width: 768px) {
+        .desktopVid {
+            display: none;
+        }
+        .mobileVid {
+            display: block;
+        }
+    }
 `
 const ImageContainer = styled.img`
   width: 100%;
@@ -95,29 +109,22 @@ const SubTitle = styled.h1`
     }
 `
 
-const slideData = [
-    {},
-    {},
-    {},
-]
-
-export const Home = ({data}) => {
+export const Home = (props) => {
     useEffect(()=>{
         const sliderSelector = document.querySelector('.rs-carousel-content')
         sliderSelector?.removeAttribute('height')
     }, [])
     return <HomeContainer className='carrousel'>
         
-        <Carousel className="custom-slider" style={{
+        <Carousel className="custom-slider desktopVid" style={{
             height: '100vh',
         }}>
-            {<VideoPlayerSlider data={data}></VideoPlayerSlider>}
-            {/* <SlideContent>
-                <ImageContainer src="https://hzahrfjtetaexlyfdecg.supabase.co/storage/v1/object/sign/Galeria/IMG_5730.jpeg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJHYWxlcmlhL0lNR181NzMwLmpwZWciLCJpYXQiOjE3MTc1NDI5MzYsImV4cCI6MTc0OTA3ODkzNn0.YvK6TYjTOXuA4MFiobS2fBDqq71QHMrf49HidHD390s&t=2024-06-04T23%3A15%3A35.966Z" alt='carousel-img' />
-            </SlideContent>
-            <SlideContent>
-                <ImageContainer src="https://hzahrfjtetaexlyfdecg.supabase.co/storage/v1/object/sign/Galeria/IMG_2483.jpeg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJHYWxlcmlhL0lNR18yNDgzLmpwZWciLCJpYXQiOjE3MTYwNzY4MDUsImV4cCI6MTcxNjY4MTYwNX0.pFwkTaWjq9aoGGf-zs_nmLGWVC_MnbvOoTNkuN1h3iY&t=2024-05-19T00%3A00%3A03.882Z" alt='carousel-img-1' />
-            </SlideContent> */}
+            {<VideoPlayerSlider data={props.data}></VideoPlayerSlider>}
+        </Carousel>
+        <Carousel className="custom-slider mobileVid" style={{
+            height: '100vh',
+        }}>
+            {<VideoPlayerSlider data={props.dataMobile}></VideoPlayerSlider>}
         </Carousel>
         <Overlay>
             <WardonsTitle>

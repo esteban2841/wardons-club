@@ -15,8 +15,9 @@ export default async function Index() {
   } = await supabase.auth.getUser();
   
   const bucketName = 'videos-home'
+  const bucketNameMobile = 'videos-home-mobile'
 
-  const videoList = [
+  const videoListDesktop = [
     {
       name: 'wardons_grito.mp4',
       url: await fetchStorageUrl(createClient, bucketName, 'wardons_grito.mp4'),
@@ -50,10 +51,44 @@ export default async function Index() {
       url: await fetchStorageUrl(createClient, bucketName, 'pases_presion.mp4'),
     },
   ]
+  const videoListMobile = [
+    {
+      name: 'wardons_grito.mp4',
+      url: await fetchStorageUrl(createClient, bucketNameMobile, 'wardons_grito.mp4'),
+    },
+    {
+      name: 'saludo-partido.mp4',
+      url: await fetchStorageUrl(createClient, bucketNameMobile, 'saludo-partido.mp4'),
+    },
+    {
+      name: 'jump-ball.mp4',
+      url: await fetchStorageUrl(createClient, bucketNameMobile, 'jump-ball.mp4'),
+    },
+    {
+      name: 'cesta_partido_dobleritmo.mp4',
+      url: await fetchStorageUrl(createClient, bucketNameMobile, 'cesta_partido_dobleritmo.mp4'),
+    },
+    {
+      name: 'doble-ritmo-obstaculos.mp4',
+      url: await fetchStorageUrl(createClient, bucketNameMobile, 'doble-ritmo-obstaculos.mp4'),
+    },
+    {
+      name: 'direccion-drible.mp4',
+      url: await fetchStorageUrl(createClient, bucketNameMobile, 'direccion-drible.mp4'),
+    },
+    {
+      name: 'drible-ocho.mp4',
+      url: await fetchStorageUrl(createClient, bucketNameMobile, 'drible-ocho.mp4'),
+    },
+    {
+      name: 'cambio-direccion.mp4',
+      url: await fetchStorageUrl(createClient, bucketNameMobile, 'cambio-direccion.mp4'),
+    },
+  ]
 
   return (
     <div className="flex-1 w-full flex flex-col gap-20 items-center relative text-[#fff]">
-      <Home data={videoList} />
+      <Home data={videoListDesktop} dataMobile={videoListMobile}/>
       <h2>Localiza tu sede mas cercana y visitanos!</h2>
       <Suspense fallback={<MapLoader/>}>
         <MapScenarios/>

@@ -7,8 +7,10 @@ const VideoPlayerContainer = styled.article`
     display: flex;
     flex-direction: column;
     width: 100%;
-    
-`
+    @media (max-width: 768px) {
+        width: 100%;
+    }
+    `
 const VideoPlayer = styled.video`
     width: 100%;
     height: 100%;
@@ -56,7 +58,7 @@ export const VideoPlayerSlider = ({data}) => {
                     currentVideo.style.display = 'none'
                     currentIndex = (currentIndex + 1) % videos.length; // Move to next index, wrapping around if necessary
                     playVideosSequentially(); // Play the next video
-                }, 2000); // Match the timeout with the CSS transition duration
+                }, 1000); // Match the timeout with the CSS transition duration
             };
         }
         playVideosSequentially()
