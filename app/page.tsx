@@ -4,7 +4,7 @@ import { Home } from "@/components/molecules/HomeView"
 import { MapScenarios } from '@/components/molecules/MapScenarios'
 import { Suspense } from 'react';
 import MapLoader from '@/components/atoms/MapLoader';
-import { fetchStorageUrl, getFilesFromBucket } from '@/helpers/handleStorageData';
+import { fetchStorageUrl } from '@/helpers/handleStorageData';
 
 export default async function Index() {
 
@@ -13,7 +13,7 @@ export default async function Index() {
   const {
     data: { user },
   } = await supabase.auth.getUser();
-  
+
   const bucketName = 'videos-home'
   const bucketNameMobile = 'videos-home-mobile'
 

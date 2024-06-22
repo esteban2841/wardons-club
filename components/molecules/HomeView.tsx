@@ -1,10 +1,7 @@
 'use client'
 import styled from 'styled-components'
-import "rsuite/dist/rsuite.css";
-import { Carousel } from 'rsuite';
-import Image from 'next/image'
-import { useEffect } from 'react';
 import { VideoPlayerSlider } from '../atoms/VideoPlayerSlider';
+import { useEffect, useState } from 'react';
 
 const HomeContainer = styled.article`
     display: flex;
@@ -14,13 +11,7 @@ const HomeContainer = styled.article`
     width: 100%;
     position: relative;
     height: 100vh;
-    .custom-slider {
-        height: '100vh'
-    }
-    .rs-carousel-toolbar{
-    
-        z-index: 3;
-    }
+    overflow: hidden;
     .mobileVid {
         display: none;
     }
@@ -36,19 +27,7 @@ const HomeContainer = styled.article`
         }
     }
 `
-const ImageContainer = styled.img`
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: top;
-`
 
-const SlideContent = styled.div`
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-`
 const Overlay = styled.div`
     display: flex;
     flex-direction: column;
@@ -110,22 +89,16 @@ const SubTitle = styled.h1`
 `
 
 export const Home = (props) => {
-    useEffect(()=>{
-        const sliderSelector = document.querySelector('.rs-carousel-content')
-        sliderSelector?.removeAttribute('height')
-    }, [])
+
+    // const [isMobile, setIsMobile] = useState(false)
+
+    // useEffect(()=>{
+    //     const mobile = document.
+    // }, [isMobile])
+
     return <HomeContainer className='carrousel'>
         
-        <Carousel className="custom-slider desktopVid" style={{
-            height: '100vh',
-        }}>
-            {<VideoPlayerSlider data={props.data}></VideoPlayerSlider>}
-        </Carousel>
-        <Carousel className="custom-slider mobileVid" style={{
-            height: '100vh',
-        }}>
-            {<VideoPlayerSlider data={props.dataMobile}></VideoPlayerSlider>}
-        </Carousel>
+        {<VideoPlayerSlider data={props.data}></VideoPlayerSlider>}
         <Overlay>
             <WardonsTitle>
                 WARDONS

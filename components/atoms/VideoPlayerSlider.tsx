@@ -7,6 +7,8 @@ const VideoPlayerContainer = styled.article`
     display: flex;
     flex-direction: column;
     width: 100%;
+    height: 100%;
+    position: relative;
     @media (max-width: 768px) {
         width: 100%;
     }
@@ -14,6 +16,10 @@ const VideoPlayerContainer = styled.article`
 const VideoPlayer = styled.video`
     width: 100%;
     height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
     .playerSource {
         display: none;
         transition-property: all;
@@ -41,28 +47,32 @@ interface Video {
 }
 export const VideoPlayerSlider = ({data}) => {
     
+    let currentIndex = 0;
+    
+    function playVideosSequentially(videoArray : Array<HTMLVideoElement> , index: number) {
+		console.log("TCL: playVideosSequentially -> videoArray", videoArray)
+        const currentVideo = videoArray[currentIndex];
+        // Apply fade-out effect
+        currentVideo.style.display = 'block' ; 
+        currentVideo.classList.add('fade-in')
+        
+        currentVideo.play();
+        
+        
+        currentVideo.onended = (event) => {
+            currentVideo.classList.add('fade-out')
+            setTimeout(() => {
+                currentVideo.style.display = 'none'
+                currentIndex = (currentIndex + 1) % videoArray.length; // Move to next index, wrapping around if necessary
+                console.log("TCL: currentVideo.onended -> currentIndex", currentIndex + 1, videoArray.length, (currentIndex + 1) % videoArray.length, )
+            }, 1000); // Match the timeout with the CSS transition duration
+            playVideosSequentially(videoArray, currentIndex); // Play the next video
+        };
+    }
     useEffect(()=>{
         const videos = Array.from(document.querySelectorAll('.playerSource') as NodeListOf<HTMLVideoElement>);
-        let currentIndex = 0;
-    
-        function playVideosSequentially() {
-            const currentVideo = videos[currentIndex];
-            currentVideo.style.display = 'block' ; 
-            currentVideo.classList.add('fade-in')
-            // Apply fade-out effect
-            currentVideo.play();
-            
-            currentVideo.onended = (event) => {
-                currentVideo.classList.add('fade-out')
-                setTimeout(() => {
-                    currentVideo.style.display = 'none'
-                    currentIndex = (currentIndex + 1) % videos.length; // Move to next index, wrapping around if necessary
-                    playVideosSequentially(); // Play the next video
-                }, 1000); // Match the timeout with the CSS transition duration
-            };
-        }
-        playVideosSequentially()
-    })
+        playVideosSequentially(videos, currentIndex)
+    }, [])
     return (
         <VideoPlayerContainer>
                 {
