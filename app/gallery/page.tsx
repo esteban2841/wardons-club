@@ -4,6 +4,28 @@ import { fetchStorageUrl } from "@/helpers/handleStorageData";
 import { createClient } from "@/utils/supabase/server";
 
 const Page = async () => {
+  const triPackVerticalPhotos = [
+    {
+      type: 'verticalRatio',
+      url: await fetchStorageUrl(createClient, 'gallery', 'GALLERY_BANNER.png')
+    },
+    {
+      type: 'verticalRatio',
+      url: await fetchStorageUrl(createClient, 'gallery', 'GALLERY_BANNER.png')
+    },
+    {
+      type: 'verticalRatio',
+      url: await fetchStorageUrl(createClient, 'gallery', 'GALLERY_BANNER.png')
+    },
+    {
+      type: 'verticalRatio',
+      url: await fetchStorageUrl(createClient, 'gallery', 'GALLERY_BANNER.png')
+    },
+    {
+      type: 'verticalRatio',
+      url: await fetchStorageUrl(createClient, 'gallery', 'GALLERY_BANNER.png')
+    },
+  ]
   return (
     <GalleryView>
         <Banner 

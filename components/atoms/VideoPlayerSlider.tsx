@@ -50,7 +50,6 @@ export const VideoPlayerSlider = ({data}) => {
     let currentIndex = 0;
     
     function playVideosSequentially(videoArray : Array<HTMLVideoElement> , index: number) {
-		console.log("TCL: playVideosSequentially -> videoArray", videoArray)
         const currentVideo = videoArray[currentIndex];
         // Apply fade-out effect
         currentVideo.style.display = 'block' ; 
@@ -64,7 +63,6 @@ export const VideoPlayerSlider = ({data}) => {
             setTimeout(() => {
                 currentVideo.style.display = 'none'
                 currentIndex = (currentIndex + 1) % videoArray.length; // Move to next index, wrapping around if necessary
-                console.log("TCL: currentVideo.onended -> currentIndex", currentIndex + 1, videoArray.length, (currentIndex + 1) % videoArray.length, )
             }, 1000); // Match the timeout with the CSS transition duration
             playVideosSequentially(videoArray, currentIndex); // Play the next video
         };

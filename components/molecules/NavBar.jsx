@@ -12,10 +12,15 @@ const NavBarContainer = styled.nav`
     position: fixed;
     width: 100%;
     height: 70px;
-    padding: 20px;
+    padding: 0px 60px;
     z-index: 10;
     transition: 1s ease;
     background-color: rgb(20,22,23, ${props => props.$opacity ? 0.5 : 1});
+    @media (max-width: 768px) {
+        
+        padding: 0px 20px;
+    }
+    
     .wardons-logo{
         cursor: pointer;
         &:hover{
@@ -60,6 +65,7 @@ const navBarSections = [
 
 const NavBar = () => {
     const [ isScrolledThenChangeColor, setIsScrolledThenChangeColor ] = useState(false)
+    const [ toggleNavBarMobile, setToggleNavBarMobile ] = useState(false)
 
     
     useEffect(()=>{
@@ -67,8 +73,10 @@ const NavBar = () => {
         window.addEventListener('scroll', handleChangeColorOnNav)
     }, [window.scrollY])
 
-    const toggleMobileNavBar = ()=>{
-
+    const handleToggleMobileNavBar = ()=>{
+		console.log("TCL: toggleMobileNavBar -> toggleMobileNavBar", toggleNavBarMobile)
+        setToggleNavBarMobile(!toggleNavBarMobile)
+		console.log("TCL: toggleNavBarMobile -> toggleMobileNavBar", toggleNavBarMobile)
     }
     
     return (
@@ -76,10 +84,10 @@ const NavBar = () => {
 
             <NavBarContainer $opacity={isScrolledThenChangeColor} >
                 <Image className='wardons-logo' src='/assets/images/wardons-logo-mobile.png' alt="logo-mobile" width={60} height={60}/>
-                <IconContainer onClick={toggleMobileNavBar} >
+                <IconContainer onClick={handleToggleMobileNavBar} >
                     <MenuIcon className='menu-icon' fill='#E84C1A' width={'none'} height={'none'}/>
                 </IconContainer>
-                <NavBarElements data={navBarSections} customSize='20px' color='#fff' hoverColor={'#E84C1A'} weight={600} fontFamilyType='"Julee", cursive'/>
+                <NavBarElements data={navBarSections} isMobile={toggleNavBarMobile} onClose={handleToggleMobileNavBar} customSize='20px' color='#fff' hoverColor={'#E84C1A'} weight={600} fontFamilyType='"Julee", cursive'/>
             </NavBarContainer>
         </HeaderContainer>
     )

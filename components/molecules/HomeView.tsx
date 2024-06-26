@@ -37,7 +37,7 @@ const Overlay = styled.div`
     padding: 0px 0px 0px 100px;
     width: 100%;
     height: 100%;
-    background-color: rgb(0, 0, 0, 0.3);
+    background-color: rgb(0, 0, 0, 0.6);
     z-index: 2;
     @media (min-width: 1700px) {
         font-size:300px;
