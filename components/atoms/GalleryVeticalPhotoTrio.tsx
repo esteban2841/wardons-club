@@ -13,8 +13,9 @@ const ImageGalleryTrioContainer = styled.figure`
   gap: 10px;
 `
 const ImageGalleryTrio = styled.img`
-  width: 33%;
+  width: 30%;
   object-fit: contain;
+  border-radius: 10px;
 `
 
 export const GalleryVeticalPhotoTrio = ({photosTriPack, defaultImgUrl}) => {

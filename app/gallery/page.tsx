@@ -173,6 +173,18 @@ const Page = async () => {
         <GalleryVeticalPhotoTrio defaultImgUrl={await fetchStorageUrl(createClient, 'gallery', 'GALLERY_BANNER.png')} photosTriPack={triPackVerticalPhotos.slice(0,3)}>
 
         </GalleryVeticalPhotoTrio>
+        <GalleryVeticalPhotoTrio defaultImgUrl={await fetchStorageUrl(createClient, 'gallery', 'GALLERY_BANNER.png')} photosTriPack={triPackVerticalPhotos.slice(3,7)}>
+
+        </GalleryVeticalPhotoTrio>
+        <GalleryVeticalPhotoTrio defaultImgUrl={await fetchStorageUrl(createClient, 'gallery', 'GALLERY_BANNER.png')} photosTriPack={triPackVerticalPhotos.slice(6,9)}>
+
+        </GalleryVeticalPhotoTrio>
+        <GalleryVeticalPhotoTrio defaultImgUrl={await fetchStorageUrl(createClient, 'gallery', 'GALLERY_BANNER.png')} photosTriPack={triPackVerticalPhotos.slice(9,12)}>
+
+        </GalleryVeticalPhotoTrio>
+        <GalleryVeticalPhotoTrio defaultImgUrl={await fetchStorageUrl(createClient, 'gallery', 'GALLERY_BANNER.png')} photosTriPack={triPackVerticalPhotos.slice(12,15)}>
+
+        </GalleryVeticalPhotoTrio>
     </GalleryView>
   )
 }
