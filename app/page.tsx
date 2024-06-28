@@ -3,8 +3,9 @@ import { createClient } from "@/utils/supabase/server";
 import { Home } from "@/components/molecules/HomeView"
 import { MapScenarios } from '@/components/molecules/MapScenarios'
 import { Suspense } from 'react';
-import MapLoader from '@/components/atoms/MapLoader';
+import MapLoader from '@/components/loaders/MapLoader';
 import { fetchStorageUrl } from '@/helpers/handleStorageData';
+import { HomeLoader } from '@/components/loaders/HomeLoader';
 
 export default async function Index() {
 
@@ -16,6 +17,8 @@ export default async function Index() {
 
   const bucketName = 'videos-home'
   const bucketNameMobile = 'videos-home-mobile'
+
+  const loadingImage : () => Promise<string> = async ()=> await fetchStorageUrl(createClient, bucketName, 'wardons_grito.mp4')
 
   const videoListDesktop = [
     {
@@ -88,7 +91,9 @@ export default async function Index() {
 
   return (
     <div className="flex-1 w-full flex flex-col gap-20 items-center relative text-[#fff]">
-      <Home data={videoListDesktop} dataMobile={videoListMobile}/>
+      <Suspense fallback={<HomeLoader loadingImage={loadingImage()}/>}>
+        <Home data={videoListDesktop} dataMobile={videoListMobile}/>
+      </Suspense>
       <h2>Localiza tu sede mas cercana y visitanos!</h2>
       <Suspense fallback={<MapLoader/>}>
         <MapScenarios/>

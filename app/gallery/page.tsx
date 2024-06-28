@@ -3,6 +3,8 @@ import { GalleryVeticalPhotoTrio } from "@/components/atoms/GalleryVeticalPhotoT
 import { GalleryView } from "@/components/molecules/GalleryView"
 import { fetchStorageUrl } from "@/helpers/handleStorageData";
 import { createClient } from "@/utils/supabase/server";
+import { Suspense } from "react";
+import { CardSkeleton } from '@/components/loaders/ImageSckeleton'
 
 const Page = async () => {
   const triPackVerticalPhotos = [
@@ -48,8 +50,8 @@ const Page = async () => {
     },
     {
       type: 'verticalRatio',
-      name: 'NIÑAS_DEFENSA_V.png',
-      url: await fetchStorageUrl(createClient, 'gallery', 'NIÑAS_DEFENSA_V.png')
+      name: 'NI_AS_DEFENSA_V.png',
+      url: await fetchStorageUrl(createClient, 'gallery', 'NI_AS_DEFENSA_V.png')
     },
     {
       type: 'verticalRatio',
@@ -63,8 +65,8 @@ const Page = async () => {
     },
     {
       type: 'verticalRatio',
-      name: 'GRANDES_DEFENSA_V.png',
-      url: await fetchStorageUrl(createClient, 'gallery', 'GRANDES_DEFENSA_V.png')
+      name: 'GRANDES_DEFENSA.png',
+      url: await fetchStorageUrl(createClient, 'gallery', 'GRANDES_DEFENSA.png')
     },
     {
       type: 'verticalRatio',
@@ -146,8 +148,8 @@ const Page = async () => {
     },
     {
       type: 'horizontalRatio',
-      name: 'NIÑOS_DRIBLE_H.png',
-      url: await fetchStorageUrl(createClient, 'gallery', 'NIÑOS_DRIBLE_H.png')
+      name: 'NI_OS_DRIBLE_H.png',
+      url: await fetchStorageUrl(createClient, 'gallery', 'NI_OS_DRIBLE_H.png')
     },
     {
       type: 'horizontalRatio',
@@ -170,21 +172,36 @@ const Page = async () => {
             size={300}
             bannerPositionY={40}
         />
-        <GalleryVeticalPhotoTrio defaultImgUrl={await fetchStorageUrl(createClient, 'gallery', 'GALLERY_BANNER.png')} photosTriPack={triPackVerticalPhotos.slice(0,3)}>
+        <Suspense fallback={CardSkeleton()}>
 
-        </GalleryVeticalPhotoTrio>
-        <GalleryVeticalPhotoTrio defaultImgUrl={await fetchStorageUrl(createClient, 'gallery', 'GALLERY_BANNER.png')} photosTriPack={triPackVerticalPhotos.slice(3,7)}>
+          <GalleryVeticalPhotoTrio defaultImgUrl={await fetchStorageUrl(createClient, 'gallery', 'GALLERY_BANNER.png')} photosTriPack={triPackVerticalPhotos.slice(0,3)}>
 
-        </GalleryVeticalPhotoTrio>
-        <GalleryVeticalPhotoTrio defaultImgUrl={await fetchStorageUrl(createClient, 'gallery', 'GALLERY_BANNER.png')} photosTriPack={triPackVerticalPhotos.slice(6,9)}>
+          </GalleryVeticalPhotoTrio>
+        </Suspense>
+        <Suspense fallback={CardSkeleton()}>
+          <GalleryVeticalPhotoTrio defaultImgUrl={await fetchStorageUrl(createClient, 'gallery', 'GALLERY_BANNER.png')} photosTriPack={triPackVerticalPhotos.slice(3,6)}>
 
-        </GalleryVeticalPhotoTrio>
-        <GalleryVeticalPhotoTrio defaultImgUrl={await fetchStorageUrl(createClient, 'gallery', 'GALLERY_BANNER.png')} photosTriPack={triPackVerticalPhotos.slice(9,12)}>
+          </GalleryVeticalPhotoTrio>
 
-        </GalleryVeticalPhotoTrio>
-        <GalleryVeticalPhotoTrio defaultImgUrl={await fetchStorageUrl(createClient, 'gallery', 'GALLERY_BANNER.png')} photosTriPack={triPackVerticalPhotos.slice(12,15)}>
+        </Suspense>
+        <Suspense fallback={CardSkeleton()}>
+          <GalleryVeticalPhotoTrio defaultImgUrl={await fetchStorageUrl(createClient, 'gallery', 'GALLERY_BANNER.png')} photosTriPack={triPackVerticalPhotos.slice(6,9)}>
 
-        </GalleryVeticalPhotoTrio>
+          </GalleryVeticalPhotoTrio>
+
+        </Suspense>
+        <Suspense fallback={CardSkeleton()}>
+          <GalleryVeticalPhotoTrio defaultImgUrl={await fetchStorageUrl(createClient, 'gallery', 'GALLERY_BANNER.png')} photosTriPack={triPackVerticalPhotos.slice(9,12)}>
+
+          </GalleryVeticalPhotoTrio>
+
+        </Suspense>
+        <Suspense fallback={CardSkeleton()}>
+
+          <GalleryVeticalPhotoTrio defaultImgUrl={await fetchStorageUrl(createClient, 'gallery', 'GALLERY_BANNER.png')} photosTriPack={triPackVerticalPhotos.slice(12,15)}>
+
+          </GalleryVeticalPhotoTrio>
+        </Suspense>
     </GalleryView>
   )
 }

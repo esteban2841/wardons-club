@@ -74,9 +74,7 @@ const NavBar = () => {
     }, [window.scrollY])
 
     const handleToggleMobileNavBar = ()=>{
-		console.log("TCL: toggleMobileNavBar -> toggleMobileNavBar", toggleNavBarMobile)
         setToggleNavBarMobile(!toggleNavBarMobile)
-		console.log("TCL: toggleNavBarMobile -> toggleMobileNavBar", toggleNavBarMobile)
     }
     
     return (

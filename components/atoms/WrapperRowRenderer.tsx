@@ -16,7 +16,7 @@ const baseUrl = process.env.VERCEL_URL
 const WrapperRowRouterRedirect = ({children, dynamicClasses, route, onClose}: RowRedirectProps) => {
   return (
    <Link
-    href={`${baseUrl}/${route}`}
+    href={`${baseUrl}${route}`}
     className={`no-underline text-inherit ${dynamicClasses}`}
     onClick={
       onClose

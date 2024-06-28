@@ -4,12 +4,13 @@ const nextConfig = {
         styledComponents: true,
     },
     images: {
+        
         remotePatterns: [
           {
             protocol: 'https',
-            hostname: 'https://hzahrfjtetaexlyfdecg.supabase.co/storage/v1/object/sign/',
+            hostname: 'hzahrfjtetaexlyfdecg.supabase.co',
             port: '',
-            pathname: '/**',
+            pathname: '/storage/v1/object/public/**', // Adjust the pathname pattern according to your needs
           },
         ],
       },
