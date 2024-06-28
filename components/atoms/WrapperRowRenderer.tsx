@@ -14,6 +14,7 @@ const baseUrl = process.env.VERCEL_URL
 : "http://localhost:3000";
 
 const WrapperRowRouterRedirect = ({children, dynamicClasses, route, onClose}: RowRedirectProps) => {
+  console.log("TCL:  process.env.VERCEL_URL",  process.env.VERCEL_URL)
   return (
    <Link
     href={`${baseUrl}${route}`}
