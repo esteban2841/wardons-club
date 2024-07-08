@@ -120,7 +120,7 @@ export const NavBarElements = ({customSize, color, fontFamilyType, weight, hover
             {data.map(element=>{
               return (
                 <WrapperRowRouterRedirect baseUrl={baseUrl} onClose={onClose} key={element.title} route={element.href} dynamicClasses='underline-compose'>
-                  <SubTitleNavBar  data={data} customSize={customSize} color={color} fontFamilyType={fontFamilyType} weight={weight} hoverColor={hoverColor}>
+                  <SubTitleNavBar baseUrl='' data={data} customSize={customSize} color={color} fontFamilyType={fontFamilyType} weight={weight} hoverColor={hoverColor}>
                     {element.title}
                   </SubTitleNavBar>
                 </WrapperRowRouterRedirect>
