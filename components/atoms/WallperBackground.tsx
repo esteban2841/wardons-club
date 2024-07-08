@@ -3,7 +3,8 @@
 import styled from "styled-components"
 
 type ImageUrl = {
-    imageUrl?: string
+    imageUrl?: string,
+    colorBack?: string
 }
 
 const WallperContainer = styled.div<ImageUrl>`
@@ -15,7 +16,7 @@ const WallperContainer = styled.div<ImageUrl>`
     background:  url(${props => props.imageUrl ? (props.imageUrl) : 'https://cdn.nba.com/manage/2024/04/Play-In-2-wide___-1.png'});
 `
 
-export const WallperBackground = ({imageUrl}: ImageUrl) => {
+export const WallperBackground = ({imageUrl, colorBack}: ImageUrl) => {
   return (
     <WallperContainer imageUrl={imageUrl}>
         

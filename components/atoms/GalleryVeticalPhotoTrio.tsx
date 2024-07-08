@@ -3,6 +3,7 @@
 import { fetchStorageUrl } from "@/helpers/handleStorageData"
 import { useEffect, useState } from "react";
 import styled from "styled-components"
+import { WallperBackground } from "./WallperBackground";
 
 interface WardonPhoto{
   type: string;
@@ -18,6 +19,7 @@ const ImageGalleryTrioContainer = styled.figure`
   align-items: center;
   flex-wrap: wrap;
   max-width: 1200px;
+  position: relative;
   gap: 10px;
   .caption{
     visibility: hidden;
@@ -40,10 +42,19 @@ const SkeletonLoader = styled.div`
   }
 `;
 
-const ImageGalleryTrio = styled.img`
+const ImageContainer = styled.div`
   width: 30%;
-  object-fit: contain;
   border-radius: 10px;
+  overflow: hidden;
+`
+const ImageGalleryTrio = styled.img`
+  width: 100%;
+  object-fit: contain;
+  transition: ease-in-out 2s ;
+  &:hover{
+    scale: 1.2;
+    cursor: pointer;
+  }
 `
 
 export const GalleryVeticalPhotoTrio = ({photosTriPack, defaultImgUrl}) => {
@@ -65,14 +76,17 @@ export const GalleryVeticalPhotoTrio = ({photosTriPack, defaultImgUrl}) => {
 
   return (
     <ImageGalleryTrioContainer>
+      
       {loading? (
         <>
           {[...Array(3)].map((_, index) => (
-            <SkeletonLoader key={index} style={{ width: '33%', height: 'auto', borderRadius: '10px' }} />
+            <SkeletonLoader key={index} style={{ width: '33%', height: '100%', borderRadius: '10px' }} />
           ))}
         </>
       ) : photosTriPack?.map(photo=>{
-        return <ImageGalleryTrio loading="lazy" src={photo.url} alt={photo.name} onError={(e)=>showDefaulImg(e)} />  
+        return <ImageContainer>
+            <ImageGalleryTrio loading="lazy" src={photo.url} alt={photo.name} onError={(e)=>showDefaulImg(e)} /> 
+          </ImageContainer> 
         })
       }
 
