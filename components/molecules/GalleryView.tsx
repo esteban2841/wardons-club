@@ -7,7 +7,7 @@ const GalleryViewContainer = styled.article`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 50px;
+  gap: 10px;
   padding-bottom: 30px;
   box-sizing: border-box;
 `

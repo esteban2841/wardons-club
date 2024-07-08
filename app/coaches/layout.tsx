@@ -1,7 +1,13 @@
+import { CardSkeleton } from "@/components/loaders/ImageSckeleton"
 
-const Layout = () => {
+const Layout = ({children}) => {
   return (
-    <div>layout</div>
+    <article className="flex flex-row items-center 
+    justify-center w-full"
+    
+    >
+      {children}
+    </article>
   )
 }
 export default Layout

@@ -22,6 +22,7 @@ const BannerContainer = styled.div`
     align-items: center;
     color:  #ffffff;
     width: 100%;
+    padding-bottom: 20px;
 `
 
 const Overlay = styled.div`
@@ -36,6 +37,7 @@ const Overlay = styled.div`
     gap: 15px;
     font-size: 24px;
     box-shadow: inset 0 0 300px #0000;
+
     h1{
         font-weight: 700;
         font-size: 34px;

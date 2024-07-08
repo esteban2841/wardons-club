@@ -94,10 +94,6 @@ export default async function Index() {
       <Suspense fallback={<HomeLoader loadingImage={loadingImage()}/>}>
         <Home data={videoListDesktop} dataMobile={videoListMobile}/>
       </Suspense>
-      <h2>Localiza tu sede mas cercana y visitanos!</h2>
-      <Suspense fallback={<MapLoader/>}>
-        <MapScenarios/>
-      </Suspense>
     </div>
   );
 }

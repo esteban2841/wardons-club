@@ -32,8 +32,9 @@ export const MapScenarios = () => {
         left: 0,
         position: 'relative',
         top: 0,
-        width: '100%',
-        boxSizing: 'border-box'
+        width: '80%',
+        boxSizing: 'border-box',
+        borderRadius: '10px'
       }}
     >
       { userLocation?.join(',') }

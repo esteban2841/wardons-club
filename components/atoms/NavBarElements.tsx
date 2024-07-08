@@ -47,6 +47,9 @@ const ListNavBar = styled.ul<listPropsContainer>`
     margin: 0;
     height: 100%;
     box-sizing: border-box;
+    &:hover{
+      opacity: .7;
+    }
     @media (max-width: 768px) {
       display: ${props => props.isMobile ? props.isMobile && 'flex' : 'none'};
       flex-direction: column;
@@ -80,6 +83,10 @@ const ListItemNavBar = styled.li`
       &:hover{
         border-bottom: 4px solid #E84C1A;
         border-radius: 4px;
+         li ~ a{
+          opacity: 1;
+        }
+        
       }
       @media (max-width: 768px) {
         flex-direction: column;
