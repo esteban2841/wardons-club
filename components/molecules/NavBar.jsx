@@ -63,7 +63,7 @@ const navBarSections = [
     {title: 'contacto', href: '/contact'},
   ]
 
-const NavBar = () => {
+const NavBar = ({baseUrl}) => {
     const [ isScrolledThenChangeColor, setIsScrolledThenChangeColor ] = useState(false)
     const [ toggleNavBarMobile, setToggleNavBarMobile ] = useState(false)
 
@@ -85,7 +85,7 @@ const NavBar = () => {
                 <IconContainer onClick={handleToggleMobileNavBar} >
                     <MenuIcon className='menu-icon' fill='#E84C1A' width={'none'} height={'none'}/>
                 </IconContainer>
-                <NavBarElements data={navBarSections} isMobile={toggleNavBarMobile} onClose={handleToggleMobileNavBar} customSize='20px' color='#fff' hoverColor={'#E84C1A'} weight={600} fontFamilyType='"Julee", cursive'/>
+                <NavBarElements baseUrl={baseUrl} data={navBarSections} isMobile={toggleNavBarMobile} onClose={handleToggleMobileNavBar} customSize='20px' color='#fff' hoverColor={'#E84C1A'} weight={600} fontFamilyType='"Julee", cursive'/>
             </NavBarContainer>
         </HeaderContainer>
     )

@@ -7,14 +7,11 @@ export interface RowRedirectProps {
   route: string,
   children: ReactElement,
   onClose?: () => void,
+  baseUrl: string, 
 }
 
-const baseUrl = process.env.VERCEL_URL
-? `https://${process.env.VERCEL_URL}`
-: "http://localhost:3000";
 
-const WrapperRowRouterRedirect = ({children, dynamicClasses, route, onClose}: RowRedirectProps) => {
-  console.log("TCL:  process.env.VERCEL_URL",  process.env.VERCEL_URL)
+const WrapperRowRouterRedirect = ({children, dynamicClasses, route, onClose, baseUrl}: RowRedirectProps) => {
   return (
    <Link
     href={`${baseUrl}${route}`}

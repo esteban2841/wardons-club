@@ -17,6 +17,7 @@ interface titleProps {
   hoverColor?: string, 
   isMobile?: boolean,
   onClose?: () => void,
+  baseUrl: string,
 }
 
 interface listPropsContainer {
@@ -110,14 +111,15 @@ const SubTitleNavBar = styled.h1<titleProps>`
     }
 `
 
-export const NavBarElements = ({customSize, color, fontFamilyType, weight, hoverColor, data, isMobile, onClose}: titleProps) => {
+
+export const NavBarElements = ({customSize, color, fontFamilyType, weight, hoverColor, data, isMobile, onClose, baseUrl}: titleProps) => {
   return (
     <ListNavBar isMobile={isMobile}>
       <OverlayMobile onClick={()=>onClose()} isMobile={isMobile}>
         <ListItemNavBar>
             {data.map(element=>{
               return (
-                <WrapperRowRouterRedirect onClose={onClose} key={element.title} route={element.href} dynamicClasses='underline-compose'>
+                <WrapperRowRouterRedirect baseUrl={baseUrl} onClose={onClose} key={element.title} route={element.href} dynamicClasses='underline-compose'>
                   <SubTitleNavBar  data={data} customSize={customSize} color={color} fontFamilyType={fontFamilyType} weight={weight} hoverColor={hoverColor}>
                     {element.title}
                   </SubTitleNavBar>

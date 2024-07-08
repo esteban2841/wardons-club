@@ -29,7 +29,7 @@ export default function RootLayout({
       <body className="bg-[#141617] text-foreground">
         <main className="flex flex-col items-center relative">
           <>
-            <NavBar></NavBar>
+            <NavBar baseUrl={defaultUrl}></NavBar>
             <PlacesProvider>
               <MapProvider>
                 {children}
