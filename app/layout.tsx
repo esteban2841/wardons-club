@@ -4,6 +4,7 @@ import { PlacesProvider, MapProvider } from "@/context";
 import dynamic from 'next/dynamic';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import WhatsappContactButton from '@/components/atoms/WhatsappContactButton';
+import { Footer } from "@/components/molecules/Footer";
 
 const NavBar = dynamic(() => import('@/components/molecules/NavBar'), {
   ssr: false,
@@ -36,6 +37,7 @@ export default function RootLayout({
               </MapProvider>
             </PlacesProvider>
             <WhatsappContactButton></WhatsappContactButton>
+            <Footer></Footer>
           </>
         </main>
       </body>

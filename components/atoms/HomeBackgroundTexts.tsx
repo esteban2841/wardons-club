@@ -71,7 +71,7 @@ const WardonsTitle = styled.h1<ContainerProps>`
     `
 const SubTitle = styled.h1<ContainerProps>`
     font-family: 'Futura Md BT', sans-serif;
-    font-size: 30px;
+    font-size: 24px;
     font-weight: 900;
     font-style: italic;
     opacity: .7;
