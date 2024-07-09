@@ -10,7 +10,7 @@ export const AboutWardons = () => {
             subtitleContent="Ser un Wardon representa a una persona que disfruta su práctica deportiva, es un deportista comprometido, no solo con su desarrollo deportivo, sino tambien con su crecimiento personal y su impacto positivo en la sociedad, fundamentado en principios sólidos de disciplina, respeto y valores." 
             positionText="left"
             customAdjust="0 30"
-            imageUrl="https://hzahrfjtetaexlyfdecg.supabase.co/storage/v1/object/public/info_gallery/MEDALLAS_H.avif?t=2024-07-08T21%3A55%3A39.680Z">
+            imageUrl="https://hzahrfjtetaexlyfdecg.supabase.co/storage/v1/object/public/info_gallery/MEDALLAS_H.avif?t=2024-07-09T20%3A27%3A29.885Z">
         </HomeBackgroundTexts>
         <HomeBackgroundTexts 
             titleContent="MISION"

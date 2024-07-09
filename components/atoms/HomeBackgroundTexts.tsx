@@ -20,13 +20,16 @@ const BackgroundEthicContainer = styled.div<BackContainerProps>`
     position: relative;
     box-sizing: border-box;
     width: 100%;
-    height: 100vh;
     align-items: center;
     background-size: cover;
     background-repeat: no-repeat;
     background-position:  ${props => props.customAdjust ? `${props.customAdjust}%` : ''};
     justify-content: ${props => props.positionText ? (props.positionText) : ''};
     background-image:  url(${props => props.imageUrl ? (props.imageUrl) : ''});
+    @media (max-width: 768px){
+        background-position:  30% 0%;
+        
+    }
 `
 const TextContainer = styled.div<ContainerProps>`
     display: flex;
