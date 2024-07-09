@@ -54,7 +54,7 @@ const TextContainer = styled.div`
     display: flex;
     flex-direction: column;
     width: 100%;
-    max-width: 1200px;
+    max-width: 1300px;
     gap: 10px;
     @media (max-width: 768px) {
         width: 100%;

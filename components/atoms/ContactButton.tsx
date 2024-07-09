@@ -1,5 +1,6 @@
 'use client'
 import styled from 'styled-components'
+import WrapperRowRouterRedirect from './WrapperRowRenderer'
 
 const ButtonContact = styled.button`
     background-color: #ff6d00;
@@ -14,8 +15,11 @@ const ButtonContact = styled.button`
 
 export const ContactButton = ({children}) => {
   return (
-    <ButtonContact>
-        {children}
-    </ButtonContact>
+    <WrapperRowRouterRedirect baseUrl='' route='/contact'>
+
+      <ButtonContact>
+          {children}
+      </ButtonContact>
+    </WrapperRowRouterRedirect>
   )
 }

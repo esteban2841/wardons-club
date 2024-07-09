@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import Image from 'next/image'
 import MenuIcon from '@rsuite/icons/Menu';
 import { NavBarElements } from '../atoms/NavBarElements';
+import WrapperRowRouterRedirect from '../atoms/WrapperRowRenderer';
 
 const NavBarContainer = styled.nav`
     display: flex;
@@ -81,7 +82,9 @@ const NavBar = ({baseUrl}) => {
         <HeaderContainer>
 
             <NavBarContainer $opacity={isScrolledThenChangeColor} >
-                <Image className='wardons-logo' src='/assets/images/wardons-logo-mobile.png' alt="logo-mobile" width={60} height={60}/>
+                <WrapperRowRouterRedirect baseUrl='' route='/' >
+                    <Image className='wardons-logo' src='/assets/images/wardons-logo-mobile.png' alt="logo-mobile" width={60} height={60}/>
+                </WrapperRowRouterRedirect>
                 <IconContainer onClick={handleToggleMobileNavBar} >
                     <MenuIcon className='menu-icon' fill='#E84C1A' width={'none'} height={'none'}/>
                 </IconContainer>
