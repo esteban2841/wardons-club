@@ -41,11 +41,11 @@ export const CoachesVIew = ({data}) => {
             return <MainCoachImage image={component.image} figCaptDescr={component.figCaptDescr} />
           }
           if(component.type === 'folderImage'){
-            return <CoachFolderImages image1={component.image1} figCaptDescr1={component.figCaptDescr1} image2={component.image2} figCaptDescr2={component.figCaptDescr2} />
+            return <CoachFolderImages titleContent={component.titleContent} subtitleContent={component.subtitleContent} image1={component.image1} figCaptDescr1={component.figCaptDescr1} image2={component.image2} figCaptDescr2={component.figCaptDescr2} />
           }
         })
       }
-    
+
       
       
     </CoachesViewContainer>

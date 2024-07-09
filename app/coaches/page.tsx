@@ -28,6 +28,8 @@ const Page = async () => {
       figCaptDescr1: 'fredy entrenador de baloncesto en villavicencio',
       image2: await fetchStorageUrl(createClient, bucketName, 'FREDY_FOLDER_2.png'),
       figCaptDescr2: 'fredy entrenador de baloncesto en villavicencio',
+      titleContent: 'Fredy Villota',
+      subtitleContent: 'Soy un profesional en educación física y deportes con una experiencia de 10 años en el entrenamiento del baloncesto con una gran vocación vocación y compromiso firme de trabajar por el desarrollo de habilidades físicas, tecnico/tácticas, habilidades sociales y formación de valores.'
     },
     {
       type: 'mainCoachImage',
@@ -40,6 +42,8 @@ const Page = async () => {
       figCaptDescr1: 'CRISTIAN entrenador de baloncesto en villavicencio',
       image2: await fetchStorageUrl(createClient, bucketName, 'CRISTIAN_FOLDER_2.png'),
       figCaptDescr2: 'CRISTIAN entrenador de baloncesto en villavicencio',
+      titleContent: 'Cristian Villota',
+      subtitleContent: 'Soy un profesional con formación en Educación Física y Deportes, direccionado al entrenamiento y la enseñanza del baloncesto. Mi pasión por el deporte se combina con habilidades pedagógicas sólidas, permitiéndome no solo entrenar atletas, sino también educar sobre la importancia de la práctica de la actividad física teniendo como pilares la disciplina, el respeto y trabajo en equipo.'
     },
   ]
   return (

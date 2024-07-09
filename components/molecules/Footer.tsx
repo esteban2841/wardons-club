@@ -15,13 +15,13 @@ const FooterContainer = styled.div`
     color: #fff;
     justify-content: center;
     padding: 20px;
+    background-color: #000000;
 `
 const FooterInfoContainer = styled.div`
     display: flex;
     flex-direction: column;
     width: 100%;
     align-items: center;
-    gap: 5px;
     color: #fff;
     justify-content: center;
 `
@@ -82,7 +82,7 @@ export const Footer = () => {
         <FooterInfoContainer>
             <a href="https://esteban-puentes.vercel.app" className="no-underline no-decoration">
                 <FooterText>
-                    Created By Esteban Puentes full stack Web Developer
+                    Created By Esteban Puentes Developer
                 </FooterText>
             </a>
             <FooterText>
