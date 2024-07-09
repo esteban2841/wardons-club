@@ -23,7 +23,7 @@ const VideoPlayer = styled.video`
     .playerSource {
         display: none;
         transition-property: all;
-        transition: all 2s;
+        transition: all 1s;
         transition-behavior: allow-discrete;
     }
     .fade-in {

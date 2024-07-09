@@ -18,7 +18,7 @@ const ImageGalleryTrioContainer = styled.figure`
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  max-width: 1200px;
+  max-width: 800px;
   position: relative;
   gap: 10px;
   .caption{

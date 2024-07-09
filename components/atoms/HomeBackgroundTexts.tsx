@@ -65,7 +65,7 @@ const WardonsTitle = styled.h1<ContainerProps>`
         
     }
     @media (max-width: 768px){
-        font-size:46px;
+        font-size:30px;
 
     }
     `
@@ -81,7 +81,7 @@ const SubTitle = styled.h1<ContainerProps>`
         align-items: flex-start;
     }
     @media (max-width: 760px){
-        font-size:36px;
+        font-size:16px;
         font-weight: 700;
     }
 `
