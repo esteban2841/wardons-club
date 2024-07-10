@@ -9,6 +9,7 @@ interface WardonPhoto{
   type: string;
   url: string
   name: string;
+  line: number;
 }
 
 
@@ -18,6 +19,7 @@ const ImageGalleryTrioContainer = styled.figure`
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+  width: 100%;
   max-width: 800px;
   position: relative;
   gap: 10px;
@@ -41,10 +43,34 @@ const SkeletonLoader = styled.div`
     }
   }
 `;
+const Loader = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 30%;
+  z-index: 1;
+  overflow: hidden;
+  background: linear-gradient(270deg, #dcdcdc, #3c3d3c, #131313);
+  background-size: 200% auto;
+  animation: Gradient 3s ease infinite;
+  border-radius: 10px;
+  @keyframes Gradient {
+      0% {
+          background-position: 200% 0;
+      }
+      100% {
+          background-position: -200% 0;
+      }
+  }
+    
+`;
 
 const ImageContainer = styled.div`
-  width: 30%;
-  border-radius: 10px;
+  width: 100%;
+  z-index: 1;
+  position: relative;
   overflow: hidden;
 `
 const ImageGalleryTrio = styled.img`
@@ -83,10 +109,14 @@ export const GalleryVeticalPhotoTrio = ({photosTriPack, defaultImgUrl}) => {
             <SkeletonLoader key={index} style={{ width: '33%', height: '100%', borderRadius: '10px' }} />
           ))}
         </>
-      ) : photosTriPack?.map(photo=>{
-        return <ImageContainer>
-            <ImageGalleryTrio loading="lazy" src={photo.url} alt={photo.name} onError={(e)=>showDefaulImg(e)} /> 
-          </ImageContainer> 
+      ) : photosTriPack?.map((photo, index)=>{
+        return (
+              <Loader key={index}>
+                <ImageContainer line={photo.line}>
+                  <ImageGalleryTrio loading="lazy" src={photo.url} alt={photo.name} onError={(e)=>showDefaulImg(e)} /> 
+                </ImageContainer>
+              </Loader>
+           )
         })
       }
 
