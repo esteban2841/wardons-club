@@ -11,16 +11,23 @@ interface WardonPhoto{
   name: string;
   line: number;
 }
+interface Rad{
+  radius: boolean
+}
+interface ContainerWidth{
+  maxWidth?: number
+}
 
 
-const ImageGalleryTrioContainer = styled.figure`
+const ImageGalleryTrioContainer = styled.figure<ContainerWidth>`
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  box-sizing: border-box;
   flex-wrap: wrap;
   width: 100%;
-  max-width: 800px;
+  max-width: ${props=>props.maxWidth? props.maxWidth :  '800px'};
   position: relative;
   gap: 10px;
   .caption{
@@ -43,19 +50,20 @@ const SkeletonLoader = styled.div`
     }
   }
 `;
-const Loader = styled.div`
+const Loader = styled.div<Rad>`
   display: flex;
   align-items: center;
   justify-content: center;
   align-items: center;
   position: relative;
+  padding: 1px;
   width: 30%;
   z-index: 1;
   overflow: hidden;
   background: linear-gradient(270deg, #dcdcdc, #3c3d3c, #131313);
   background-size: 200% auto;
   animation: Gradient 3s ease infinite;
-  border-radius: 10px;
+  border-radius: ${props => props.radius ? '10px' : ''};
   @keyframes Gradient {
       0% {
           background-position: 200% 0;
@@ -64,7 +72,9 @@ const Loader = styled.div`
           background-position: -200% 0;
       }
   }
-    
+  &:hover{
+    padding: 0px;
+  }
 `;
 
 const ImageContainer = styled.div`
@@ -81,9 +91,40 @@ const ImageGalleryTrio = styled.img`
     scale: 1.2;
     cursor: pointer;
   }
+  `
+const TagContainer = styled.div`
+  width: 100%;
+  position: absolute;
+  z-index: 7;
+  height: 35px;
+  opacity: 0.7;
+  display: flex;
+  flex-direction: column;
+  bottom: 10%;
+  color: white;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(270deg, black, #3c3d3c, #131313);
+  background-size: 200% auto;
+  animation: Gradient 3s ease infinite;
+  @keyframes Gradient {
+      0% {
+          background-position: 200% 0;
+      }
+      100% {
+          background-position: -200% 0;
+      }
+  }
+  .content{
+    opacity: 1;
+  }
+  &:hover{
+    scale: 1.2;
+    cursor: pointer;
+  }
 `
 
-export const GalleryVeticalPhotoTrio = ({photosTriPack, defaultImgUrl}) => {
+export const GalleryVeticalPhotoTrio = ({photosTriPack, defaultImgUrl, radius, maxWidth}) => {
 
   const [loading, setLoading] = useState(true);
 
@@ -101,7 +142,7 @@ export const GalleryVeticalPhotoTrio = ({photosTriPack, defaultImgUrl}) => {
   }
 
   return (
-    <ImageGalleryTrioContainer>
+    <ImageGalleryTrioContainer maxWidth={maxWidth}>
       
       {loading? (
         <>
@@ -111,8 +152,13 @@ export const GalleryVeticalPhotoTrio = ({photosTriPack, defaultImgUrl}) => {
         </>
       ) : photosTriPack?.map((photo, index)=>{
         return (
-              <Loader key={index}>
+              <Loader radius={radius} key={index}>
                 <ImageContainer line={photo.line}>
+                  {photo.tag && 
+                    <TagContainer>
+                      <p className="content">{photo.tag}</p>
+                    </TagContainer>
+                  }
                   <ImageGalleryTrio loading="lazy" src={photo.url} alt={photo.name} onError={(e)=>showDefaulImg(e)} /> 
                 </ImageContainer>
               </Loader>

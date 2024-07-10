@@ -19,7 +19,7 @@ const FolderContainer = styled.div`
     display: flex;
     flex-direction: row;
     width: 100%;
-    max-width: 1200px;
+    max-width: 900px;
     gap: 30px;
     @media (max-width: 768px) {
         width: 100%;
@@ -42,7 +42,7 @@ const MainCoachImageContainer = styled.img`
 const CustomFigure = styled.figure`
     height: 980px;
     width: 100%;
-    max-width: 1200px;
+    max-width: 900px;
     border-radius: 25px;
     overflow: hidden;
     @media (max-width: 768px) {
@@ -54,7 +54,7 @@ const TextContainer = styled.div`
     display: flex;
     flex-direction: column;
     width: 100%;
-    max-width: 1300px;
+    max-width: 1000px;
     gap: 10px;
     @media (max-width: 768px) {
         width: 100%;

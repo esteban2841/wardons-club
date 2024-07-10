@@ -24,9 +24,10 @@ export const AboutWardons = () => {
         <HomeBackgroundTexts 
             titleContent="VISION"
             loaderPosition={2}
+            customAdjust="60"
             subtitleContent="Nuestra vision es convertir al club deportivo de baloncesto Wardons en una referencia destacada en el àmbito del baloncesto, reconocido por la calidad de nuestros jugadores y el exito deportivo alcanzado. Buscamos ser un club que brinde oportunidades a jovenes talentos, formandolos desde las etapas de iniciacion hasta el alto rendimiento y contribuir al desarrollo del baloncesto a nivel local y regional." 
             positionText="left" 
-            imageUrl="https://hzahrfjtetaexlyfdecg.supabase.co/storage/v1/object/public/gallery/JUMP_BALL_H.avif?t=2024-07-08T20%3A58%3A25.035Z">
+            imageUrl="https://hzahrfjtetaexlyfdecg.supabase.co/storage/v1/object/public/gallery/EQUIPO_H.avif">
         </HomeBackgroundTexts>
     </div>
   )
