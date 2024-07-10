@@ -22,7 +22,7 @@ const BannerContainer = styled.div`
     align-items: center;
     color:  #ffffff;
     width: 100%;
-    padding-bottom: 20px;
+    background-color: #000000;
 `
 
 const Overlay = styled.div`
@@ -51,7 +51,7 @@ const CustomFigure = styled.figure`
     
 `
 const CustomCaption = styled.figcaption`
-
+    display: none;
 `
 const BannerImage = styled.img<BannerImageProps>`
     height: 100%;

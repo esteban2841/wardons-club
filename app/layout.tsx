@@ -27,7 +27,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${GeistSans.className} box-border`}>
-      <body className="bg-[#141617] text-foreground">
+      <body className="text-foreground">
         <main className="flex flex-col items-center relative">
           <>
             <NavBar baseUrl={defaultUrl}></NavBar>
