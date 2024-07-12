@@ -45,7 +45,7 @@ interface Video {
     name: string,
     url: string
 }
-export const VideoPlayerSlider = ({data}) => {
+export const VideoPlayerSliderMobile = ({data}) => {
     
     let currentIndex = 0;
     
@@ -72,7 +72,7 @@ export const VideoPlayerSlider = ({data}) => {
         playVideosSequentially(videos, currentIndex)
     }, [])
     return (
-        <VideoPlayerContainer className='desktopVid'>
+        <VideoPlayerContainer className='mobileVid' >
                 {
                     data.map((video: Video)=>{
                         return <VideoPlayer controls={false} autoPlay muted playsInline key={video.name} src={video.url} className='playerSource' >

@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { VideoPlayerSlider } from '../atoms/VideoPlayerSlider';
 import { useEffect, useState } from 'react';
 import WardonSVG from '../atoms/WardonSVG';
+import { VideoPlayerSliderMobile } from '../atoms/VideoPlayerSliderMobile';
 
 const HomeContainer = styled.article`
     display: flex;
@@ -99,6 +100,7 @@ export const Home = (props) => {
 
     return <HomeContainer className='carrousel'>
         
+        {<VideoPlayerSliderMobile data={props.dataMobile}></VideoPlayerSliderMobile>}
         {<VideoPlayerSlider data={props.data}></VideoPlayerSlider>}
         <Overlay>
             <WardonsTitle>

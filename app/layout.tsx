@@ -5,6 +5,7 @@ import dynamic from 'next/dynamic';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import WhatsappContactButton from '@/components/atoms/WhatsappContactButton';
 import { Footer } from "@/components/molecules/Footer";
+import Head from 'next/head'
 
 const NavBar = dynamic(() => import('@/components/molecules/NavBar'), {
   ssr: false,
@@ -27,6 +28,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${GeistSans.className} box-border`}>
+      <Head>
+        <title>{"Club de Baloncesto Wardons Villavicencio"}</title>
+        <meta name="description" content="Informacion, ubicacion y noticias de nuestro club deportivo de baloncesto wardons, formacion de atletas desde temprana edad mini y juveniles Villavicencio, Meta." />
+        <meta property="og:title" content="Club de Baloncesto Wardons Villavicencio" />
+        <meta property="og:description" content="Clases grupales de baloncesto (basketball) para niños y jovenes de todas las edades" />
+        <meta property="og:image" content="https://hzahrfjtetaexlyfdecg.supabase.co/storage/v1/object/public/gallery/GALLERY_BANNER.png" /> {/* Reemplaza URL_DE_TU_IMAGEN con la URL de una imagen representativa */}
+        <meta name="twitter:card" content="summary_large_image" />
+      </Head>
       <body className="bg-[#000] text-foreground">
         <main className="flex flex-col items-center relative">
           <>
