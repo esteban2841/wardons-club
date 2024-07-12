@@ -88,7 +88,7 @@ const TextContainer = styled.div<ContainerProps>`
     gap: 25px;
     
     @media (max-width: 768px){
-           
+        width: 100%;   
     }
 `
 

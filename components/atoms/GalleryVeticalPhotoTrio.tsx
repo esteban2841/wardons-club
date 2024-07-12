@@ -11,6 +11,12 @@ interface WardonPhoto{
   name: string;
   line: number;
 }
+interface GalleryTrioPhotos{
+  photosTriPack: Array<WardonPhoto>;
+  defaultImgUrl: string; 
+  radius: boolean;
+  maxWidth: string;
+}
 interface Rad{
   radius: boolean
 }
@@ -124,7 +130,7 @@ const TagContainer = styled.div`
   }
 `
 
-export const GalleryVeticalPhotoTrio = ({photosTriPack, defaultImgUrl, radius, maxWidth}) => {
+export const GalleryVeticalPhotoTrio = ({photosTriPack, defaultImgUrl, radius, maxWidth}:GalleryTrioPhotos) => {
 
   const [loading, setLoading] = useState(true);
 
