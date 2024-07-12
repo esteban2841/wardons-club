@@ -2,6 +2,7 @@
 import styled from 'styled-components'
 import { VideoPlayerSlider } from '../atoms/VideoPlayerSlider';
 import { useEffect, useState } from 'react';
+import WardonSVG from '../atoms/WardonSVG';
 
 const HomeContainer = styled.article`
     display: flex;
