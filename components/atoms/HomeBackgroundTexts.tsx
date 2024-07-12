@@ -75,7 +75,7 @@ const BackgroundColorContainer = styled.div<colorProps>`
         background-position:  30% 0%;
         
     }
-`
+    `
 const TextContainer = styled.div<ContainerProps>`
     display: flex;
     flex-direction: column;
@@ -86,7 +86,10 @@ const TextContainer = styled.div<ContainerProps>`
     position: relative;
     padding: 60px;
     gap: 25px;
-
+    
+    @media (max-width: 768px){
+           
+    }
 `
 
 const Overlay = styled.div`
@@ -116,7 +119,7 @@ const WardonsTitle = styled.h1<ContainerProps>`
         
     }
     @media (max-width: 768px){
-        font-size:30px;
+        font-size:24px;
         
     }
     `
@@ -133,7 +136,7 @@ const SubTitle = styled.h1<ContainerProps>`
         align-items: flex-start;
     }
     @media (max-width: 760px){
-        font-size:16px;
+        font-size:12px;
         font-weight: 700;
     }
 `
