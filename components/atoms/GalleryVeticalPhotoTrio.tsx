@@ -10,7 +10,7 @@ interface WardonPhoto{
   url: string
   name: string;
   line: number;
-  tag: string;
+  tag?: string;
 }
 interface GalleryTrioPhotos{
   photosTriPack: Array<WardonPhoto>;
