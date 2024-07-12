@@ -40,13 +40,13 @@ const FooterText = styled.p`
 `
 
 const Icons = [
-    {
-        name: 'facebook',
-        icon: <FontAwesomeIcon className="icons" icon={faFacebookF} size="2x" style={{
-            color: '#fff'
-        }} />,
-        ref: ''
-    },
+    // {
+    //     name: 'facebook',
+    //     icon: <FontAwesomeIcon className="icons" icon={faFacebookF} size="2x" style={{
+    //         color: '#fff'
+    //     }} />,
+    //     ref: ''
+    // },
     {
         name: 'instagram',
         icon: <FontAwesomeIcon className="icons" icon={faInstagram} size="2x" style={{
