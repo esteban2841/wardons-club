@@ -40,7 +40,7 @@ const Page = async () => {
         bannerPositionY={40}
       />
       <div className="flex flex-col justify-center items-center w-full p-6">
-        <GalleryVeticalPhotoTrio maxWidth={'1000px'} radius={false} photosTriPack={triPackVerticalPhotos} defaultImgUrl={await fetchStorageUrl(createClient, 'gallery', 'GALLERY_BANNER.png')}></GalleryVeticalPhotoTrio>
+        <GalleryVeticalPhotoTrio maximumWidth={'1000px'} radius={false} photosTriPack={triPackVerticalPhotos} defaultImgUrl={await fetchStorageUrl(createClient, 'gallery', 'GALLERY_BANNER.png')}></GalleryVeticalPhotoTrio>
       </div>
     </div>
   )

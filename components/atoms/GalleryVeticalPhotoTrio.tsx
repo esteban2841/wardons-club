@@ -10,20 +10,23 @@ interface WardonPhoto{
   url: string
   name: string;
   line: number;
+  tag: string;
 }
 interface GalleryTrioPhotos{
   photosTriPack: Array<WardonPhoto>;
   defaultImgUrl: string; 
   radius: boolean;
-  maxWidth: string;
+  maximumWidth: string;
 }
 interface Rad{
   radius: boolean
 }
 interface ContainerWidth{
-  maxWidth?: number
+  maximumWidth?: string
 }
-
+interface lineType{
+  line: number
+}
 
 const ImageGalleryTrioContainer = styled.figure<ContainerWidth>`
   display: flex;
@@ -33,7 +36,7 @@ const ImageGalleryTrioContainer = styled.figure<ContainerWidth>`
   box-sizing: border-box;
   flex-wrap: wrap;
   width: 100%;
-  max-width: ${props=>props.maxWidth? props.maxWidth :  '800px'};
+  max-width: ${props=>props.maximumWidth? props.maximumWidth :  '800px'};
   position: relative;
   gap: 10px;
   .caption{
@@ -83,7 +86,7 @@ const Loader = styled.div<Rad>`
   }
 `;
 
-const ImageContainer = styled.div`
+const ImageContainer = styled.div<lineType>`
   width: 100%;
   z-index: 1;
   position: relative;
@@ -130,7 +133,7 @@ const TagContainer = styled.div`
   }
 `
 
-export const GalleryVeticalPhotoTrio = ({photosTriPack, defaultImgUrl, radius, maxWidth}:GalleryTrioPhotos) => {
+export const GalleryVeticalPhotoTrio = ({photosTriPack, defaultImgUrl, radius, maximumWidth}:GalleryTrioPhotos) => {
 
   const [loading, setLoading] = useState(true);
 
@@ -148,7 +151,7 @@ export const GalleryVeticalPhotoTrio = ({photosTriPack, defaultImgUrl, radius, m
   }
 
   return (
-    <ImageGalleryTrioContainer maxWidth={maxWidth}>
+    <ImageGalleryTrioContainer maximumWidth={maximumWidth}>
       
       {loading? (
         <>
