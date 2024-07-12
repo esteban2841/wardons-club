@@ -9,7 +9,7 @@ const WhatsappIconContainer = styled.a`
     justify-content: center;
     bottom: 20px;
     right: 20px;
-    z-index: 3;
+    z-index: 15;
     cursor: pointer;
     transition: ease 0.5s;
     @media (max-width: 768px) {

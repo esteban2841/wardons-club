@@ -4,6 +4,8 @@ import { VideoPlayerSlider } from '../atoms/VideoPlayerSlider';
 import { useEffect, useState } from 'react';
 import WardonSVG from '../atoms/WardonSVG';
 import { VideoPlayerSliderMobile } from '../atoms/VideoPlayerSliderMobile';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faStar } from '@fortawesome/free-solid-svg-icons';
 
 const HomeContainer = styled.article`
     display: flex;
@@ -34,13 +36,18 @@ const Overlay = styled.div`
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    justify-content: center;
+    justify-content: flex-end;
     position: absolute;
     padding: 0px 0px 0px 100px;
     width: 100%;
     height: 100%;
     background-color: rgb(0, 0, 0, 0.6);
-    z-index: 2;
+    z-index: 12;
+    padding: 100px 100px;
+    .grey{
+        /* color: #e5e24c; */
+        font-size: 50px;
+    }
     @media (min-width: 1700px) {
         font-size:300px;
         align-items: flex-start;
@@ -48,10 +55,12 @@ const Overlay = styled.div`
         gap: 50px;
         padding: 100px 0px 0px 100px;
     }
-    @media (max-width: 480px) {
-        font-size:300px;
+    @media (max-width: 500px) {
         padding: 60px 20px;
         justify-content:flex-end;
+        .star{
+            width: 20px;   
+        }
     }
 `
 const WardonsTitle = styled.h1`
@@ -59,25 +68,23 @@ const WardonsTitle = styled.h1`
     font-weight: 1000;
     font-style: bold;
     color: #E84C1A;
-    font-size: 90px;
+    font-size: 70px;
+    
     @media (min-width: 1700px){
         font-size:150px;
-        margin-bottom: 70px;
         
     }
     @media (max-width: 1700px){
-        margin-bottom: 30px;
         
     }
     @media (max-width: 768px){
-        margin-bottom: 10px;
         font-size:46px;
 
     }
     `
 const SubTitle = styled.h1`
     font-family: 'Futura Md BT', sans-serif;
-    font-size: 90px;
+    font-size: 66px;
     font-weight: 900;
     font-style: normal;
     @media (min-width: 1700px) {
@@ -102,6 +109,10 @@ export const Home = (props) => {
         
         {<VideoPlayerSliderMobile data={props.dataMobile}></VideoPlayerSliderMobile>}
         {<VideoPlayerSlider data={props.data}></VideoPlayerSlider>}
+        {/* <div className='flex absolute w-[1000px] top-[10%] right-[50%] z-10 opacity-80'>
+            <WardonSVG></WardonSVG>
+
+        </div> */}
         <Overlay>
             <WardonsTitle>
                 WARDONS
@@ -109,6 +120,27 @@ export const Home = (props) => {
             <SubTitle>
                 CLUB
             </SubTitle>
+            <div className='flex flex-row w-full gap-2'>
+                <FontAwesomeIcon className="icons star" icon={faStar} size="2x" style={{
+                    color: 'gold'
+                }} />
+                <FontAwesomeIcon className="icons star" icon={faStar} size="2x" style={{
+                    color: 'gold'
+                }} />
+                <FontAwesomeIcon className="icons star" icon={faStar} size="2x" style={{
+                    color: 'gold'
+                }} />
+                <FontAwesomeIcon className="icons star" icon={faStar} size="2x" style={{
+                    color: 'gold'
+                }} />
+                <FontAwesomeIcon className="icons star" icon={faStar} size="2x" style={{
+                    color: 'gold'
+                }} />
+
+            </div>
+            <WardonsTitle className='grey'>
+                Mas que un club de basket...
+            </WardonsTitle>
         </Overlay>
     </HomeContainer>
 };

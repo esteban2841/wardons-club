@@ -9,6 +9,7 @@ import { HomeLoader } from '@/components/loaders/HomeLoader';
 import { AboutWardons } from '@/components/molecules/AboutWardons';
 import WardonSVG from '@/components/atoms/WardonSVG';
 
+
 export default async function Index() {
 
   const supabase = createClient();

@@ -11,7 +11,7 @@ const Page = async () => {
         name: 'MEDALLAS_H.avif',
         url: await fetchStorageUrl(createClient, 'gallery', 'MEDALLAS_H.avif'),
         line: 0,
-        tag: 'Niños'
+        tag: 'Iniciación'
       },
       {
         type: 'verticalRatio',

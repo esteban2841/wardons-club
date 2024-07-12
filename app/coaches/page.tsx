@@ -42,7 +42,7 @@ const Page = async () => {
       figCaptDescr1: 'CRISTIAN entrenador de baloncesto en villavicencio',
       image2: await fetchStorageUrl(createClient, bucketName, 'CRISTIAN_FOLDER_2.png'),
       figCaptDescr2: 'CRISTIAN entrenador de baloncesto en villavicencio',
-      titleContent: 'Fredy Villota',
+      titleContent: 'Cristian Villota',
       subtitleContent: 'Soy un profesional con formación en Educación Física y Deportes, direccionado al entrenamiento y la enseñanza del baloncesto. Mi pasión por el deporte se combina con habilidades pedagógicas sólidas, permitiéndome no solo entrenar atletas, sino también educar sobre la importancia de la práctica de la actividad física teniendo como pilares la disciplina, el respeto y trabajo en equipo.'
     },
   ]

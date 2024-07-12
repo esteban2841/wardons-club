@@ -68,6 +68,9 @@ export const Footer = () => {
             <FooterText>
                 fredy.villota@unillanos.edu.co
             </FooterText>
+            <FooterText>
+                wardonsbasketballclub@gmail.com
+            </FooterText>
         </FooterInfoContainer>
         <SocialNetworksContainer>
         {
