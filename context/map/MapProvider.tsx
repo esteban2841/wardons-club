@@ -28,9 +28,9 @@ const INITIAL_STATE: MapState = {
             lngLat : [-73.61277776876584, 4.14757463281509],
         },
         {
-            name: 'Wardons Club -- Unicentro',
+            name: 'Wardons Club -- San Jorge',
             description: 'Categorias: mini, juvenil, Horarios: Lunes 4pm, 6pm, Martes: 2pm, 5pm',
-            lngLat : [-73.63395673601926, 4.142065106402868],
+            lngLat : [-73.64869364047806, 4.105749627361049],
         }
     ]
 }

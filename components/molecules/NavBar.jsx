@@ -14,7 +14,7 @@ const NavBarContainer = styled.nav`
     width: 100%;
     height: 70px;
     padding: 0px 60px;
-    z-index: 10;
+    z-index: 30;
     transition: 1s ease;
     background-color: rgb(0,0,0, ${props => props.$opacity ? 0.5 : 1});
     @media (max-width: 768px) {
