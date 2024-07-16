@@ -55,6 +55,9 @@ const Overlay = styled.div`
         justify-content: flex-start;
         gap: 50px;
         padding: 100px 0px 0px 100px;
+        .star{
+            width: 40px;   
+        }
     }
     @media (max-width: 500px) {
         padding: 60px 20px;
