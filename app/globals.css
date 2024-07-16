@@ -44,3 +44,21 @@
     transform: translateY(0);
   }
 }
+
+
+::-webkit-scrollbar {
+  width: 10px; /* Adjust the width of the scrollbar */
+}
+
+::-webkit-scrollbar-track {
+  background: #000; /* Color of the tracking area */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #E84C1A; /* Darker gray color for hover state */
+  border-radius: 20px; /* Round corners of the scroll thumb */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #2d2d2d; /* Color of the scroll thumb */
+}
