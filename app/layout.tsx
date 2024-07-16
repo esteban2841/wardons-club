@@ -6,6 +6,7 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 import WhatsappContactButton from '@/components/atoms/WhatsappContactButton';
 import { Footer } from "@/components/molecules/Footer";
 import Head from 'next/head'
+import GoogleAnalytics from "@/components/atoms/GoogleAnalytics";
 
 const NavBar = dynamic(() => import('@/components/molecules/NavBar'), {
   ssr: false,
@@ -39,6 +40,7 @@ export default function RootLayout({
       <body className="bg-[#000] text-foreground">
         <main className="flex flex-col items-center relative">
           <>
+            <GoogleAnalytics></GoogleAnalytics>
             <NavBar baseUrl={defaultUrl}></NavBar>
             <PlacesProvider>
               <MapProvider>
