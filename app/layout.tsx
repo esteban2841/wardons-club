@@ -6,7 +6,7 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 import WhatsappContactButton from '@/components/atoms/WhatsappContactButton';
 import { Footer } from "@/components/molecules/Footer";
 import Head from 'next/head'
-import GoogleAnalytics from "@/components/atoms/GoogleAnalytics";
+import { GoogleAnalytics } from '@next/third-parties/google'
 
 const NavBar = dynamic(() => import('@/components/molecules/NavBar'), {
   ssr: false,
@@ -37,10 +37,10 @@ export default function RootLayout({
         <meta property="og:image" content="https://hzahrfjtetaexlyfdecg.supabase.co/storage/v1/object/public/gallery/GALLERY_BANNER.png" /> {/* Reemplaza URL_DE_TU_IMAGEN con la URL de una imagen representativa */}
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
+      <GoogleAnalytics gaId="G-1L1M5FQ7ZZ" />
       <body className="bg-[#000] text-foreground">
         <main className="flex flex-col items-center relative">
           <>
-            <GoogleAnalytics></GoogleAnalytics>
             <NavBar baseUrl={defaultUrl}></NavBar>
             <PlacesProvider>
               <MapProvider>
