@@ -132,7 +132,7 @@ const SubTitle = styled.h1<ContainerProps>`
     opacity: .7;
     text-align: ${props => props.positionText};
     @media (min-width: 1700px) {
-        font-size:130px;
+        font-size:40px;
         align-items: flex-start;
     }
     @media (max-width: 760px){
