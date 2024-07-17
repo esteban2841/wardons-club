@@ -5,7 +5,7 @@ import dynamic from 'next/dynamic';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import WhatsappContactButton from '@/components/atoms/WhatsappContactButton';
 import { Footer } from "@/components/molecules/Footer";
-import Head from 'next/head'
+import {Head} from 'next/document'
 import { GoogleAnalytics } from '@next/third-parties/google'
 
 const NavBar = dynamic(() => import('@/components/molecules/NavBar'), {
