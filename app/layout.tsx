@@ -19,7 +19,7 @@ const defaultUrl = process.env.VERCEL_URL
 export const metadata = {
   metadataBase: new URL(defaultUrl),
   title: "Wardons Villavicencio",
-  description: "Club de baloncesto ubicado en villavicencio, entrenamiento para niños y niñas de todas las edades",
+  description: "Club de baloncesto ubicado en villavicencio, entrenamiento para niños y niñas de todas las edades, clases de baloncesto personalizadas, clases para niños, baloncesto de iniciacion, formacion deportiva, basketball club, somos profesionales en el entrenamiento de baloncesto de todas las edades",
 };
 
 export default function RootLayout({
@@ -36,6 +36,7 @@ export default function RootLayout({
         <meta property="og:description" content="Clases grupales de baloncesto (basketball) para niños y jovenes de todas las edades" />
         <meta property="og:image" content="https://hzahrfjtetaexlyfdecg.supabase.co/storage/v1/object/public/gallery/GALLERY_BANNER.png" /> {/* Reemplaza URL_DE_TU_IMAGEN con la URL de una imagen representativa */}
         <meta name="twitter:card" content="summary_large_image" />
+        <meta name="google-site-verification" content="b8r5HBioWBEaeO4Tx7qBrvWStbPszmGeZ71emKznmG4" />
       </Head>
       <GoogleAnalytics gaId="G-1L1M5FQ7ZZ" />
       <body className="bg-[#000] text-foreground">

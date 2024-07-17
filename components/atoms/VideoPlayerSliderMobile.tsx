@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import styled from "styled-components";
 
 const VideoPlayerContainer = styled.article`
@@ -46,6 +46,9 @@ interface Video {
     url: string
 }
 export const VideoPlayerSliderMobile = ({data, classContainer}) => {
+
+    const videoRef = useRef(null);
+	console.log("TCL: VideoPlayerSliderMobile -> videoRef", videoRef)
     
     let currentIndex = 0;
     
@@ -79,7 +82,7 @@ export const VideoPlayerSliderMobile = ({data, classContainer}) => {
         <VideoPlayerContainer className='mobileVid'>
                 {
                     data.map((video: Video, index)=>{
-                        return <VideoPlayer muted key={video.name} src={video.url} preload="auto" className={classContainer} >
+                        return <VideoPlayer ref={videoRef} muted key={video.name} src={video.url} preload="auto" className={classContainer} >
                         </VideoPlayer>
                     })
                 }
