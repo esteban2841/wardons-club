@@ -16,11 +16,6 @@ const defaultUrl = process.env.VERCEL_URL
 ? `https://${process.env.VERCEL_URL}`
 : "http://localhost:3000";
 
-export const metadata = {
-  metadataBase: new URL(defaultUrl),
-  title: "Wardons Villavicencio",
-  description: "Club de baloncesto ubicado en villavicencio, entrenamiento para niños y niñas de todas las edades, clases de baloncesto personalizadas, clases para niños, baloncesto de iniciacion, formacion deportiva, basketball club, somos profesionales en el entrenamiento de baloncesto de todas las edades",
-};
 
 export default function RootLayout({
   children,
