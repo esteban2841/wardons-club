@@ -5,7 +5,7 @@ import dynamic from 'next/dynamic';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import WhatsappContactButton from '@/components/atoms/WhatsappContactButton';
 import { Footer } from "@/components/molecules/Footer";
-import {Head} from 'next/document'
+import Head from 'next/head'
 import { GoogleAnalytics } from '@next/third-parties/google'
 
 const NavBar = dynamic(() => import('@/components/molecules/NavBar'), {
@@ -24,7 +24,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${GeistSans.className} box-border`}>
-      <Head>
+      <Head key={'meta'}>
         <title>{"Club de Baloncesto Wardons Villavicencio"}</title>
         <meta name="google-site-verification" content="b8r5HBioWBEaeO4Tx7qBrvWStbPszmGeZ71emKznmG4" />
         <meta name="description" content="Informacion, ubicacion y noticias de nuestro club deportivo de baloncesto wardons, formacion de atletas desde temprana edad mini y juveniles Villavicencio, Meta." />
