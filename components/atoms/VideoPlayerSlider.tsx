@@ -53,6 +53,7 @@ export const VideoPlayerSlider = ({data}) => {
 		console.log("TCL: playVideosSequentially -> videoArray", videoArray)
         const currentVideo = videoArray[currentIndex];
 		console.log("TCL: playVideosSequentially -> currentVideo", currentVideo)
+		console.dir("TCL: playVideosSequentially -> currentVideo", currentVideo)
         // Apply fade-out effect
         currentVideo.style.display = 'block' ; 
         currentVideo.classList.add('fade-in')
