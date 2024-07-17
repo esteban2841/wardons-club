@@ -111,8 +111,8 @@ export const Home = (props) => {
 
     return <HomeContainer className='carrousel'>
         
-        {<VideoPlayerSliderMobile data={props.dataMobile}></VideoPlayerSliderMobile>}
-        {<VideoPlayerSlider data={props.data}></VideoPlayerSlider>}
+        {<VideoPlayerSliderMobile classContainer={'mobile'} data={props.dataMobile}></VideoPlayerSliderMobile>}
+        {<VideoPlayerSlider classContainer={'desktop'} data={props.data}></VideoPlayerSlider>}
         {/* <div className='flex absolute w-[1000px] top-[10%] right-[50%] z-10 opacity-80'>
             <WardonSVG></WardonSVG>
 

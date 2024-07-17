@@ -45,37 +45,41 @@ interface Video {
     name: string,
     url: string
 }
-export const VideoPlayerSliderMobile = ({data}) => {
+export const VideoPlayerSliderMobile = ({data, classContainer}) => {
     
     let currentIndex = 0;
     
     function playVideosSequentially(videoArray : Array<HTMLVideoElement> , index: number) {
+		console.log("TCL: playVideosSequentially -> videoArray", videoArray)
         const currentVideo = videoArray[currentIndex];
-        // Apply fade-out effect
+		console.log("TCL: playVideosSequentially -> currentVideo", currentVideo)
+        currentVideo.pause();
+        currentVideo.currentTime = 0;
+        setTimeout(() => {
+        }, 1000);
         currentVideo.style.display = 'block' ; 
         currentVideo.classList.add('fade-in')
-        
         currentVideo.play();
+        // Apply fade-out effect
+        
         
         
         currentVideo.onended = (event) => {
             currentVideo.classList.add('fade-out')
-            setTimeout(() => {
-                currentVideo.style.display = 'none'
-                currentIndex = (currentIndex + 1) % videoArray.length; // Move to next index, wrapping around if necessary
-            }, 1000); // Match the timeout with the CSS transition duration
+            currentVideo.style.display = 'none'
+            currentIndex = (currentIndex + 1) % videoArray.length; // Move to next index, wrapping around if necessary
             playVideosSequentially(videoArray, currentIndex); // Play the next video
         };
     }
     useEffect(()=>{
-        const videos = Array.from(document.querySelectorAll('.playerSource') as NodeListOf<HTMLVideoElement>);
+        const videos = Array.from(document.querySelectorAll(`.${classContainer}`) as NodeListOf<HTMLVideoElement>);
         playVideosSequentially(videos, currentIndex)
     }, [])
     return (
-        <VideoPlayerContainer className='mobileVid' >
+        <VideoPlayerContainer className='mobileVid'>
                 {
-                    data.map((video: Video)=>{
-                        return <VideoPlayer controls={false} autoPlay muted playsInline key={video.name} src={video.url} className='playerSource' >
+                    data.map((video: Video, index)=>{
+                        return <VideoPlayer muted key={video.name} src={video.url} preload="auto" className={classContainer} >
                         </VideoPlayer>
                     })
                 }

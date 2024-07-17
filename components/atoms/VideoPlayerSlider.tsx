@@ -45,7 +45,7 @@ interface Video {
     name: string,
     url: string
 }
-export const VideoPlayerSlider = ({data}) => {
+export const VideoPlayerSlider = ({data, classContainer}) => {
     
     let currentIndex = 0;
     
@@ -53,16 +53,15 @@ export const VideoPlayerSlider = ({data}) => {
 		console.log("TCL: playVideosSequentially -> videoArray", videoArray)
         const currentVideo = videoArray[currentIndex];
 		console.log("TCL: playVideosSequentially -> currentVideo", currentVideo)
-		console.dir("TCL: playVideosSequentially -> currentVideo", currentVideo)
-        // Apply fade-out effect
+        currentVideo.pause();
+        currentVideo.currentTime = 0;
         currentVideo.style.display = 'block' ; 
         currentVideo.classList.add('fade-in')
+        currentVideo.play();
+        // Apply fade-out effect
         
         
         
-        currentVideo.onload = (event) => {
-            currentVideo.play();
-        };
         currentVideo.onended = (event) => {
             currentVideo.classList.add('fade-out')
             currentVideo.style.display = 'none'
@@ -71,14 +70,14 @@ export const VideoPlayerSlider = ({data}) => {
         };
     }
     useEffect(()=>{
-        const videos = Array.from(document.querySelectorAll('.playerSource') as NodeListOf<HTMLVideoElement>);
+        const videos = Array.from(document.querySelectorAll(`.${classContainer}`) as NodeListOf<HTMLVideoElement>);
         playVideosSequentially(videos, currentIndex)
     }, [])
     return (
         <VideoPlayerContainer className='desktopVid'>
                 {
                     data.map((video: Video)=>{
-                        return <VideoPlayer autoPlay muted playsInline key={video.name} src={video.url} preload="auto" className='playerSource' >
+                        return <VideoPlayer muted key={video.name} src={video.url} preload="auto" className={classContainer} >
                         </VideoPlayer>
                     })
                 }
