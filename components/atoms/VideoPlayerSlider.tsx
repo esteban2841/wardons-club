@@ -50,14 +50,18 @@ export const VideoPlayerSlider = ({data}) => {
     let currentIndex = 0;
     
     function playVideosSequentially(videoArray : Array<HTMLVideoElement> , index: number) {
+		console.log("TCL: playVideosSequentially -> videoArray", videoArray)
         const currentVideo = videoArray[currentIndex];
+		console.log("TCL: playVideosSequentially -> currentVideo", currentVideo)
         // Apply fade-out effect
         currentVideo.style.display = 'block' ; 
         currentVideo.classList.add('fade-in')
         
-        currentVideo.play();
         
         
+        currentVideo.onload = (event) => {
+            currentVideo.play();
+        };
         currentVideo.onended = (event) => {
             currentVideo.classList.add('fade-out')
             setTimeout(() => {
@@ -75,7 +79,7 @@ export const VideoPlayerSlider = ({data}) => {
         <VideoPlayerContainer className='desktopVid'>
                 {
                     data.map((video: Video)=>{
-                        return <VideoPlayer controls={false} autoPlay muted playsInline key={video.name} src={video.url} className='playerSource' >
+                        return <VideoPlayer autoPlay muted playsInline key={video.name} src={video.url} preload="auto" className='playerSource' >
                         </VideoPlayer>
                     })
                 }
