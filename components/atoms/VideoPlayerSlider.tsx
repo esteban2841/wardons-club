@@ -65,10 +65,8 @@ export const VideoPlayerSlider = ({data}) => {
         };
         currentVideo.onended = (event) => {
             currentVideo.classList.add('fade-out')
-            setTimeout(() => {
-                currentVideo.style.display = 'none'
-                currentIndex = (currentIndex + 1) % videoArray.length; // Move to next index, wrapping around if necessary
-            }, 1000); // Match the timeout with the CSS transition duration
+            currentVideo.style.display = 'none'
+            currentIndex = (currentIndex + 1) % videoArray.length; // Move to next index, wrapping around if necessary
             playVideosSequentially(videoArray, currentIndex); // Play the next video
         };
     }
