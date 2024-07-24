@@ -7,6 +7,7 @@ import WhatsappContactButton from '@/components/atoms/WhatsappContactButton';
 import { Footer } from "@/components/molecules/Footer";
 import Head from 'next/head'
 import { GoogleAnalytics } from '@next/third-parties/google'
+import Script from 'next/script'
 
 const NavBar = dynamic(() => import('@/components/molecules/NavBar'), {
   ssr: false,
@@ -16,6 +17,11 @@ const defaultUrl = process.env.VERCEL_URL
 ? `https://${process.env.VERCEL_URL}`
 : "http://localhost:3000";
 
+export const metadata = {
+  metadataBase: new URL(defaultUrl),
+  title: "Wardons Villavicencio",
+  description: "Club de baloncesto ubicado en villavicencio, entrenamiento para niños y niñas de todas las edades, clases de baloncesto personalizadas, clases para niños, baloncesto de iniciacion, formacion deportiva, basketball club, somos profesionales en el entrenamiento de baloncesto de todas las edades",
+};
 
 export default function RootLayout({
   children,
@@ -24,10 +30,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${GeistSans.className} box-border`}>
-      <Head key={'meta'}>
+      <Head>
         <title>{"Club de Baloncesto Wardons Villavicencio"}</title>
-        <meta name="google-site-verification" content="b8r5HBioWBEaeO4Tx7qBrvWStbPszmGeZ71emKznmG4" />
         <meta name="description" content="Informacion, ubicacion y noticias de nuestro club deportivo de baloncesto wardons, formacion de atletas desde temprana edad mini y juveniles Villavicencio, Meta." />
+        <meta name="google-site-verification" content="b8r5HBioWBEaeO4Tx7qBrvWStbPszmGeZ71emKznmG4" />
         <meta property="og:title" content="Escuela, academia, club de Baloncesto Wardons Villavicencio" />
         <meta property="og:description" content="Clases grupales de baloncesto (basketball) para niños y jovenes de todas las edades" />
         <meta property="og:image" content="https://hzahrfjtetaexlyfdecg.supabase.co/storage/v1/object/public/gallery/GALLERY_BANNER.png" /> {/* Reemplaza URL_DE_TU_IMAGEN con la URL de una imagen representativa */}

@@ -82,7 +82,7 @@ export const VideoPlayerSliderMobile = ({data, classContainer}) => {
         <VideoPlayerContainer className='mobileVid'>
                 {
                     data.map((video: Video, index)=>{
-                        return <VideoPlayer ref={videoRef} muted key={video.name} src={video.url} preload="auto" className={classContainer} >
+                        return <VideoPlayer ref={videoRef} muted key={video.name} src={video.url} preload="auto" className={`${classContainer} ${index !== currentIndex ? 'hidden' : ''}`} >
                         </VideoPlayer>
                     })
                 }

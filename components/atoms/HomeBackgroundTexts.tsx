@@ -111,10 +111,6 @@ const WardonsTitle = styled.h1<ContainerProps>`
     z-index: 4;
     text-align: ${props => props.positionText};
     opacity: .7;
-    @media (min-width: 1700px){
-        font-size:150px;
-        
-    }
     @media (max-width: 1700px){
         
     }
@@ -131,10 +127,6 @@ const SubTitle = styled.h1<ContainerProps>`
     font-style: italic;
     opacity: .7;
     text-align: ${props => props.positionText};
-    @media (min-width: 1700px) {
-        font-size:40px;
-        align-items: flex-start;
-    }
     @media (max-width: 760px){
         font-size:12px;
         font-weight: 700;

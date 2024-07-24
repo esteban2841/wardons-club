@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import { createClient } from "@/utils/supabase/server";
 import { Home } from "@/components/molecules/HomeView"
 import { MapScenarios } from '@/components/molecules/MapScenarios'
@@ -8,7 +7,7 @@ import { fetchStorageUrl } from '@/helpers/handleStorageData';
 import { HomeLoader } from '@/components/loaders/HomeLoader';
 import { AboutWardons } from '@/components/molecules/AboutWardons';
 import WardonSVG from '@/components/atoms/WardonSVG';
-
+import Image from 'next/image'
 
 export default async function Index() {
 
@@ -21,40 +20,50 @@ export default async function Index() {
   const bucketName = 'videos-home'
   const bucketNameMobile = 'videos-home-mobile'
 
+  const imageLoading = await fetchStorageUrl(createClient, 'gallery', 'GALLERY_BANNER.png')
+
   const loadingImage : () => Promise<string> = async ()=> await fetchStorageUrl(createClient, bucketName, 'wardons_grito.mp4')
 
   const videoListDesktop = [
     {
       name: 'wardons_grito.mp4',
       url: await fetchStorageUrl(createClient, bucketName, 'wardons_grito.mp4'),
+      turn: 0,
     },
     {
       name: 'partido_cesta.mp4',
       url: await fetchStorageUrl(createClient, bucketName, 'partido_cesta.mp4'),
+      turn: 1,
     },
     {
       name: 'triple_amenaza.mp4',
       url: await fetchStorageUrl(createClient, bucketName, 'triple_amenaza.mp4'),
+      turn: 2,
     },
     {
       name: 'defensa_posiciones.mp4',
       url: await fetchStorageUrl(createClient, bucketName, 'defensa_posiciones.mp4'),
+      turn: 3,
     },
     {
       name: 'entreno_velocidad.mp4',
       url: await fetchStorageUrl(createClient, bucketName, 'entreno_velocidad.mp4'),
+      turn: 4,
     },
     {
       name: 'pases_trenza.mp4',
       url: await fetchStorageUrl(createClient, bucketName, 'pases_trenza.mp4'),
+      turn: 5,
     },
     {
       name: 'drible_alto.mp4',
       url: await fetchStorageUrl(createClient, bucketName, 'drible_alto.mp4'),
+      turn: 6,
     },
     {
       name: 'pases_presion.mp4',
       url: await fetchStorageUrl(createClient, bucketName, 'pases_presion.mp4'),
+      turn: 7,
     },
   ]
   const videoListMobile = [
@@ -94,9 +103,12 @@ export default async function Index() {
 
   return (
     <div className="flex-1 w-full flex flex-col items-center relative text-[#fff]">
-      <Suspense fallback={<HomeLoader loadingImage={loadingImage()}/>}>
-        <Home data={videoListDesktop} dataMobile={videoListMobile}/>
-      </Suspense>
+      <div className="overflow-hidden flex w-full h-screen flex-col items-center relative text-[#fff] object-contain">
+        <Image src={imageLoading} alt="banner" layout="fill" className="object-cover animate-ping"/>
+        <Suspense fallback={<HomeLoader loadingImage={loadingImage()}/>}>
+          <Home data={videoListDesktop} dataMobile={videoListMobile}/>
+        </Suspense>
+      </div>
       <AboutWardons>
 
       </AboutWardons>

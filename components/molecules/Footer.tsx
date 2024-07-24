@@ -49,8 +49,10 @@ const Icons = [
     // },
     {
         name: 'instagram',
-        icon: <FontAwesomeIcon className="icons" icon={faInstagram} size="2x" style={{
-            color: '#fff'
+        icon: <FontAwesomeIcon className="icons" icon={faInstagram} style={{
+            color: '#fff',
+            height: '40px',
+            width: '40px'
         }} />,
         ref: 'https://www.instagram.com/wardonsbasketballclub?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=='
 

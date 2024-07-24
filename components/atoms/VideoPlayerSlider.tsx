@@ -53,8 +53,6 @@ export const VideoPlayerSlider = ({data, classContainer}) => {
 		console.log("TCL: playVideosSequentially -> videoArray", videoArray)
         const currentVideo = videoArray[currentIndex];
 		console.log("TCL: playVideosSequentially -> currentVideo", currentVideo)
-        currentVideo.pause();
-        currentVideo.currentTime = 0;
         currentVideo.style.display = 'block' ; 
         currentVideo.classList.add('fade-in')
         currentVideo.play();
@@ -70,6 +68,9 @@ export const VideoPlayerSlider = ({data, classContainer}) => {
         };
     }
     useEffect(()=>{
+        setTimeout(()=>{
+        }, 3000)
+        console.log('cargo el componente')
         const videos = Array.from(document.querySelectorAll(`.${classContainer}`) as NodeListOf<HTMLVideoElement>);
         playVideosSequentially(videos, currentIndex)
     }, [])
@@ -77,7 +78,7 @@ export const VideoPlayerSlider = ({data, classContainer}) => {
         <VideoPlayerContainer className='desktopVid'>
                 {
                     data.map((video: Video)=>{
-                        return <VideoPlayer muted key={video.name} src={video.url} preload="auto" className={classContainer} >
+                        return <VideoPlayer autoPlay muted key={video.name} src={video.url} preload="auto" className={classContainer} >
                         </VideoPlayer>
                     })
                 }

@@ -1,7 +1,7 @@
 'use client'
 import styled from 'styled-components'
 import { VideoPlayerSlider } from '../atoms/VideoPlayerSlider';
-import { useEffect, useState } from 'react';
+import { Suspense, useEffect, useState } from 'react';
 import WardonSVG from '../atoms/WardonSVG';
 import { VideoPlayerSliderMobile } from '../atoms/VideoPlayerSliderMobile';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -52,17 +52,19 @@ const Overlay = styled.div`
     @media (min-width: 1700px) {
         font-size:300px;
         align-items: flex-start;
-        justify-content: flex-start;
-        gap: 50px;
+        justify-content: center;
+        gap: 20px;
         padding: 100px 0px 0px 100px;
         .star{
-            width: 40px;   
+            width: 40px; 
+            height: 40px; 
         }
     }
     @media (max-width: 500px) {
         padding: 60px 20px;
         justify-content:flex-end;
         .star{
+            height: 20px; 
             width: 20px;   
         }
     }
@@ -75,14 +77,14 @@ const WardonsTitle = styled.h1`
     font-size: 70px;
     
     @media (min-width: 1700px){
-        font-size:150px;
+        font-size:68px;
         
     }
     @media (max-width: 1700px){
         
     }
     @media (max-width: 768px){
-        font-size:46px;
+        font-size: 46px;
 
     }
     `
@@ -92,7 +94,7 @@ const SubTitle = styled.h1`
     font-weight: 900;
     font-style: normal;
     @media (min-width: 1700px) {
-        font-size:130px;
+        font-size: 55px;
         align-items: flex-start;
     }
     @media (max-width: 760px){
@@ -110,9 +112,10 @@ export const Home = (props) => {
     // }, [isMobile])
 
     return <HomeContainer className='carrousel'>
-        
-        {<VideoPlayerSliderMobile classContainer={'mobile'} data={props.dataMobile}></VideoPlayerSliderMobile>}
-        {<VideoPlayerSlider classContainer={'desktop'} data={props.data}></VideoPlayerSlider>}
+        <Suspense fallback={<p>Loading video...</p>}>
+            {<VideoPlayerSlider classContainer={'desktop'} data={props.data}></VideoPlayerSlider>}
+        </Suspense>
+        {/* {<VideoPlayerSliderMobile classContainer={'mobile'} data={props.dataMobile}></VideoPlayerSliderMobile>} */}
         {/* <div className='flex absolute w-[1000px] top-[10%] right-[50%] z-10 opacity-80'>
             <WardonSVG></WardonSVG>
 

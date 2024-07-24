@@ -10,6 +10,7 @@ const SocialNetworkContainer = styled.div`
     align-items: center;
     justify-content: center;
     .icons{
+
         &:hover{
             cursor: pointer;
             color: #E84C1A!important;

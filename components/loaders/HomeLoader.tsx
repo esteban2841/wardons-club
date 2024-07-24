@@ -18,7 +18,7 @@ const ImageLoader = styled.img`
 export const HomeLoader = ({loadingImage}) => {
   return (
     <ImageLoaderContainer>
-        <ImageLoader src={loadingImage} />
+        {/* <ImageLoader src={loadingImage} /> */}
     </ImageLoaderContainer>
   )
 }
