@@ -20,69 +20,52 @@ const VideoPlayer = styled.video`
     position: absolute;
     top: 0;
     left: 0;
-    .playerSource {
-        display: none;
-        transition-property: all;
-        transition: all 1s;
-        transition-behavior: allow-discrete;
-    }
-    .fade-in {
-        opacity: 1;
-        display: block;
-    }
-    
-    .fade-out {
-        opacity: 0;
-        display: none;
-    }
-    
 `
 const SrcPlayer = styled.source`
 `
 
+interface VideoPlayer {
+    data: [];
+    classContainer: string;
+}
 
 interface Video {
     name: string,
-    url: string
+    url: string,
+    turn: string;
 }
-export const VideoPlayerSliderMobile = ({data, classContainer}) => {
-
-    const videoRef = useRef(null);
-	console.log("TCL: VideoPlayerSliderMobile -> videoRef", videoRef)
+export const VideoPlayerSliderMobile = ({data, classContainer} : VideoPlayer) => {
     
     let currentIndex = 0;
-    
     function playVideosSequentially(videoArray : Array<HTMLVideoElement> , index: number) {
-		console.log("TCL: playVideosSequentially -> videoArray", videoArray)
+            
+        console.log("TCL: playVideosSequentially -> videoArray", videoArray)
         const currentVideo = videoArray[currentIndex];
-		console.log("TCL: playVideosSequentially -> currentVideo", currentVideo)
-        currentVideo.pause();
-        currentVideo.currentTime = 0;
-        setTimeout(() => {
-        }, 1000);
+        console.log("TCL: playVideosSequentially -> currentVideo", currentVideo)
         currentVideo.style.display = 'block' ; 
-        currentVideo.classList.add('fade-in')
         currentVideo.play();
         // Apply fade-out effect
         
         
         
         currentVideo.onended = (event) => {
-            currentVideo.classList.add('fade-out')
             currentVideo.style.display = 'none'
             currentIndex = (currentIndex + 1) % videoArray.length; // Move to next index, wrapping around if necessary
             playVideosSequentially(videoArray, currentIndex); // Play the next video
         };
     }
-    useEffect(()=>{
-        const videos = Array.from(document.querySelectorAll(`.${classContainer}`) as NodeListOf<HTMLVideoElement>);
-        playVideosSequentially(videos, currentIndex)
-    }, [])
+useEffect(()=>{
+    setTimeout(()=>{
+    }, 8000)
+    console.log('cargo el componente')
+    const videos = Array.from(document.querySelectorAll(`.${classContainer}`) as NodeListOf<HTMLVideoElement>);
+    playVideosSequentially(videos, currentIndex)
+}, [])
     return (
         <VideoPlayerContainer className='mobileVid'>
                 {
                     data.map((video: Video, index)=>{
-                        return <VideoPlayer ref={videoRef} muted key={video.name} src={video.url} preload="auto" className={`${classContainer} ${index !== currentIndex ? 'hidden' : ''}`} >
+                        return <VideoPlayer muted key={video.name} src={video.url} preload="auto" className={classContainer} id={video.turn} >
                         </VideoPlayer>
                     })
                 }

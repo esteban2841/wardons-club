@@ -115,7 +115,9 @@ export const Home = (props) => {
         <Suspense fallback={<p>Loading video...</p>}>
             {<VideoPlayerSlider classContainer={'desktop'} data={props.data}></VideoPlayerSlider>}
         </Suspense>
-        {/* {<VideoPlayerSliderMobile classContainer={'mobile'} data={props.dataMobile}></VideoPlayerSliderMobile>} */}
+        <Suspense fallback={<p>Loading video...</p>}>
+            {<VideoPlayerSliderMobile classContainer={'mobile'} data={props.dataMobile}></VideoPlayerSliderMobile>}
+        </Suspense>
         {/* <div className='flex absolute w-[1000px] top-[10%] right-[50%] z-10 opacity-80'>
             <WardonSVG></WardonSVG>
 

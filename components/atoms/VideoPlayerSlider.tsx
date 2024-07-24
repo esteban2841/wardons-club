@@ -14,28 +14,13 @@ const VideoPlayerContainer = styled.article`
     }
     `
 const VideoPlayer = styled.video`
+    display: none;
     width: 100%;
     height: 100%;
     object-fit: cover;
     position: absolute;
     top: 0;
     left: 0;
-    .playerSource {
-        display: none;
-        transition-property: all;
-        transition: all 1s;
-        transition-behavior: allow-discrete;
-    }
-    .fade-in {
-        opacity: 1;
-        display: block;
-    }
-    
-    .fade-out {
-        opacity: 0;
-        display: none;
-    }
-    
 `
 const SrcPlayer = styled.source`
 `
@@ -43,9 +28,15 @@ const SrcPlayer = styled.source`
 
 interface Video {
     name: string,
-    url: string
+    url: string,
+    turn: string
 }
-export const VideoPlayerSlider = ({data, classContainer}) => {
+
+interface VideoPlayer {
+    data: [];
+    classContainer: string;
+}
+export const VideoPlayerSlider = ({data, classContainer} : VideoPlayer) => {
     
     let currentIndex = 0;
     
@@ -54,14 +45,12 @@ export const VideoPlayerSlider = ({data, classContainer}) => {
         const currentVideo = videoArray[currentIndex];
 		console.log("TCL: playVideosSequentially -> currentVideo", currentVideo)
         currentVideo.style.display = 'block' ; 
-        currentVideo.classList.add('fade-in')
         currentVideo.play();
         // Apply fade-out effect
         
         
         
         currentVideo.onended = (event) => {
-            currentVideo.classList.add('fade-out')
             currentVideo.style.display = 'none'
             currentIndex = (currentIndex + 1) % videoArray.length; // Move to next index, wrapping around if necessary
             playVideosSequentially(videoArray, currentIndex); // Play the next video
@@ -69,7 +58,7 @@ export const VideoPlayerSlider = ({data, classContainer}) => {
     }
     useEffect(()=>{
         setTimeout(()=>{
-        }, 3000)
+        }, 8000)
         console.log('cargo el componente')
         const videos = Array.from(document.querySelectorAll(`.${classContainer}`) as NodeListOf<HTMLVideoElement>);
         playVideosSequentially(videos, currentIndex)
@@ -77,8 +66,8 @@ export const VideoPlayerSlider = ({data, classContainer}) => {
     return (
         <VideoPlayerContainer className='desktopVid'>
                 {
-                    data.map((video: Video)=>{
-                        return <VideoPlayer autoPlay muted key={video.name} src={video.url} preload="auto" className={classContainer} >
+                    data.map((video: Video, index)=>{
+                        return <VideoPlayer muted key={video.name}  src={video.url} preload="auto" className={classContainer} id={video.turn} >
                         </VideoPlayer>
                     })
                 }
