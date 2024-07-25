@@ -46,8 +46,7 @@ export const VideoPlayerSliderMobile = ({data, classContainer} : VideoPlayer) =>
         console.log("TCL: playVideosSequentially -> currentVideo", currentVideo)
         if(currentIndex === 0 ){
 
-            currentVideo.style.scale = '105%' ; 
-            currentVideo.style.top = '-15%' ; 
+            currentVideo.style.height = '125%' ; 
         }
         currentVideo.style.display = 'block' ; 
         currentVideo.play();

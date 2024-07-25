@@ -48,6 +48,9 @@ const Overlay = styled.div`
         color: #fff;
         font-size: 50px;
         opacity: .7;
+        @media (max-width: 768px) {
+            font-size: 24px !important;
+        }
     }
     @media (min-width: 1700px) {
         font-size:300px;
