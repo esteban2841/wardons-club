@@ -47,6 +47,7 @@ export const VideoPlayerSliderMobile = ({data, classContainer} : VideoPlayer) =>
         if(currentIndex === 0 ){
 
             currentVideo.style.height = '125%' ; 
+            currentVideo.style.top = '-15%' ; 
         }
         currentVideo.style.display = 'block' ; 
         currentVideo.play();
