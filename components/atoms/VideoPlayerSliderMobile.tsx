@@ -52,11 +52,11 @@ export const VideoPlayerSliderMobile = ({data, classContainer} : VideoPlayer) =>
         }
         // Apply fade-out effect
         const loaded = currentVideo.buffered.length
-  
-		console.log("TCL: playVideosSequentially -> loaded", loaded)
         
+		console.log("TCL: playVideosSequentially -> loaded", loaded)
         currentVideo.style.display = 'block' ; 
         currentVideo.play();
+        
         currentVideo.onended = (event) => {
             currentVideo.style.display = 'none'
             currentIndex = (currentIndex + 1) % videoArray.length; // Move to next index, wrapping around if necessary
@@ -74,7 +74,7 @@ useEffect(()=>{
         <VideoPlayerContainer className='mobileVid'>
                 {
                     data.map((video: Video, index)=>{
-                        return <VideoPlayer muted key={video.name} src={video.url} preload="auto" className={classContainer} id={video.turn} >
+                        return <VideoPlayer muted key={video.name} src={video.url} preload="none" className={classContainer} id={video.turn} >
                         </VideoPlayer>
                     })
                 }

@@ -84,6 +84,9 @@ const Loader = styled.div<Rad>`
   &:hover{
     padding: 0px;
   }
+  @media (max-width: 768px) {
+    width: 50%;
+  }
 `;
 
 const ImageContainer = styled.div<lineType>`
