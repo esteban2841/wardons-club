@@ -69,7 +69,7 @@ export default async function Index() {
   const videoListMobile = [
     {
       name: 'wardons-grito.mp4',
-      url: await fetchStorageUrl(createClient, bucketNameMobile, 'wardons_grito.mp4'),
+      url: await fetchStorageUrl(createClient, bucketNameMobile, 'wardons-grito.mp4'),
     },
     {
       name: 'saludo-partido.mp4',

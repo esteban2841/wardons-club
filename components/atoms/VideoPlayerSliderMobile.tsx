@@ -38,11 +38,17 @@ interface Video {
 export const VideoPlayerSliderMobile = ({data, classContainer} : VideoPlayer) => {
     
     let currentIndex = 0;
+    
     function playVideosSequentially(videoArray : Array<HTMLVideoElement> , index: number) {
             
         console.log("TCL: playVideosSequentially -> videoArray", videoArray)
         const currentVideo = videoArray[currentIndex];
         console.log("TCL: playVideosSequentially -> currentVideo", currentVideo)
+        if(currentIndex === 0 ){
+
+            currentVideo.style.scale = '105%' ; 
+            currentVideo.style.top = '-15%' ; 
+        }
         currentVideo.style.display = 'block' ; 
         currentVideo.play();
         // Apply fade-out effect
