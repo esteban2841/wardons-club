@@ -14,6 +14,7 @@ const VideoPlayerContainer = styled.article`
     }
     `
 const VideoPlayer = styled.video`
+    display: none;
     width: 100%;
     height: 100%;
     object-fit: cover;

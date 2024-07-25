@@ -8,6 +8,9 @@ import { Footer } from "@/components/molecules/Footer";
 import Head from 'next/head'
 import { GoogleAnalytics } from '@next/third-parties/google'
 import Script from 'next/script'
+import { Suspense } from "react";
+import Image from "next/image";
+import Link from "next/link";
 
 const NavBar = dynamic(() => import('@/components/molecules/NavBar'), {
   ssr: false,
@@ -43,7 +46,16 @@ export default function RootLayout({
       <body className="bg-[#000] text-foreground">
         <main className="flex flex-col items-center relative">
           <>
-            <NavBar baseUrl={defaultUrl}></NavBar>
+            <Suspense fallback={
+              <nav className="flex flex-row items-center justify-between w-full h-[70px] b-[black] relative z-20">
+              <a href='/' >
+                <Image className='wardons-logo' src='/assets/images/wardons-logo-mobile.png' alt="logo-mobile" width={60} height={60}/>
+              </a>
+            </nav>
+            }>
+
+              <NavBar baseUrl={defaultUrl}></NavBar>
+            </Suspense>
             <PlacesProvider>
               <MapProvider>
                 {children}
