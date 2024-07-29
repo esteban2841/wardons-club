@@ -85,7 +85,7 @@ const Loader = styled.div<Rad>`
     padding: 0px;
   }
   @media (max-width: 768px) {
-    width: 50%;
+    width: 80%;
   }
 `;
 

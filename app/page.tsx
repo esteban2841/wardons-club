@@ -103,8 +103,8 @@ export default async function Index() {
 
   return (
     <div className="flex-1 w-full flex flex-col items-center relative text-[#fff]">
-      <div className="overflow-hidden flex w-full h-screen flex-col items-center relative text-[#fff] object-contain">
-        <Image src={imageLoading} alt="banner" layout="fill" className="object-cover animate-ping"/>
+      <div className="overflow-hidden flex w-full h-[90%] flex-col items-center relative text-[#fff] object-contain">
+        <Image src={imageLoading} alt="banner" layout="fill" className="object-cover greyscale opacity-20"/>
         <Suspense fallback={<HomeLoader loadingImage={''}/>}>
           <Home data={videoListDesktop} dataMobile={videoListMobile}/>
         </Suspense>

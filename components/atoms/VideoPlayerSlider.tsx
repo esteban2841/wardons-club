@@ -67,7 +67,7 @@ export const VideoPlayerSlider = ({data, classContainer} : VideoPlayer) => {
         <VideoPlayerContainer className='desktopVid'>
                 {
                     data.map((video: Video, index)=>{
-                        return <VideoPlayer muted key={video.name}  src={video.url} preload="auto" className={classContainer} id={video.turn} >
+                        return <VideoPlayer muted key={video.name}  src={video.url} preload="none" className={classContainer} id={video.turn} >
                         </VideoPlayer>
                     })
                 }

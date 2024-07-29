@@ -14,7 +14,7 @@ const HomeContainer = styled.article`
     justify-content: center;
     width: 100%;
     position: relative;
-    height: 100vh;
+    height: 90vh;
     overflow: hidden;
     .mobileVid {
         display: none;

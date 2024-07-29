@@ -16,7 +16,7 @@ const CustomFigure = styled.figure`
     overflow: hidden;
     
     @media (max-width: 768px) {
-        height: 400px;
+        height: 300px;
         width: 100%;
         padding: 0px 20px;
     }

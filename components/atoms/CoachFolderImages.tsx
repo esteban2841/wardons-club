@@ -45,8 +45,11 @@ const CustomFigure = styled.figure`
     max-width: 900px;
     border-radius: 25px;
     overflow: hidden;
+    .figcaption{
+        display: hidden;
+    }
     @media (max-width: 768px) {
-        height: 440px;
+        height: 300px;
     }
     
     `
