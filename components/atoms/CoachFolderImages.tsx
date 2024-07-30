@@ -40,7 +40,7 @@ const MainCoachImageContainer = styled.img`
     `
 
 const CustomFigure = styled.figure`
-    height: 980px;
+    height: 550px;
     width: 100%;
     max-width: 900px;
     border-radius: 25px;

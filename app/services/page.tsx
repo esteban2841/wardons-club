@@ -9,7 +9,7 @@ const Page = async () => {
       {
         type: 'verticalRatio',
         name: 'MEDALLAS_H.avif',
-        url: await fetchStorageUrl(createClient, 'gallery', 'MEDALLAS_H.avif'),
+        url: await fetchStorageUrl(createClient, 'info_gallery', 'MEDALLAS_H.avif'),
         line: 0,
         tag: 'Iniciación'
       },
@@ -32,7 +32,7 @@ const Page = async () => {
     <div className="flex flex-col justify-center items-center w-full">
      
       <Banner 
-        image={await fetchStorageUrl(createClient, 'gallery', 'GALLERY_BANNER.png')} 
+        image={await fetchStorageUrl(createClient, 'gallery', 'GALLERY_BANNER.avif')} 
         title="NUESTRA OFERTA"
         buttonTitle="OFRECEMOS"
         figCaptDescr="club de basketball"

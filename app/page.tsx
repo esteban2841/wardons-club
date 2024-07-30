@@ -20,7 +20,7 @@ export default async function Index() {
   const bucketName = 'videos-home'
   const bucketNameMobile = 'videos-home-mobile'
 
-  const imageLoading = await fetchStorageUrl(createClient, 'gallery', 'GALLERY_BANNER.png')
+  const imageLoading = await fetchStorageUrl(createClient, 'gallery', 'GALLERY_BANNER_RESIZED.avif')
 
   const loadingImage : () => Promise<string> = async ()=> await fetchStorageUrl(createClient, bucketName, 'wardons_grito.mp4')
 
@@ -103,11 +103,12 @@ export default async function Index() {
 
   return (
     <div className="flex-1 w-full flex flex-col items-center relative text-[#fff]">
-      <div className="overflow-hidden flex w-full h-[90%] flex-col items-center relative text-[#fff] object-contain">
-        <Image src={imageLoading} alt="banner" layout="fill" className="object-cover greyscale opacity-20"/>
-        <Suspense fallback={<HomeLoader loadingImage={''}/>}>
-          <Home data={videoListDesktop} dataMobile={videoListMobile}/>
-        </Suspense>
+      <div className="overflow-hidden flex w-full h-[90%] flex-col items-center relative text-[#fff]">
+          <Image src={imageLoading} alt="banner" layout="fill" className="object-cover greyscale opacity-30"/>
+          <Suspense fallback={<HomeLoader loadingImage={''}/>}>
+            <Home data={videoListDesktop} dataMobile={videoListMobile}/>
+          </Suspense>
+
       </div>
       <AboutWardons>
 

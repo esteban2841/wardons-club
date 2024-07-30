@@ -156,21 +156,24 @@ export const ContactForm = () => {
     return (
         <ContactFormContainer ref={form} onClick={handleSubmit}>
             <NameFieldContainer className="name-container">
-                <input className="input-form" required placeholder="Name:" name="user_name" type="text" />
+                <input className="input-form" required placeholder="Nombre:" name="user_name" type="text" />
             </NameFieldContainer>
             <EmailSubjectFieldContainer className="email-subject-container">
                 <div className="email">
-                    <input className="input-form" required placeholder="Email:" name="user_email" type="email" />
+                    <input className="input-form" required placeholder="Correo:" name="user_email" type="email" />
 
                 </div>
                 <div className="subject">
-                    <input className="input-form" required placeholder="Subject:" name="subject" type="text" />
+                    <input className="input-form" required placeholder="Asunto:" name="subject" type="text" />
                     
                 </div>
                 
             </EmailSubjectFieldContainer>
+            <NameFieldContainer className="name-container">
+                <input className="input-form" required placeholder="Nombre:" name="user_name" type="text" />
+            </NameFieldContainer>
             <MessageFieldContainer className="message-container">
-                <input className="input-form" required placeholder="Message:" name="message" type="text" />
+                <input className="input-form" required placeholder="Mensaje:" name="message" type="text" />
             </MessageFieldContainer>
             <ButtonFieldContainer className="button-container">
                 <button type="submit" className="send-button">

@@ -39,9 +39,16 @@ const ImageGalleryTrioContainer = styled.figure<ContainerWidth>`
   max-width: ${props=>props.maximumWidth? props.maximumWidth :  '800px'};
   position: relative;
   gap: 10px;
+  height: max-content;
   .caption{
     visibility: hidden;
     height: 0px;
+  }
+  @media (max-width: 768px) {
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 100%;
+    
   }
 `
 const SkeletonLoader = styled.div`
@@ -74,12 +81,12 @@ const Loader = styled.div<Rad>`
   animation: Gradient 3s ease infinite;
   border-radius: ${props => props.radius ? '10px' : ''};
   @keyframes Gradient {
-      0% {
-          background-position: 200% 0;
-      }
-      100% {
-          background-position: -200% 0;
-      }
+    0% {
+      background-position: 200% 0;
+    }
+    100% {
+      background-position: -200% 0;
+    }
   }
   &:hover{
     padding: 0px;

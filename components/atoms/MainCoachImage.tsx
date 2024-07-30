@@ -10,7 +10,7 @@ const MainCoachImageContainer = styled.img`
 `
 
 const CustomFigure = styled.figure`
-    height: 980px;
+    height: 600px;
     width: 100%;
     max-width: 900px;
     overflow: hidden;

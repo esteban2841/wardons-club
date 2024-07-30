@@ -113,6 +113,10 @@ export const Home = (props) => {
     // useEffect(()=>{
     //     const mobile = document.
     // }, [isMobile])
+    {/* <div className='flex absolute w-[1000px] top-[10%] right-[50%] z-10 opacity-80'>
+        <WardonSVG></WardonSVG>
+
+    </div> */}
 
     return <HomeContainer className='carrousel'>
         <Suspense fallback={<p>Loading video...</p>}>
@@ -121,10 +125,6 @@ export const Home = (props) => {
         <Suspense fallback={<p>Loading video...</p>}>
             {<VideoPlayerSliderMobile classContainer={'mobile'} data={props.dataMobile}></VideoPlayerSliderMobile>}
         </Suspense>
-        {/* <div className='flex absolute w-[1000px] top-[10%] right-[50%] z-10 opacity-80'>
-            <WardonSVG></WardonSVG>
-
-        </div> */}
         <Overlay>
             <WardonsTitle>
                 WARDONS
@@ -151,7 +151,7 @@ export const Home = (props) => {
 
             </div>
             <WardonsTitle className='grey'>
-                Mas que un club de basket...
+                Mas que un club de baloncesto...
             </WardonsTitle>
         </Overlay>
     </HomeContainer>

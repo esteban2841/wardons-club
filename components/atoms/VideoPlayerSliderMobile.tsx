@@ -47,15 +47,20 @@ export const VideoPlayerSliderMobile = ({data, classContainer} : VideoPlayer) =>
         console.log("TCL: playVideosSequentially -> currentVideo", currentVideo)
         if(currentIndex === 0 ){
 
-            currentVideo.style.height = '125%' ; 
+            currentVideo.style.height = '135%' ; 
             currentVideo.style.top = '-15%' ; 
         }
+        currentVideo.onerror = (event) => {
+            currentVideo.style.display = 'none'
+            currentIndex = (currentIndex + 1) % videoArray.length; // Move to next index, wrapping around if necessary
+            playVideosSequentially(videoArray, currentIndex); // Play the next video
+        };
         // Apply fade-out effect
         const loaded = currentVideo.buffered.length
-        
-		console.log("TCL: playVideosSequentially -> loaded", loaded)
+        console.log("TCL: playVideosSequentially -> loaded", loaded)
         currentVideo.style.display = 'block' ; 
         currentVideo.play();
+        
         
         currentVideo.onended = (event) => {
             currentVideo.style.display = 'none'
@@ -64,9 +69,6 @@ export const VideoPlayerSliderMobile = ({data, classContainer} : VideoPlayer) =>
         };
     }
 useEffect(()=>{
-    setTimeout(()=>{
-    }, 8000)
-    console.log('cargo el componente')
     const videos = Array.from(document.querySelectorAll(`.${classContainer}`) as NodeListOf<HTMLVideoElement>);
     playVideosSequentially(videos, currentIndex)
 }, [])

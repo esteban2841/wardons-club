@@ -260,74 +260,74 @@ const Page = async () => {
         <div className="w-full flex flex-col items-center justify-center p-10">
 
           <Suspense fallback={CardSkeleton()}>
-            <GalleryVeticalPhotoTrio maximumWidth={''} radius={true} defaultImgUrl={await fetchStorageUrl(createClient, 'gallery', 'GALLERY_BANNER.png')} photosTriPack={triPackVerticalPhotos.slice(0,3)}>
+            <GalleryVeticalPhotoTrio maximumWidth={''} radius={true} defaultImgUrl={await fetchStorageUrl(createClient, 'gallery', 'GALLERY_BANNER.avif')} photosTriPack={triPackVerticalPhotos.slice(0,3)}>
 
             </GalleryVeticalPhotoTrio>
 
           </Suspense>
           <Suspense fallback={CardSkeleton()}>
-            <GalleryVeticalPhotoTrio maximumWidth={''} radius={true} defaultImgUrl={await fetchStorageUrl(createClient, 'gallery', 'GALLERY_BANNER.png')} photosTriPack={triPackVerticalPhotos.slice(3,6)}>
-
-            </GalleryVeticalPhotoTrio>
-
-          </Suspense>
-
-          <Suspense fallback={CardSkeleton()}>
-            <GalleryVeticalPhotoTrio maximumWidth={''} radius={true} defaultImgUrl={await fetchStorageUrl(createClient, 'gallery', 'GALLERY_BANNER.png')} photosTriPack={triPackVerticalPhotos.slice(6,9)}>
-
-            </GalleryVeticalPhotoTrio>
-
-          </Suspense>
-          <Suspense fallback={CardSkeleton()}>
-
-            <GalleryVeticalPhotoTrio maximumWidth={''} radius={true} defaultImgUrl={await fetchStorageUrl(createClient, 'gallery', 'GALLERY_BANNER.png')} photosTriPack={duoHorizontalPhotos.slice(0,3)}>
-
-            </GalleryVeticalPhotoTrio>
-          </Suspense>
-
-
-          <Suspense fallback={CardSkeleton()}>
-
-            <GalleryVeticalPhotoTrio maximumWidth={''} radius={true} defaultImgUrl={await fetchStorageUrl(createClient, 'gallery', 'GALLERY_BANNER.png')} photosTriPack={duoHorizontalPhotos.slice(3,6)}>
-
-            </GalleryVeticalPhotoTrio>
-          </Suspense>
-
-          <Suspense fallback={CardSkeleton()}>
-            <GalleryVeticalPhotoTrio maximumWidth={''} radius={true} defaultImgUrl={await fetchStorageUrl(createClient, 'gallery', 'GALLERY_BANNER.png')} photosTriPack={triPackVerticalPhotos.slice(9,12)}>
+            <GalleryVeticalPhotoTrio maximumWidth={''} radius={true} defaultImgUrl={await fetchStorageUrl(createClient, 'gallery', 'GALLERY_BANNER.avif')} photosTriPack={triPackVerticalPhotos.slice(3,6)}>
 
             </GalleryVeticalPhotoTrio>
 
           </Suspense>
 
           <Suspense fallback={CardSkeleton()}>
+            <GalleryVeticalPhotoTrio maximumWidth={''} radius={true} defaultImgUrl={await fetchStorageUrl(createClient, 'gallery', 'GALLERY_BANNER.avif')} photosTriPack={triPackVerticalPhotos.slice(6,9)}>
 
-            <GalleryVeticalPhotoTrio maximumWidth={''} radius={true} defaultImgUrl={await fetchStorageUrl(createClient, 'gallery', 'GALLERY_BANNER.png')} photosTriPack={duoHorizontalPhotos.slice(6,9)}>
+            </GalleryVeticalPhotoTrio>
+
+          </Suspense>
+          <Suspense fallback={CardSkeleton()}>
+
+            <GalleryVeticalPhotoTrio maximumWidth={''} radius={true} defaultImgUrl={await fetchStorageUrl(createClient, 'gallery', 'GALLERY_BANNER.avif')} photosTriPack={duoHorizontalPhotos.slice(0,3)}>
+
+            </GalleryVeticalPhotoTrio>
+          </Suspense>
+
+
+          <Suspense fallback={CardSkeleton()}>
+
+            <GalleryVeticalPhotoTrio maximumWidth={''} radius={true} defaultImgUrl={await fetchStorageUrl(createClient, 'gallery', 'GALLERY_BANNER.avif')} photosTriPack={duoHorizontalPhotos.slice(3,6)}>
+
+            </GalleryVeticalPhotoTrio>
+          </Suspense>
+
+          <Suspense fallback={CardSkeleton()}>
+            <GalleryVeticalPhotoTrio maximumWidth={''} radius={true} defaultImgUrl={await fetchStorageUrl(createClient, 'gallery', 'GALLERY_BANNER.avif')} photosTriPack={triPackVerticalPhotos.slice(9,12)}>
+
+            </GalleryVeticalPhotoTrio>
+
+          </Suspense>
+
+          <Suspense fallback={CardSkeleton()}>
+
+            <GalleryVeticalPhotoTrio maximumWidth={''} radius={true} defaultImgUrl={await fetchStorageUrl(createClient, 'gallery', 'GALLERY_BANNER.avif')} photosTriPack={duoHorizontalPhotos.slice(6,9)}>
 
             </GalleryVeticalPhotoTrio>
           </Suspense>
 
           <Suspense fallback={CardSkeleton()}>
 
-            <GalleryVeticalPhotoTrio maximumWidth={''} radius={true} defaultImgUrl={await fetchStorageUrl(createClient, 'gallery', 'GALLERY_BANNER.png')} photosTriPack={triPackVerticalPhotos.slice(12,15)}>
+            <GalleryVeticalPhotoTrio maximumWidth={''} radius={true} defaultImgUrl={await fetchStorageUrl(createClient, 'gallery', 'GALLERY_BANNER.avif')} photosTriPack={triPackVerticalPhotos.slice(12,15)}>
 
             </GalleryVeticalPhotoTrio>
           </Suspense>
           <Suspense fallback={CardSkeleton()}>
 
-            <GalleryVeticalPhotoTrio maximumWidth={''} radius={true} defaultImgUrl={await fetchStorageUrl(createClient, 'gallery', 'GALLERY_BANNER.png')} photosTriPack={triPackVerticalPhotos.slice(15,18)}>
+            <GalleryVeticalPhotoTrio maximumWidth={''} radius={true} defaultImgUrl={await fetchStorageUrl(createClient, 'gallery', 'GALLERY_BANNER.avif')} photosTriPack={triPackVerticalPhotos.slice(15,18)}>
 
             </GalleryVeticalPhotoTrio>
           </Suspense>
           <Suspense fallback={CardSkeleton()}>
 
-            <GalleryVeticalPhotoTrio maximumWidth={''} radius={true} defaultImgUrl={await fetchStorageUrl(createClient, 'gallery', 'GALLERY_BANNER.png')} photosTriPack={triPackVerticalPhotos.slice(18,21)}>
+            <GalleryVeticalPhotoTrio maximumWidth={''} radius={true} defaultImgUrl={await fetchStorageUrl(createClient, 'gallery', 'GALLERY_BANNER.avif')} photosTriPack={triPackVerticalPhotos.slice(18,21)}>
 
             </GalleryVeticalPhotoTrio>
           </Suspense>
           <Suspense fallback={CardSkeleton()}>
 
-            <GalleryVeticalPhotoTrio maximumWidth={''} radius={true} defaultImgUrl={await fetchStorageUrl(createClient, 'gallery', 'GALLERY_BANNER.png')} photosTriPack={triPackVerticalPhotos.slice(21,24)}>
+            <GalleryVeticalPhotoTrio maximumWidth={''} radius={true} defaultImgUrl={await fetchStorageUrl(createClient, 'gallery', 'GALLERY_BANNER.avif')} photosTriPack={triPackVerticalPhotos.slice(21,24)}>
 
             </GalleryVeticalPhotoTrio>
           </Suspense>
