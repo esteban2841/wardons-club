@@ -37,7 +37,7 @@ export default function RootLayout({
         <main className="flex flex-col items-center relative">
           <>
             <Suspense fallback={
-              <nav className="flex flex-row items-center justify-between w-full h-[70px] b-[black] relative z-20">
+              <nav className="flex flex-row items-center justify-between w-full h-[70px] b-[black] absolute z-20">
               <a href='/' >
                 <Image className='wardons-logo' src='/assets/images/wardons-logo-mobile.png' alt="logo-mobile" width={60} height={60}/>
               </a>
