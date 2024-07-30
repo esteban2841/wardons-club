@@ -118,7 +118,6 @@ const SubTitleNavBar = styled.h1<titleProps>`
 
 export const NavBarElements = ({customSize, color, fontFamilyType, weight, hoverColor, data, isMobile, onClose, baseUrl}: titleProps) => {
   const pathName = usePathname()
-	console.log("TCL: NavBarElements -> pathName", pathName, data)
   return (
     <ListNavBar isMobile={isMobile}>
       <OverlayMobile onClick={()=>onClose()} isMobile={isMobile}>
