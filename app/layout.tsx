@@ -35,25 +35,25 @@ export default function RootLayout({
       <GoogleAnalytics gaId="G-1L1M5FQ7ZZ" />
       <body className="bg-[#000] text-foreground">
         <main className="flex flex-col items-center relative">
-          <>
-            <Suspense fallback={
-              <nav className="flex flex-row items-center justify-between w-full h-[70px] b-[black] absolute z-20">
-              <a href='/' >
-                <Image className='wardons-logo' src='/assets/images/wardons-logo-mobile.png' alt="logo-mobile" width={60} height={60}/>
-              </a>
-            </nav>
-            }>
-              
-              <NavBar baseUrl={defaultUrl}></NavBar>
-            </Suspense>
-            <PlacesProvider>
-              <MapProvider>
-                {children}
-              </MapProvider>
-            </PlacesProvider>
-            <WhatsappContactButton></WhatsappContactButton>
-            <Footer></Footer>
-          </>
+          
+          <Suspense fallback={
+            <nav className="flex flex-row items-center justify-between w-full h-[70px] b-[black] relative z-20">
+            <a href='/' >
+              <Image className='wardons-logo' src='/assets/images/wardons-logo-mobile.png' alt="logo-mobile" width={60} height={60}/>
+            </a>
+          </nav>
+          }>
+            
+            <NavBar baseUrl={defaultUrl}></NavBar>
+          </Suspense>
+          <PlacesProvider>
+            <MapProvider>
+              {children}
+            </MapProvider>
+          </PlacesProvider>
+          <WhatsappContactButton></WhatsappContactButton>
+          <Footer></Footer>
+          
         </main>
       </body>
     </html>

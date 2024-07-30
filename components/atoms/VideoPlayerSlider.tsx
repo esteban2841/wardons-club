@@ -42,6 +42,13 @@ export const VideoPlayerSlider = ({data, classContainer} : VideoPlayer) => {
     
     function playVideosSequentially(videoArray : Array<HTMLVideoElement> , index: number) {
         const currentVideo = videoArray[currentIndex];
+
+        currentVideo.onerror = (event) => {
+            currentVideo.style.display = 'none'
+            currentIndex = (currentIndex + 1) % videoArray.length; // Move to next index, wrapping around if necessary
+            playVideosSequentially(videoArray, currentIndex); // Play the next video
+        };
+        currentVideo.style.display = 'none'
         currentVideo.style.display = 'block' ; 
         currentVideo.play();
         // Apply fade-out effect
