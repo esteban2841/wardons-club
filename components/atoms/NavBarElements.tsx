@@ -2,6 +2,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import WrapperRowRouterRedirect from './WrapperRowRenderer'
+import { usePathname } from 'next/navigation'
 
 interface navBarData {
   title: string,
@@ -76,6 +77,9 @@ const ListItemNavBar = styled.li`
       height: unset;
       gap: 20px;
     }
+    .selected{
+      color: #E84C1A;
+    }
     .underline-compose{
       height: 100%;
       display: flex;
@@ -113,6 +117,8 @@ const SubTitleNavBar = styled.h1<titleProps>`
 
 
 export const NavBarElements = ({customSize, color, fontFamilyType, weight, hoverColor, data, isMobile, onClose, baseUrl}: titleProps) => {
+  const pathName = usePathname()
+	console.log("TCL: NavBarElements -> pathName", pathName, data)
   return (
     <ListNavBar isMobile={isMobile}>
       <OverlayMobile onClick={()=>onClose()} isMobile={isMobile}>
@@ -120,7 +126,7 @@ export const NavBarElements = ({customSize, color, fontFamilyType, weight, hover
             {data.map(element=>{
               return (
                 <WrapperRowRouterRedirect baseUrl={baseUrl} onClose={onClose} key={element.title} route={element.href} dynamicClasses='underline-compose'>
-                  <SubTitleNavBar baseUrl='' data={data} customSize={customSize} color={color} fontFamilyType={fontFamilyType} weight={weight} hoverColor={hoverColor}>
+                  <SubTitleNavBar className={pathName == element.href ? 'selected' : ''} baseUrl='' data={data} customSize={customSize} color={color} fontFamilyType={fontFamilyType} weight={weight} hoverColor={hoverColor}>
                     {element.title}
                   </SubTitleNavBar>
                 </WrapperRowRouterRedirect>

@@ -61,7 +61,6 @@ const BannerImage = styled.img<BannerImageProps>`
 `
 
 export const Banner = ({image, title, buttonTitle, figCaptDescr, bannerPositionY} : BannerProps) => {
-  console.log("TCL: Banner -> bannerPositionY", bannerPositionY)
   return (
     <BannerContainer>
         <Overlay>

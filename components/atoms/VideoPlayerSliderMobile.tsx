@@ -42,9 +42,7 @@ export const VideoPlayerSliderMobile = ({data, classContainer} : VideoPlayer) =>
     function playVideosSequentially(videoArray : Array<HTMLVideoElement> , index: number) {
         
             
-        console.log("TCL: playVideosSequentially -> videoArray", videoArray)
         const currentVideo = videoArray[currentIndex];
-        console.log("TCL: playVideosSequentially -> currentVideo", currentVideo)
         if(currentIndex === 0 ){
 
             currentVideo.style.height = '135%' ; 
@@ -57,7 +55,6 @@ export const VideoPlayerSliderMobile = ({data, classContainer} : VideoPlayer) =>
         };
         // Apply fade-out effect
         const loaded = currentVideo.buffered.length
-        console.log("TCL: playVideosSequentially -> loaded", loaded)
         currentVideo.style.display = 'block' ; 
         currentVideo.play();
         
