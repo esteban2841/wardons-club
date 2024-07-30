@@ -44,7 +44,7 @@ export default function RootLayout({
               </a>
             </nav>
             }>
-
+              
               <NavBar baseUrl={defaultUrl}></NavBar>
             </Suspense>
             <PlacesProvider>

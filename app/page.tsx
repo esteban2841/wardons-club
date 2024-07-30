@@ -1,13 +1,9 @@
 import { createClient } from "@/utils/supabase/server";
 import { Home } from "@/components/molecules/HomeView"
-import { MapScenarios } from '@/components/molecules/MapScenarios'
 import { Suspense } from 'react';
-import MapLoader from '@/components/loaders/MapLoader';
 import { fetchStorageUrl } from '@/helpers/handleStorageData';
 import { HomeLoader } from '@/components/loaders/HomeLoader';
 import { AboutWardons } from '@/components/molecules/AboutWardons';
-import WardonSVG from '@/components/atoms/WardonSVG';
-import Image from 'next/image'
 
 export default async function Index() {
 
@@ -20,7 +16,7 @@ export default async function Index() {
   const bucketName = 'videos-home'
   const bucketNameMobile = 'videos-home-mobile'
 
-  const imageLoading = await fetchStorageUrl(createClient, 'gallery', 'GALLERY_BANNER_RESIZED.avif')
+
 
   const loadingImage : () => Promise<string> = async ()=> await fetchStorageUrl(createClient, bucketName, 'wardons_grito.mp4')
 
@@ -103,13 +99,11 @@ export default async function Index() {
 
   return (
     <div className="flex-1 w-full flex flex-col items-center relative text-[#fff]">
-      <div className="overflow-hidden flex w-full h-[90%] flex-col items-center relative text-[#fff]">
-          <Image src={imageLoading} alt="banner" layout="fill" className="object-cover greyscale opacity-30"/>
-          <Suspense fallback={<HomeLoader loadingImage={''}/>}>
-            <Home data={videoListDesktop} dataMobile={videoListMobile}/>
-          </Suspense>
 
-      </div>
+        <Suspense fallback={<HomeLoader loadingImage={''}/>}>
+          <Home data={videoListDesktop} dataMobile={videoListMobile}/>
+        </Suspense>
+
       <AboutWardons>
 
       </AboutWardons>

@@ -39,7 +39,6 @@ const ImageGalleryTrioContainer = styled.figure<ContainerWidth>`
   max-width: ${props=>props.maximumWidth? props.maximumWidth :  '800px'};
   position: relative;
   gap: 10px;
-  height: max-content;
   .caption{
     visibility: hidden;
     height: 0px;

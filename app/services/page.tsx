@@ -9,7 +9,7 @@ const Page = async () => {
       {
         type: 'verticalRatio',
         name: 'MEDALLAS_H.avif',
-        url: await fetchStorageUrl(createClient, 'info_gallery', 'MEDALLAS_H.avif'),
+        url: await fetchStorageUrl(createClient, 'gallery', 'GALLERY_BANNER.avif'),
         line: 0,
         tag: 'Iniciación'
       },
