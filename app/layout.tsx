@@ -10,7 +10,6 @@ import { GoogleAnalytics } from '@next/third-parties/google'
 import Script from 'next/script'
 import { Suspense } from "react";
 import Image from "next/image";
-import Link from "next/link";
 
 const NavBar = dynamic(() => import('@/components/molecules/NavBar'), {
   ssr: false,

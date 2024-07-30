@@ -4,6 +4,7 @@ import { Suspense } from 'react';
 import { fetchStorageUrl } from '@/helpers/handleStorageData';
 import { HomeLoader } from '@/components/loaders/HomeLoader';
 import { AboutWardons } from '@/components/molecules/AboutWardons';
+import Image from "next/image";
 
 export default async function Index() {
 
@@ -16,7 +17,7 @@ export default async function Index() {
   const bucketName = 'videos-home'
   const bucketNameMobile = 'videos-home-mobile'
 
-
+  const imageLoading = await fetchStorageUrl(createClient, 'gallery', 'GALLERY_BANNER_RESIZED.avif')
 
   const loadingImage : () => Promise<string> = async ()=> await fetchStorageUrl(createClient, bucketName, 'wardons_grito.mp4')
 
@@ -99,11 +100,12 @@ export default async function Index() {
 
   return (
     <div className="flex-1 w-full flex flex-col items-center relative text-[#fff]">
-
-        <Suspense fallback={<HomeLoader loadingImage={''}/>}>
-          <Home data={videoListDesktop} dataMobile={videoListMobile}/>
-        </Suspense>
-
+        <div className="overflow-hidden flex w-full h-[90%] flex-col items-center relative text-[#fff]">
+          <Image src={imageLoading} alt="banner" loading="lazy" fill className="object-cover greyscale opacity-70"/>
+          <Suspense fallback={<HomeLoader loadingImage={''}/>}>
+            <Home data={videoListDesktop} dataMobile={videoListMobile}/>
+          </Suspense>
+        </div>
       <AboutWardons>
 
       </AboutWardons>
