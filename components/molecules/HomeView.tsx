@@ -14,7 +14,7 @@ const HomeContainer = styled.article`
     justify-content: center;
     width: 100%;
     position: relative;
-    height: 100vh;
+    height: 90vh;
     overflow: hidden;
     .mobileVid {
         display: none;
@@ -64,7 +64,7 @@ const Overlay = styled.div`
         }
     }
     @media (max-width: 500px) {
-        padding: 60px 20px;
+        padding: 100px 20px;
         justify-content:flex-end;
         .star{
             height: 20px; 

@@ -23,6 +23,32 @@ export const metadata = {
   metadataBase: new URL(defaultUrl),
   title: "Wardons Club de baloncesto de Villavicencio",
   description: "Club de baloncesto ubicado en villavicencio, entrenamiento para niños y niñas de todas las edades, clases de baloncesto personalizadas, clases para niños, baloncesto de iniciacion, formacion deportiva, basketball club, somos profesionales en el entrenamiento de baloncesto de todas las edades",
+  applicationName: 'Wardons club',
+  referrer: 'origin-when-cross-origin',
+  keywords: ['Basketball Villavicencio', 'acondicionamiento deportivo' ,'baloncesto','formacion para niños', 'Wardons baloncesto', 'Baloncesto niños', 'campeones 2024 baloncesto iniciacion', 'deporte villavicencio', 'baloncesto', 'basketball'],
+  authors: [{ name: 'Esteban Puentes' }],
+  creator: 'Esteban Puentes',
+  publisher: 'Esteban Puentes',
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+  alternates: {
+    canonical: '/',
+    languages: {
+      'es-ES': '/es-ES',
+    },
+  },
+  images: [
+    {
+      url: 'https://hzahrfjtetaexlyfdecg.supabase.co/storage/v1/object/public/gallery/GALLERY_BANNER.avif', // Must be an absolute URL
+      width: 1800,
+      height: 1600,
+      alt: 'Familia wardons',
+      objectFit: 'cover'
+    },
+  ],
 };
 
 export default function RootLayout({

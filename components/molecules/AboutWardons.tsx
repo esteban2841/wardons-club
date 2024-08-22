@@ -11,6 +11,7 @@ export const AboutWardons = () => {
             positionText="right"
             customAdjust="0 30"
             loaderPosition={0}
+            mobileImageUrl="https://hzahrfjtetaexlyfdecg.supabase.co/storage/v1/object/public/gallery/EQUIPO_PEQUES_V.avif"
             imageUrl="https://hzahrfjtetaexlyfdecg.supabase.co/storage/v1/object/public/info_gallery/MEDALLAS_H.avif?t=2024-07-09T20%3A27%3A29.885Z">
         </HomeBackgroundTexts>
         <HomeBackgroundTexts 

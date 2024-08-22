@@ -9,6 +9,7 @@ interface BackContainerProps {
     subtitleContent?: string;
     customAdjust?: string;
     loaderPosition?: number;
+    mobileImageUrl?: string;
 }
 interface ContainerProps {
     positionText: 'left' | 'right';
@@ -31,26 +32,7 @@ const Container = styled.div`
         
     }
     `
-const BackgroundEthicContainer = styled.div<BackContainerProps>`
-    display: flex;
-    flex-direction: row;
-    position: absolute;
-    box-sizing: border-box;
-    width: 100%;
-    height: 100vh;
-    z-index: 2;
-    align-items: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position:  ${props => props.customAdjust ? `${props.customAdjust}%` : ''};
-    justify-content: ${props => props.positionText ? (props.positionText) : ''};
-    background-image:  url(${props => props.imageUrl ? (props.imageUrl) : ''});
-    
-    @media (max-width: 768px){
-        background-position:  30% 0%;
-        
-    }
-    `
+
 const BackgroundColorContainer = styled.div<colorProps>`
     display: flex;
     flex-direction: row;
@@ -76,6 +58,28 @@ const BackgroundColorContainer = styled.div<colorProps>`
         
     }
     `
+
+const BackgroundEthicContainer = styled.div<BackContainerProps>`
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100vh;
+    z-index: 2;
+    align-items: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position:  ${props => props.customAdjust ? `${props.customAdjust}%` : ''};
+    justify-content: ${props => props.positionText ? (props.positionText) : ''};
+    background-image:  url(${props => props.imageUrl ? (props.imageUrl) : ''});
+    
+    @media (max-width: 768px){
+        background-image:  url(${props => props.mobileImageUrl ? (props.mobileImageUrl) : props.imageUrl});
+        background-position: 50% 0%;
+    }
+    `
+
 const TextContainer = styled.div<ContainerProps>`
     display: flex;
     flex-direction: column;
@@ -133,12 +137,12 @@ const SubTitle = styled.h1<ContainerProps>`
     }
 `
 
-export const HomeBackgroundTexts = ({loaderPosition ,positionText, imageUrl, customAdjust, titleContent, subtitleContent}: BackContainerProps) => {
+export const HomeBackgroundTexts = ({loaderPosition ,positionText, imageUrl, customAdjust, titleContent, subtitleContent, mobileImageUrl}: BackContainerProps) => {
   return (
     <Container>
 
-        <BackgroundColorContainer loaderPosition={loaderPosition}>
-            <BackgroundEthicContainer  loaderPosition={loaderPosition} customAdjust={customAdjust} positionText={positionText} imageUrl={imageUrl}>
+        <BackgroundColorContainer className="back-color-container" loaderPosition={loaderPosition}>
+            <BackgroundEthicContainer className="back-ethic-container" mobileImageUrl={mobileImageUrl}  loaderPosition={loaderPosition} customAdjust={customAdjust} positionText={positionText} imageUrl={imageUrl}>
             <Overlay></Overlay>
                 <TextContainer positionText={positionText}>
                     <WardonsTitle positionText={positionText}>{titleContent}</WardonsTitle>

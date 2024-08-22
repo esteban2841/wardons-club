@@ -12,7 +12,7 @@ const NavBarContainer = styled.nav`
     justify-content: space-between;
     position: fixed;
     width: 100%;
-    height: 70px;
+    height: 10vh;
     padding: 0px 60px;
     z-index: 30;
     transition: 1s ease;

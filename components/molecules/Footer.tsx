@@ -65,13 +65,13 @@ export const Footer = () => {
     <FooterContainer>
         <FooterInfoContainer>
             <FooterText>
-                +57 311 8139299
+                Celular: +57 311 8139299
+            </FooterText>
+            <FooterText>
+                Correo: wardonsbasketballclub@gmail.com
             </FooterText>
             <FooterText>
                 fredy.villota@unillanos.edu.co
-            </FooterText>
-            <FooterText>
-                wardonsbasketballclub@gmail.com
             </FooterText>
         </FooterInfoContainer>
         <SocialNetworksContainer>
@@ -87,7 +87,7 @@ export const Footer = () => {
         <FooterInfoContainer>
             <a href="https://esteban-puentes.vercel.app" className="no-underline no-decoration">
                 <FooterText>
-                    Created By Esteban Puentes Developer
+                    Website Creado por Esteban Puentes Developer
                 </FooterText>
             </a>
             <FooterText>
