@@ -2,6 +2,7 @@
 
 import styled from "styled-components";
 import { ContactButton } from "./ContactButton";
+import Image from "next/image";
 
 export interface BannerProps {
     image: string;
@@ -71,9 +72,7 @@ export const Banner = ({image, title, buttonTitle, figCaptDescr, bannerPositionY
             
         </Overlay>
         <CustomFigure>
-            <BannerImage src={image} positionY={bannerPositionY} >
-            
-            </BannerImage>
+            <Image src={image} fill  alt={figCaptDescr} className={`object-[${bannerPositionY}] object-cover`} style={{ width: '100%', height: '100%' }} />
             <CustomCaption>
                 {figCaptDescr}
             </CustomCaption>
