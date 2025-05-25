@@ -1,5 +1,6 @@
 'use client'
 import { useGLTF } from '@react-three/drei'
+import * as THREE from 'three'
 
 export function Basketball3DBall(props) {
   const { nodes, materials } = useGLTF('/models3d/basketballBall/basketball-ball.gltf')
@@ -17,7 +18,7 @@ export function Basketball3DBall(props) {
               name="Object_2"
               castShadow
               receiveShadow
-              geometry={nodes.Object_2.geometry}
+              geometry={(nodes.Object_2 as THREE.Mesh).geometry}
               material={materials.Basketball_size6}
               userData={{ name: 'Object_2' }}
             />
