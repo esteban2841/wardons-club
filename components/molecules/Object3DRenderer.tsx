@@ -13,21 +13,21 @@ const ThreeDimentionContainerRenderer = styled.div`
   background-color: transparent;
 `
 export const Object3DRenderer = ({children}) => {
-    const ref = useRef()
+    const ref = useRef(null)
     const { ball } = useContext(BallContext)
     const { autoRotate } = ball
   return (
-    <ThreeDimentionContainerRenderer>
-        <Canvas dpr={[1, 10]} camera={{ fov: 1 }}>
+    <ThreeDimentionContainerRenderer >
+        <Canvas dpr={[1, 10]} camera={{ fov: 1 }} frameloop={'always'}	>
         <Suspense fallback={<Loader/>}>
-            <Stage controls={ref} 
-            adjustCamera 
+            <Stage
             preset="upfront" intensity={10}  
-            environment="city">
+            environment="warehouse">
                 {children}
             </Stage>
         </Suspense>
-        <OrbitControls ref={ref} autoRotate={autoRotate} autoRotateSpeed={6}/>
+        <OrbitControls ref={ref as any}  
+          autoRotate={autoRotate}  autoRotateSpeed={6}/>
         </Canvas>
     </ThreeDimentionContainerRenderer>
   )
