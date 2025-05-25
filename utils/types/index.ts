@@ -40,3 +40,7 @@ export interface metadataObject {
     contentLength: number,
     httpStatusCode: number    
 }
+
+export interface BasketballBall {
+    autoRotate: boolean
+}

@@ -5,6 +5,8 @@ import { fetchStorageUrl } from '@/helpers/handleStorageData';
 import { HomeLoader } from '@/components/loaders/HomeLoader';
 import { AboutWardons } from '@/components/molecules/AboutWardons';
 import Image from "next/image";
+import { Object3DRenderer } from "@/components/molecules/Object3DRenderer";
+import { Basketball3DBall } from "@/components/atoms/Basketball3DBall";
 
 export default async function Index() {
 
@@ -107,6 +109,15 @@ export default async function Index() {
           <Suspense fallback={<HomeLoader loadingImage={''}/>}>
             <Home data={videoListDesktop} dataMobile={videoListMobile}/>
           </Suspense>
+          <Suspense fallback={<HomeLoader loadingImage={''}/>}>
+            <div className="absolute z-50">
+
+              <Object3DRenderer>
+                <Basketball3DBall/>
+              </Object3DRenderer>
+            </div>
+          </Suspense>
+
         </div>
       </div>
       <AboutWardons>

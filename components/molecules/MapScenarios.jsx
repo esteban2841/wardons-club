@@ -4,7 +4,7 @@ import { PlacesContext, MapContext } from '../../context'
 import mapboxgl from 'mapbox-gl'
 import { BtnMyLocation } from '../atoms/BtnMyLocation';
 
-mapboxgl.accessToken = 'pk.eyJ1IjoiZXN0ZWJhbjI4NDEiLCJhIjoiY2xiYnIwdG03MGMyaTNxcWduNXM5d3k3NyJ9.p-Z-qVhVGSAMeTyAehHcHA';
+mapboxgl.accessToken = 'pk.eyJ1IjoiZXN0ZWJhbjI4NDEiLCJhIjoiY21heDFhdmxrMDR5YjJqcHd5aWV3ZmV2YSJ9.nWhCZ63fg_qyTQV4C0Ki8g';
 
 export const MapScenarios = () => {
   const { isLoading, userLocation } = useContext(PlacesContext)

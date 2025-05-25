@@ -11,7 +11,7 @@ export const fetchStorageUrl = async (cb: Function, storageBucketName: string, p
         .from(storageBucketName)
         .getPublicUrl(path)
     
-    return data.publicUrl
+    return data.publicUrl || "https://i.ebayimg.com/images/g/smoAAOSwTYVnfCo-/s-l1600.webp"
 }
 
 export const getFilesFromBucket = async (cb: Function, storageBucketName: string )  => {

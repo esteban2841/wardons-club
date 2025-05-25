@@ -1,6 +1,6 @@
 import { GeistSans } from "geist/font/sans";
 import "./globals.css";
-import { PlacesProvider, MapProvider } from "@/context";
+import { PlacesProvider, MapProvider, BallProvider } from "@/context";
 import dynamic from 'next/dynamic';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import WhatsappContactButton from '@/components/atoms/WhatsappContactButton';
@@ -72,11 +72,14 @@ export default function RootLayout({
             
             <NavBar baseUrl={defaultUrl}></NavBar>
           </Suspense>
-          <PlacesProvider>
-            <MapProvider>
-              {children}
-            </MapProvider>
-          </PlacesProvider>
+          <BallProvider>
+
+            <PlacesProvider>
+              <MapProvider>
+                {children}
+              </MapProvider>
+            </PlacesProvider>
+          </BallProvider>
           <WhatsappContactButton></WhatsappContactButton>
           <Footer></Footer>
           
